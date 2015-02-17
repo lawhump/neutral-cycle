@@ -23,7 +23,7 @@ $(document).ready(function() {
         var rental = $("#rental").serializeArray();
 
 
-        myDataRef.set({
+        myDataRef.push({
             _reservationID: {
                 Date: rental[4].value,
                 Duration : _duration,
