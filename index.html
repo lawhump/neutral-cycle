@@ -12,8 +12,10 @@
 
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/main.css">
+        <script src="js/submit.js"></script>
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
-        <script src='https://cdn.firebase.com/js/client/2.0.4/firebase.js'></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script src="https://cdn.firebase.com/js/client/2.0.4/firebase.js"></script>
     </head>
     <body>
         <!--[if lt IE 8]>
@@ -22,26 +24,8 @@
 
         <!-- Add your site or application content here -->
         <button id="butts" type="button">Click me to submit!</button>
-        <script>
-            function submit(){
-                //reference to the firebase location
-                var myDataRef = new Firebase('https://neutral-cycle.firebaseio.com/');
-                /**
-                 * name     : user's name
-                 * email    : user's email
-                 * phone    : user's phone number (e.g. 6154972551)
-                 * date     : date to come in to receieve bike (e.g. 021715 for Feb. 17, 2015)
-                 * duration : duration, in days 
-                 */
-                var name, email, phone, date, duration;
-                //list of equipment the user needs
-                var equipment = [];
-            }
-            
-            $('#butts').on('click', submit);
-        </script>
 
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<!--        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>-->
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
         <script src="js/plugins.js"></script>
         <script src="js/main.js"></script>
