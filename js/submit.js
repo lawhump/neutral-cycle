@@ -24,12 +24,12 @@ $(document).ready(function() {
 
 
         myDataRef.push({
-            Date: rental[4].value,
-            Duration : _duration,
-            Email : rental[2].value,
-            Equipment: _equipment,
-            Name: rental[0].value + " " + rental[1].value,
-            Phone: rental[3].value
+            Date        : rental[4].value,
+            Duration    : _duration,
+            Email       : rental[2].value,
+            Equipment   : _equipment,
+            Name        : rental[0].value + " " + rental[1].value,
+            Phone       : rental[3].value
         });
     }
             
