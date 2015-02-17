@@ -26,7 +26,8 @@ $(document).ready(function() {
                 Duration : _duration,
                 Email : _email,
                 Equipment: _equipment,
-                Phone: _phone,
+                Name: _name,
+                Phone: _phone
             }
         });
     }
