@@ -1,8 +1,8 @@
 $(document).ready(function() {
+    //reference to the firebase location
+    var myDataRef = new Firebase('https://neutral-cycle.firebaseio.com/');
+    
     function submit(){
-        //reference to the firebase location
-        var myDataRef = new Firebase('https://neutral-cycle.firebaseio.com/');
-        
         //convert form into array
         var rental = $("#rental").serializeArray();
 
