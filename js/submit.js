@@ -27,7 +27,6 @@ $(document).ready(function() {
         var phone       = data.phone;     
             
         //CREATE ELEMENTS MESSAGE & SANITIZE TEXT
-
         var logelement = $("<li>");
         
         $(logelement).append("<p>first name: " + first_name + " </p>");
