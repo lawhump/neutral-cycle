@@ -38,4 +38,6 @@ $(document).ready(function() {
         
         $(".log").prepend(logelement);
     });
+    
+    $("#butts").on("click", submit);
 });
