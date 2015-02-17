@@ -16,19 +16,17 @@ $(document).ready(function() {
         _name            = "Lawrence Humphrey";
         _email           = "imcoming@you.com";
         _phone           = 2345678900;
-        _date            = 021715;
+        _date            = "021715";
         _duration        = 42;
         _reservationID   = 654321;
 
-        myDataRef.set({
-            _reservationID: {
-                Date: _date,
-                Duration : _duration,
-                Email : _email,
-                Equipment: _equipment,
-                Name: _name,
-                Phone: _phone
-            }
+        myDataRef.push({
+            Date: _date,
+            Duration : _duration,
+            Email : _email,
+            Equipment: _equipment,
+            Name: _name,
+            Phone: _phone
         });
     }
             
