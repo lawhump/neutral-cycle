@@ -19,14 +19,19 @@ $(document).ready(function() {
         _date            = "021715";
         _duration        = 42;
         _reservationID   = 654321;
+        
+        var rental = $("#rental").serializeArray();
 
-        myDataRef.push({
-            Date: _date,
-            Duration : _duration,
-            Email : _email,
-            Equipment: _equipment,
-            Name: _name,
-            Phone: _phone
+
+        myDataRef.set({
+            _reservationID: {
+                Date: rental[4].value,
+                Duration : _duration,
+                Email : rental[2].value,
+                Equipment: _equipment,
+                Name: rental[0].value + " " + rental[1].value,
+                Phone: rental[3].value
+            }
         });
     }
             
