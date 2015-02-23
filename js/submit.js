@@ -15,13 +15,21 @@ $(document).ready(function() {
         var rental = $("#rental").serializeArray();
         var datetime = new Date(rental[4].value + " " + rental[5].value + " CST");
 
-        myDataRef.push({
+        //myDataRef.push({
+        //    date        : datetime.toString(),
+        //    email       : rental[2].value,
+        //    first_name  : rental[0].value,
+        //    last_name   : rental[1].value,
+        //    phone       : rental[3].value
+        //});
+        
+        myDataRef.setWithPriority({
             date        : datetime.toString(),
             email       : rental[2].value,
             first_name  : rental[0].value,
             last_name   : rental[1].value,
             phone       : rental[3].value
-        });
+        }, Date.parse(datetime.toString()));
     }
     
     // Add a callback that is triggered for each chat message.
