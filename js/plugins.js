@@ -21,5 +21,34 @@
     }
 }());
 
+$.validator.addMethod("datetime", function(value, element) {
+    var d = new Date(value);
+    var re = /^\d{1,2}\/\d{1,2}\/\d{4}$/
+    return this.optional(element) || (!isNaN(d.getTime()) && value.match(re));
+}, "Please enter a valid date");
+
+$.validator.addMethod("upcomingdate", function(value, element) {
+    var d = new Date(value);
+    var curr = new Date();
+    return this.optional(element) || d.getTime() > curr.getTime();
+}, "Date must be in the future");
+
 // Place any jQuery/helper plugins in here.
-$('#rental').validate();
+$('#rental').validate({
+    rules: {
+        pickup_date: {
+            required: true,
+            datetime: true,
+            upcomingdate: true
+        }
+    }
+});
+
+// initialize date and time fields
+$('#pickup_date').datepicker();
+$('#pickup_time').timepicker({
+    'minTime': '10:00am',
+    'maxTime': '5:00pm',
+    'timeFormat': 'g:i A',
+    'useSelect': true
+});
