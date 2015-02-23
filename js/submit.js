@@ -3,11 +3,20 @@ $(document).ready(function() {
     var myDataRef = new Firebase('https://neutral-cycle.firebaseio.com/');
     
     function submit(){
+        var valid = $('#rental').valid();
+        
+        //validate form
+        if (!valid) {
+            console.log("Invalid Form");
+            return;
+        }
+        
         //convert form into array
         var rental = $("#rental").serializeArray();
+        var datetime = new Date(rental[4].value + " " + rental[5].value + " CST");
 
         myDataRef.push({
-            date        : rental[4].value,
+            date        : datetime.toString(),
             email       : rental[2].value,
             first_name  : rental[0].value,
             last_name   : rental[1].value,
@@ -39,4 +48,10 @@ $(document).ready(function() {
     });
     
     $("#butts").on("click", submit);
+    $('#pickup-date').datepicker();
+    $('#pickup-time').timepicker({
+        'minTime': '10:00am',
+        'maxTime': '5:00pm',
+        'timeFormat': 'g:i A'
+    });
 });
