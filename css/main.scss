@@ -1,10 +1,18 @@
-//html {
-//    background: url(../img/unnamed.png) no-repeat center center fixed; 
-//    -webkit-background-size: cover;
-//    -moz-background-size: cover;
-//    -o-background-size: cover;
-//    background-size: cover;
-//}
+#rental {
+    label:first-child {
+        width: 120px;
+        text-align: right;
+        display: inline-block;
+    }
+    
+    button {
+        margin-left: 124px;
+    }
+    
+    .error {
+        color: red;   
+    }
+}
 
 .log { 
     p {  
