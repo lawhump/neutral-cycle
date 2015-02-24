@@ -30,13 +30,12 @@ $(document).ready(function() {
         // Store a reference to the table row so we can get it again later.
         htmlForPath[reservationSnapshot.key()] = logelement;
         
-        // Insert the new score in the appropriate place in the table.
         if (prevReservationName === null) {
             $(".log").prepend(logelement);
         }
         else {
             var lowerScoreRow = htmlForPath[prevReservationName];
-            lowerScoreRow.before(logelement);
+            lowerScoreRow.after(logelement);
         }
     }
     // Helper function to handle a reservation object being removed; just removes 
@@ -83,7 +82,6 @@ $(document).ready(function() {
         
         //validate form
         if (!valid) {
-            console.log("Invalid Form");
             return;
         }
         
