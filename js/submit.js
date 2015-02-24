@@ -32,14 +32,14 @@ $(document).ready(function() {
         
         // Insert the new score in the appropriate place in the table.
         if (prevReservationName === null) {
-            $(".log").append(logelement);
+            $(".log").prepend(logelement);
         }
         else {
             var lowerScoreRow = htmlForPath[prevReservationName];
             lowerScoreRow.before(logelement);
         }
     }
-    // Helper function to handle a reservation object being removed; just removes
+    // Helper function to handle a reservation object being removed; just removes 
     // the corresponding table row.
     function handleReservationRemoved(reservationSnapshot) {
         var removedReservationRow = htmlForPath[reservationSnapshot.key()];
