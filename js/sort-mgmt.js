@@ -19,24 +19,24 @@ $( document ).ready(function() {
         
         // CREATE ELEMENTS MESSAGE & SANITIZE TEXT
         
-        var logelement = $("<li>");
+        var logelement = $("<tr>");
         
-        $(logelement).append("<p>first name: " + first_name + " </p>");
-        $(logelement).append("<p>last name: " + last_name + " </p>");
-        $(logelement).append("<p>date: " + date + " </p>");
-        $(logelement).append("<p>phone: " + phone + " </p>");
-        $(logelement).append("<p>email: " + email + " </p>");
+        $(logelement).append("<td>" + first_name + " </td>");
+        $(logelement).append("<td>" + last_name + " </td>");
+        $(logelement).append("<td>" + date + " </td>");
+        $(logelement).append("<td>" + phone + " </td>");
+        $(logelement).append("<td>" + email + " </td>");
         
         // Store a reference to the table row so we can get it again later.
         htmlForPath[reservationSnapshot.key()] = logelement;
         
         // Insert the new score in the appropriate place in the table.
         if (prevReservationName === null) {
-            $(".log").prepend(logelement);
+            $(".log").append(logelement);
         }
         else {
             var lowerScoreRow = htmlForPath[prevReservationName];
-            lowerScoreRow.before(logelement);
+            lowerScoreRow.after(logelement);
         }
     }
     // Helper function to handle a reservation object being removed; just removes
