@@ -7,7 +7,6 @@ $(document).ready(function() {
         
         //validate form
         if (!valid) {
-            console.log("Invalid Form");
             return;
         }
         
