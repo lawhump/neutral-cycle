@@ -56,10 +56,4 @@ $(document).ready(function() {
     });
     
     $("#butts").on("click", submit);
-    $('#pickup-date').datepicker();
-    $('#pickup-time').timepicker({
-        'minTime': '10:00am',
-        'maxTime': '5:00pm',
-        'timeFormat': 'g:i A'
-    });
 });
