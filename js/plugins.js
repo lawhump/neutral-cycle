@@ -38,14 +38,17 @@ $('#rental').validate({
     rules: {
         pickup_date: {
             required: true,
-            datetime: true,
-            upcomingdate: true
+            datetime: true
+//            upcomingdate: true
         }
     }
 });
 
 // initialize date and time fields
-$('#pickup_date').datepicker();
+$('#pickup_date').datepicker({ 
+    minDate: 0,
+    maxDate: 30
+});
 $('#pickup_time').timepicker({
     'minTime': '10:00am',
     'maxTime': '5:00pm',
