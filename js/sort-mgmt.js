@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$( document ).ready(function() {
     //reference to the firebase location
     var myDataRef = new Firebase('https://neutral-cycle.firebaseio.com/');
     
@@ -66,39 +66,4 @@ $(document).ready(function() {
       };
       reservationListView.on('child_moved', changedCallback);
       reservationListView.on('child_changed', changedCallback);
-        
-    function generateKey(){
-        var text = "";
-        var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-
-        for( var i=0; i < 5; i++ )
-            text += possible.charAt(Math.floor(Math.random() * possible.length));
-
-        return text;
-    }
-    
-    function submit(){
-        var key = generateKey();
-        var valid = $('#rental').valid();
-        
-        //validate form
-        if (!valid) {
-            return;
-        }
-        
-        //convert form into array
-        var rental = $("#rental").serializeArray();
-        var datetime = new Date(rental[4].value + " " + rental[5].value + " CST");
-
-        var resRef = myDataRef.child(key);
-        resRef.setWithPriority({ 
-            date        : datetime.toString(),
-            email       : rental[2].value,
-            first_name  : rental[0].value,
-            last_name   : rental[1].value,
-            phone       : rental[3].value
-        }, Date.parse(datetime.toString()));
-    }
-    
-    $("#butts").on("click", submit);
 });
