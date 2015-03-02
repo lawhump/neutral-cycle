@@ -50,8 +50,8 @@ $('#pickup_date').datepicker({
     maxDate: 30
 });
 $('#pickup_time').timepicker({
-    'minTime': '10:00am',
-    'maxTime': '5:00pm',
+    'minTime': '11:00am',
+    'maxTime': '6:30pm',
     'timeFormat': 'g:i A',
     'useSelect': true
 });

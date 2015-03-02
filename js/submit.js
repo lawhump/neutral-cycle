@@ -1,6 +1,7 @@
 $(document).ready(function() {
     //reference to the firebase location
     var myDataRef = new Firebase('https://neutral-cycle.firebaseio.com/');
+    var prices = [[8,25,100],[10,35,140],[10,35,140]];
     
     // Keep a mapping of firebase locations to HTML elements, so we can
     // move / remove elements as necessary.
@@ -101,4 +102,22 @@ $(document).ready(function() {
     }
     
     $("#butts").on("click", submit);
+
+    function getEstimate(time) {
+        var hybrid = $('#rental-hybrid').val(),
+            tandem = $('#rental-tandem').val(),
+            cargo  = $('#rental-cargo').val();
+        $('.price-estimate').html(hybrid * prices[0][time] + tandem * prices[1][time] + cargo * prices[2][time]);
+    }
+    
+    $('.rental-slider').on('change mousemove', function() {
+        var time = $('input[name="time"]:checked').val();
+        getEstimate(time);
+        $(this).next().html($(this).val());
+    });
+    
+    $('input[name="time"]').on('change', function() {
+        var time = $('input[name="time"]:checked').val();
+        getEstimate(time);
+    });
 });

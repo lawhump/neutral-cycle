@@ -28,6 +28,30 @@
     <body>
         <form id="rental">
             <p>
+                <input type="radio" id="time-hour" name="time" value="0" checked="checked">
+                <label for="time-hour">Hour</label>
+                <input type="radio" id="time-day" name="time" value="1">
+                <label for="time-day">Day</label>
+                <input type="radio" id="time-week" name="time" value="2">
+                <label for="time-week">Week</label>
+            <p>
+                <label for="rental-hybrid">Hybrid</label>
+                <input type="range" min="0" max="3" value="0" id="rental-hybrid" class="rental-slider" name="rental-hybrid">
+                <span>0</span>
+            </p>
+            <p>
+                <label for="rental-tandem">Tandem</label>
+                <input type="range" min="0" max="3" value="0" id="rental-tandem" class="rental-slider" name="rental-tandem">
+                <span>0</span>
+            </p>
+            <p>
+                <label for="rental-cargo">Cargo</label>
+                <input type="range" min="0" max="3" value="0" id="rental-cargo" class="rental-slider" name="rental-cargo">
+                <span>0</span>
+            </p>
+            <h3>Estimate: $<span class="price-estimate">0</span></h3>
+            <hr>
+            <p>
                 <label for="first-name">First Name</label>
                 <input id="first-name" name="first-name" placeholder="Johnny" required>
             </p>
@@ -36,7 +60,6 @@
                 <label for="last-name">Last Name</label>
                 <input id="last-name" name="last-name" placeholder="Doe" required>
             </p>
-            
             <p>
                 <label for="email">Email Address</label>
                 <input id="email" name="email" type="email" placeholder="givemeabike@now.com" required>
@@ -59,6 +82,8 @@
                 
             <button id="butts" type="button">Click me to submit!</button>
         </form>
+        
+        <hr>
         
         <table class="log">
             <tr>
