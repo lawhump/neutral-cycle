@@ -6,6 +6,10 @@ var myApp = angular.module('myApp', [
 myApp.config(['$routeProvider',
   function($routeProvider) {
       $routeProvider.
+        when('/rent', {
+            tempateUrl: 'templates/rental.html',
+            controller: 'RentalCtrl'
+        }).
         when('/reservations', {
             templateUrl: 'templates/mgmt-full.html',
             controller: 'MGMTFullCtrl'
@@ -15,6 +19,6 @@ myApp.config(['$routeProvider',
             controller: 'MGMTSingleCtrl'
         }).
         otherwise({
-            redirectTo: '/reservations'
+            templateUrl: '404.html'
         });
     }]);
