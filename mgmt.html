@@ -17,35 +17,17 @@
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.17/angular.js"></script>
         <script src="https://cdn.firebase.com/js/client/2.0.4/firebase.js"></script>
         <script src="https://cdn.firebase.com/libs/angularfire/0.9.2/angularfire.min.js"></script>
+        <script src="//code.angularjs.org/1.3.0-beta.17/angular-route.js"></script>
+        <script src="js/app.js"></script>
+        <script src="js/controllers.js"></script>
     </head>
-    <body ng-controller="MyController">
-        <h1>Management</h1>
-        <div>
-            <input ng-model="query">
-        </div>
-        <table class="log">
-            <tr>
-                <th>ID</th>
-                <th><a href="" ng-click="predicate='first_name'; reverse=!reverse">First name</a></th>
-                <th><a href="" ng-click="predicate='last_name'; reverse=!reverse">Last name</a></th>
-                <th><a href="" ng-click="predicate='date'; reverse=!reverse">Date</a></th>
-                <th>Phone</th>
-                <th>Email</th>
-            </tr>
-            <tr ng-repeat='rv in reservations | filter:query | orderBy:predicate:reverse'>
-                <td class="elems">{{rv.$id}}</td>
-                <td class="elems">{{rv.first_name}}</td>
-                <td class="elems">{{rv.last_name}}</td>
-                <td class="elems">{{rv.date}}</td>
-                <td class="elems">{{rv.phone}}</td>
-                <td class="elems">{{rv.email}}</td>
-            </tr>
-        </table>
-
+    <body>
+        
+        <div ng-view></div>
 <!--        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>-->
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
         <script src="js/plugins.js"></script>
-        <script src="js/sort-mgmt.js"></script>
+<!--        <script src="js/sort-mgmt.js"></script>-->
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
 <!--
