@@ -3,22 +3,20 @@ var myApp = angular.module('myApp', [
   'myAppControllers'
 ]);
 
-myApp.config(['$routeProvider',
-  function($routeProvider) {
-      $routeProvider.
+myApp.config(['$routeProvider', '$locationProvider',
+    function($routeProvider, $locationProvider) {
+        $locationProvider.html5Mode(true);
+        $routeProvider.
         when('/rent', {
-            tempateUrl: 'templates/rental.html',
-            controller: 'RentalCtrl'
+            tempateUrl: '/templates/rental.html'
         }).
         when('/reservations', {
-            templateUrl: 'templates/mgmt-full.html',
+            templateUrl: '/templates/mgmt-full.html',
             controller: 'MGMTFullCtrl'
         }).
         when('/reservations/:resId', {
-            templateUrl: 'templates/res-detail.html',
+            templateUrl: '/templates/res-detail.html',
             controller: 'MGMTSingleCtrl'
         }).
-        otherwise({
-            templateUrl: '404.html'
-        });
+        otherwise({ redirectTo: '/rent' });
     }]);
