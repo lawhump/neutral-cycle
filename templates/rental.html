@@ -1,22 +1,45 @@
 <form id="rental">
     <p>
+        <input type="radio" id="time-hour" name="time" value="0" checked="checked">
+        <label for="time-hour">Hour</label>
+        <input type="radio" id="time-day" name="time" value="1">
+        <label for="time-day">Day</label>
+        <input type="radio" id="time-week" name="time" value="2">
+        <label for="time-week">Week</label>
+    <p>
+        <label for="rental-hybrid">Hybrid</label>
+        <input type="range" min="0" max="3" value="0" id="rental-hybrid" class="rental-slider" name="rental-hybrid">
+        <span>0</span>
+    </p>
+    <p>
+        <label for="rental-tandem">Tandem</label>
+        <input type="range" min="0" max="3" value="0" id="rental-tandem" class="rental-slider" name="rental-tandem">
+        <span>0</span>
+    </p>
+    <p>
+        <label for="rental-cargo">Cargo</label>
+        <input type="range" min="0" max="3" value="0" id="rental-cargo" class="rental-slider" name="rental-cargo">
+        <span>0</span>
+    </p>
+    <h3>Estimate: $<span class="price-estimate">0</span></h3>
+    <hr>
+    <p>
         <label for="first-name">First Name</label>
-        <input ng-model='first_name' id="first-name" name="first-name" placeholder="Johnny" required>
+        <input id="first-name" name="first-name" placeholder="Johnny" required>
     </p>
 
     <p>
         <label for="last-name">Last Name</label>
-        <input ng-model='last_name' id="last-name" name="last-name" placeholder="Doe" required>
+        <input id="last-name" name="last-name" placeholder="Doe" required>
     </p>
-
     <p>
         <label for="email">Email Address</label>
-        <input ng-model='email' id="email" name="email" type="email" placeholder="givemeabike@now.com" required>
+        <input id="email" name="email" type="email" placeholder="givemeabike@now.com" required>
     </p>
 
     <p>
         <label for="phone">Phone Number</label>
-        <input ng-model='phone' id="phone" name="phone" placeholder="(420) 666-6969">
+        <input id="phone" name="phone" placeholder="(420) 666-6969">
     </p>
 
     <p>
@@ -29,16 +52,16 @@
         <input type="select" id="pickup_time" name="pickup_time" placeholder="Pickup time">
     </p>
 
-    <button ng-click="submit($event)" id="butts" type="button">Click me to submit!</button>
+    <button id="butts" type="button">Click me to submit!</button>
 </form>
 
 <table class="log">
     <tr ng-repeat='rv in reservations'>
-        <th>{{rv.first_name}}</th>
-        <th>{{rv.last_name}}</th>
-        <th>{{rv.date}}</th>
-        <th>{{rv.phone}}</th>
-        <th>{{rv.email}}</th>
+        <td>{{rv.first_name}}</td>
+        <td>{{rv.last_name}}</td>
+        <td>{{rv.date}}</td>
+        <td>{{rv.phone}}</td>
+        <td>{{rv.email}}</td>
     </tr>
 </table>
 
