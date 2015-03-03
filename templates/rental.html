@@ -1,0 +1,46 @@
+<form id="rental">
+    <p>
+        <label for="first-name">First Name</label>
+        <input ng-model='first_name' id="first-name" name="first-name" placeholder="Johnny" required>
+    </p>
+
+    <p>
+        <label for="last-name">Last Name</label>
+        <input ng-model='last_name' id="last-name" name="last-name" placeholder="Doe" required>
+    </p>
+
+    <p>
+        <label for="email">Email Address</label>
+        <input ng-model='email' id="email" name="email" type="email" placeholder="givemeabike@now.com" required>
+    </p>
+
+    <p>
+        <label for="phone">Phone Number</label>
+        <input ng-model='phone' id="phone" name="phone" placeholder="(420) 666-6969">
+    </p>
+
+    <p>
+        <label for="pickup_date">Pickup Date</label>
+        <input id="pickup_date" name="pickup_date" placeholder="MM/DD/YYYY">
+    </p>
+
+    <p>
+        <label for="pickup_time">Pickup Time</label>
+        <input type="select" id="pickup_time" name="pickup_time" placeholder="Pickup time">
+    </p>
+
+    <button ng-click="submit($event)" id="butts" type="button">Click me to submit!</button>
+</form>
+
+<table class="log">
+    <tr ng-repeat='rv in reservations'>
+        <th>{{rv.first_name}}</th>
+        <th>{{rv.last_name}}</th>
+        <th>{{rv.date}}</th>
+        <th>{{rv.phone}}</th>
+        <th>{{rv.email}}</th>
+    </tr>
+</table>
+
+<script src="js/plugins.js"></script>
+<script src="js/submit.js"></script>
