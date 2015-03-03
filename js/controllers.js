@@ -9,6 +9,13 @@ myAppControllers.controller('MGMTFullCtrl', ['$scope', '$firebase',
         $scope.reservations = $firebase(ref).$asArray();
     }]);
 
+myAppControllers.controller('RentalCtrl', ['$scope', '$firebase',
+    function($scope, $firebase) {
+
+        // GET MESSAGES AS AN ARRAY
+        $scope.reservations = $firebase(ref).$asArray();
+    }]);
+
 myAppControllers.controller('MGMTSingleCtrl', ['$scope', '$firebase', '$routeParams',
     function($scope, $firebase, $routeParams) {
         $scope.resId = $routeParams.resId;

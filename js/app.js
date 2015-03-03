@@ -7,8 +7,9 @@ myApp.config(['$routeProvider', '$locationProvider',
     function($routeProvider, $locationProvider) {
         $locationProvider.html5Mode(true);
         $routeProvider.
-        when('/rent', {
-            tempateUrl: '/templates/rental.html'
+        when('/', {
+            tempateUrl: '/templates/rental.html',
+            controller: 'RentalCtrl'
         }).
         when('/reservations', {
             templateUrl: '/templates/mgmt-full.html',
@@ -18,5 +19,5 @@ myApp.config(['$routeProvider', '$locationProvider',
             templateUrl: '/templates/res-detail.html',
             controller: 'MGMTSingleCtrl'
         }).
-        otherwise({ redirectTo: '/rent' });
+        otherwise({ redirectTo: '/' });
     }]);
