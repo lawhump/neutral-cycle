@@ -1,23 +1,26 @@
-var myApp = angular.module('myApp', [
+var myApp = angular.module('nc', [
   'ngRoute',
-  'myAppControllers'
+  'ncControllers'
 ]);
 
 myApp.config(['$routeProvider', '$locationProvider',
     function($routeProvider, $locationProvider) {
         $locationProvider.html5Mode(true);
-        $routeProvider.
-        when('/rentals', {
+        $routeProvider
+        .when('/', {
             templateUrl: '/templates/rental.html',
             controller: 'RentalCtrl'
-        }).
-        when('/reservations', {
+        })
+        
+        .when('/reservations', {
             templateUrl: '/templates/mgmt-full.html',
             controller: 'MGMTFullCtrl'
-        }).
-        when('/reservations/:resId', {
+        })
+        
+        .when('/reservations/:resId', {
             templateUrl: '/templates/res-detail.html',
             controller: 'MGMTSingleCtrl'
-        }).
-        otherwise({ redirectTo: '/' });
+        })
+        
+//        .otherwise({ redirectTo: '/' });
     }]);

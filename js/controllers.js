@@ -1,22 +1,22 @@
-var myAppControllers = angular.module('myAppControllers', ['firebase']);
+var ncControllers = angular.module('ncControllers', ['firebase']);
 //CREATE A FIREBASE REFERENCE
 var ref = new Firebase("https://neutral-cycle.firebaseio.com/");
 
-myAppControllers.controller('MGMTFullCtrl', ['$scope', '$firebase',
+ncControllers.controller('MGMTFullCtrl', ['$scope', '$firebase',
     function($scope, $firebase) {
 
         // GET MESSAGES AS AN ARRAY
         $scope.reservations = $firebase(ref).$asArray();
     }]);
 
-myAppControllers.controller('RentalCtrl', ['$scope', '$firebase',
+ncControllers.controller('RentalCtrl', ['$scope', '$firebase',
     function($scope, $firebase) {
 
         // GET MESSAGES AS AN ARRAY
         $scope.reservations = $firebase(ref).$asArray();
     }]);
 
-myAppControllers.controller('MGMTSingleCtrl', ['$scope', '$firebase', '$routeParams',
+ncControllers.controller('MGMTSingleCtrl', ['$scope', '$firebase', '$routeParams',
     function($scope, $firebase, $routeParams) {
         $scope.resId = $routeParams.resId;
         var resRef = new Firebase(ref + "/" + $routeParams.resId);
