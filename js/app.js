@@ -8,7 +8,7 @@ myApp.config(['$routeProvider', '$locationProvider',
         $locationProvider.html5Mode(true);
         $routeProvider.
         when('/rentals', {
-            tempateUrl: '/templates/rental.html',
+            templateUrl: '/templates/rental.html',
             controller: 'RentalCtrl'
         }).
         when('/reservations', {
