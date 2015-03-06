@@ -5,7 +5,7 @@ var myApp = angular.module('nc', [
 
 myApp.config(['$routeProvider', '$locationProvider',
     function($routeProvider, $locationProvider) {
-//        $locationProvider.html5Mode(true);
+        $locationProvider.html5Mode(true);
         $routeProvider
         .when('/', {
             templateUrl: '/templates/rental.html',
@@ -22,5 +22,5 @@ myApp.config(['$routeProvider', '$locationProvider',
             controller: 'MGMTSingleCtrl'
         })
         
-//        .otherwise({ redirectTo: '/' });
+        .otherwise({ redirectTo: '/' });
     }]);
