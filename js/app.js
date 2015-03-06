@@ -22,5 +22,5 @@ myApp.config(['$routeProvider', '$locationProvider',
             controller: 'MGMTSingleCtrl'
         })
         
-//        .otherwise({ redirectTo: '/' });
+        .otherwise({ redirectTo: '/' });
     }]);
