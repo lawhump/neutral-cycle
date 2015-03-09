@@ -7,21 +7,42 @@
         <input type="radio" id="time-week" name="time" value="2">
         <label for="time-week">Week</label>
     <p>
-        <label for="rental-hybrid">Hybrid</label>
-        <input type="range" min="0" max="3" value="0" id="rental-hybrid" class="rental-slider" name="rental-hybrid">
-        <span>0</span>
+        <label ng-init="hybrid_count=0">Hybrid</label>
+        <button ng-if="hybrid_count > 0" ng-click="hybrid_count = hybrid_count - 1">
+            -
+        </button>
+        <span>
+            {{hybrid_count}}
+        </span>
+        <button ng-click="hybrid_count = hybrid_count + 1">
+            +
+        </button>
     </p>
     <p>
-        <label for="rental-tandem">Tandem</label>
-        <input type="range" min="0" max="3" value="0" id="rental-tandem" class="rental-slider" name="rental-tandem">
-        <span>0</span>
+        <label>Tandem</label>
+        <button ng-if="tandem_count > 0" ng-click="tandem_count = tandem_count - 1">
+            -
+        </button>
+        <span ng-init="tandem_count=0">
+            {{tandem_count}}
+        </span>
+        <button ng-click="tandem_count = tandem_count + 1">
+            +
+        </button>
     </p>
     <p>
-        <label for="rental-cargo">Cargo</label>
-        <input type="range" min="0" max="3" value="0" id="rental-cargo" class="rental-slider" name="rental-cargo">
-        <span>0</span>
+        <label>Cargo</label>
+        <button ng-if="cargo_count > 0" ng-click="cargo_count = cargo_count - 1">
+            -
+        </button>
+        <span ng-init="cargo_count=0">
+            {{cargo_count}}
+        </span>
+        <button ng-click="cargo_count = cargo_count + 1">
+            +
+        </button>
     </p>
-    <h3>Estimate: $<span class="price-estimate">0</span></h3>
+    <h3>Estimate: ${{hybrid_count*8 + tandem_count*10 + cargo_count*10}}/hr</h3>
     <hr>
     <p>
         <label for="first-name">First Name</label>
