@@ -21,4 +21,8 @@ ncControllers.controller('MGMTSingleCtrl', ['$scope', '$firebase', '$routeParams
         $scope.resId = $routeParams.resId;
         var resRef = new Firebase(ref + "/" + $routeParams.resId);
         $scope.userRes = $firebase(resRef).$asObject();
+        
+        $scope.update = function() {
+            $scope.userRes.$save();
+        };
     }]); 
