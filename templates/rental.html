@@ -42,14 +42,16 @@
     <form>
         <p>
             Rent by the 
-            <input type="radio" id="time-hour" name="time" value="0" checked="checked">
+            <input type="radio" ng-model="timeIncrement" id="time-hour" name="time" ng-value="byHour">
             <label for="time-hour">Hour</label>
-            <input type="radio" id="time-day" name="time" value="1">
+            <input type="radio" ng-model="timeIncrement" id="time-day" name="time" ng-value="byDay">
             <label for="time-day">Day</label>
-            <input type="radio" id="time-week" name="time" value="2">
+            <input type="radio" ng-model="timeIncrement" id="time-week" name="time" ng-value="byWeek">
             <label for="time-week">Week</label>
         </p>
-        <h3>Estimate: ${{hybrid_count*8 + tandem_count*10 + cargo_count*10}}/hr</h3>
+        <h3 ng-if="timeIncrement">Estimate: ${{hybrid_count*timeIncrement.hybrid 
+            + tandem_count*timeIncrement.tandem 
+            + cargo_count*timeIncrement.cargo}}/hr</h3>
     </form>
 </section>
 <section class="select-pickup">

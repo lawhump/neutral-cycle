@@ -14,6 +14,21 @@ ncControllers.controller('RentalCtrl', ['$scope', '$firebase',
 
         // GET MESSAGES AS AN ARRAY
         $scope.reservations = $firebase(ref).$asArray();
+        $scope.byHour = {
+            'hybrid': 8,
+            'tandem': 10,
+            'cargo': 10
+        };
+        $scope.byDay = {
+            'hybrid': 25,
+            'tandem': 35,
+            'cargo': 35
+        };
+        $scope.byWeek = {
+            'hybrid': 100,
+            'tandem': 140,
+            'cargo': 140
+        };
     }]);
 
 ncControllers.controller('MGMTSingleCtrl', ['$scope', '$firebase', '$routeParams',
