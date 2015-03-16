@@ -60,13 +60,13 @@
 <section class="personal info">
     <form>
         <p>
-            <label for="first-name">First Name</label>
-            <input id="first-name" name="first-name" placeholder="Johnny" required>
+            <label for="first_name">First Name</label>
+            <input ng-model="first_name" id="first_name" name="first_name" placeholder="Johnny" required>
         </p>
 
         <p>
-            <label for="last-name">Last Name</label>
-            <input id="last-name" name="last-name" placeholder="Doe" required>
+            <label for="last_name">Last Name</label>
+            <input ng-model="last_name" id="last_name" name="last-name" placeholder="Doe" required>
         </p>
         <p>
             <label for="email">Email Address</label>
@@ -75,20 +75,28 @@
 
         <p>
             <label for="phone">Phone Number</label>
-            <input id="phone" name="phone" placeholder="(420) 666-6969">
+            <input ng-model="phone" id="phone" name="phone" placeholder="(420) 666-6969">
         </p>
 
         <p>
             <label for="pickup_date">Pickup Date</label>
-            <input id="pickup_date" name="pickup_date" placeholder="MM/DD/YYYY">
+            <input ng-model="pickup_date" id="pickup_date" name="pickup_date" placeholder="MM/DD/YYYY">
         </p>
 
         <p>
             <label for="pickup_time">Pickup Time</label>
-            <input type="select" id="pickup_time" name="pickup_time" placeholder="Pickup time">
+            <input ng-model="pickup_time" type="select" id="pickup_time" name="pickup_time" placeholder="Pickup time">
         </p>
-
-        <button id="butts" type="button">Click me to submit!</button>
+        Location:
+        <select ng-model="location" name="location">
+            <option selected value="nchq">Neutral Cycle</option>
+            <option value="flymach">Flying Machine</option>
+            <option value="pharm">The Pharmacy</option>
+        </select>
+        
+        <br><br>
+        
+        <button ng-click="submit" id="butts" type="button">Click me to submit!</button>
     </form>
 </section>
 

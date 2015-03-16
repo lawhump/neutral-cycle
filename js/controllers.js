@@ -12,8 +12,9 @@ ncControllers.controller('MGMTFullCtrl', ['$scope', '$firebase',
 ncControllers.controller('RentalCtrl', ['$scope', '$firebase',
     function($scope, $firebase) {
 
-        // GET MESSAGES AS AN ARRAY
         $scope.reservations = $firebase(ref).$asArray();
+        $scope.baseRef = $firebase(ref);
+        
         $scope.byHour = {
             'hybrid': 8,
             'tandem': 10,
@@ -29,6 +30,20 @@ ncControllers.controller('RentalCtrl', ['$scope', '$firebase',
             'tandem': 140,
             'cargo': 140
         };
+        
+        $scope.submit = function() {
+            var datetime = new Date($scope.pickup_date + " " + $scope.pickup_time + " CST");
+            
+            $scope.baseRef.$add({
+                date        : datetime.toString(),
+                email       : $scope.email,
+                first_name  : $scope.first_name,
+                last_name   : $scope.last_name,
+                phone       : $scope.phone,
+                rented      : false,
+                location    : $scope.location
+            });
+        }
     }]);
 
 ncControllers.controller('MGMTSingleCtrl', ['$scope', '$firebase', '$routeParams',
