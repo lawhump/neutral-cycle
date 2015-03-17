@@ -43,7 +43,7 @@ ncControllers.controller('RentalCtrl', ['$scope', '$firebase',
             var datetime = new Date($scope.pickup_date + " " + $scope.pickup_time + " CST");
             
             $scope.baseRef.$add({
-                date        : datetime.toString(),
+                date        : datetime,
                 email       : $scope.email,
                 first_name  : $scope.first_name,
                 last_name   : $scope.last_name,
