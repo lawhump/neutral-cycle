@@ -11,18 +11,22 @@ Click me: <input type="checkbox" ng-model="checked" ng-init="checked=true" /><br
     <h1>Management</h1>
     <div>
         <input ng-model="query">
+        <select ng-model="location"
+                ng-options="loc as loc.label for loc in locations">
+        </select>
+        {{location.value}}
     </div>
     <table class="log">
         <tr>
-            <th>ID</th>
+            <th>Edit</th>
             <th><a href="" ng-click="predicate='first_name'; reverse=!reverse">First name</a></th>
             <th><a href="" ng-click="predicate='last_name'; reverse=!reverse">Last name</a></th>
             <th><a href="" ng-click="predicate='date'; reverse=!reverse">Date</a></th>
             <th>Phone</th>
             <th>Email</th>
         </tr>
-        <tr ng-repeat='rv in reservations | filter:query | orderBy:predicate:reverse'>
-            <td class="elems"><a href="/reservations/{{rv.$id}}">{{rv.$id}}</a></td>
+        <tr ng-repeat='rv in reservations | filter:query:location.value | orderBy:predicate:reverse'>
+            <td class="elems"><a href="/reservations/{{rv.$id}}">+</a></td>
             <td class="elems">{{rv.first_name}}</td>
             <td class="elems">{{rv.last_name}}</td>
             <td class="elems">{{rv.date}}</td>

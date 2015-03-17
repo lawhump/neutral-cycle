@@ -4,9 +4,17 @@ var ref = new Firebase("https://neutral-cycle.firebaseio.com/");
 
 ncControllers.controller('MGMTFullCtrl', ['$scope', '$firebase',
     function($scope, $firebase) {
-
         // GET MESSAGES AS AN ARRAY
         $scope.reservations = $firebase(ref).$asArray();
+        
+        $scope.locations = [
+                { label: 'Neutral Cycle HQ', value: 'nchq' },
+                { label: 'Flying Machine', value: 'flymach' },
+                { label: 'The Pharmacy', value: 'pharm' }
+            ];
+        
+        $scope.location = $scope.locations[0];
+        
     }]);
 
 ncControllers.controller('RentalCtrl', ['$scope', '$firebase',

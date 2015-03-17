@@ -2,18 +2,6 @@
 <a href="/reservations/">Back</a>
 <p>TODO: update key {{resId}} in firebase or whatever</p>
 
-<!--ng-switch-when might not be the best way to do this who knows-->
-
-
-<!--<ul>
-    <li>First name: {{userRes.first_name}}</li>
-    <li>Last name: {{userRes.last_name}}</li>
-    <li>Date: {{userRes.date}}</li>
-    <li>Phone: {{userRes.phone}}</li>
-    <li>Email: {{userRes.email}}</li>
-</ul>-->
-
-
 <form ng-submit="update()" name="rental-form">
     First name: <input type="text" ng-disabled="clicked" ng-model="userRes.first_name" /><br>
     Last name: <input type="text" ng-disabled="clicked" ng-model="userRes.last_name" /><br>
@@ -23,7 +11,3 @@
     Click me to edit: <input type="checkbox" ng-model="clicked">
     <input type="submit" id="submit" value="Submit" />
 </form>
-
-<!--
-Click me to edit: <input type="checkbox" ng-model="clicked">
-<button ng-disabled="clicked">Submit</button>-->
