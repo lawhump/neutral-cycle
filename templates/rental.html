@@ -1,59 +1,104 @@
-<form id="rental">
-    <p>
-        <input type="radio" id="time-hour" name="time" value="0" checked="checked">
-        <label for="time-hour">Hour</label>
-        <input type="radio" id="time-day" name="time" value="1">
-        <label for="time-day">Day</label>
-        <input type="radio" id="time-week" name="time" value="2">
-        <label for="time-week">Week</label>
-    <p>
-        <label for="rental-hybrid">Hybrid</label>
-        <input type="range" min="0" max="3" value="0" id="rental-hybrid" class="rental-slider" name="rental-hybrid">
-        <span>0</span>
-    </p>
-    <p>
-        <label for="rental-tandem">Tandem</label>
-        <input type="range" min="0" max="3" value="0" id="rental-tandem" class="rental-slider" name="rental-tandem">
-        <span>0</span>
-    </p>
-    <p>
-        <label for="rental-cargo">Cargo</label>
-        <input type="range" min="0" max="3" value="0" id="rental-cargo" class="rental-slider" name="rental-cargo">
-        <span>0</span>
-    </p>
-    <h3>Estimate: $<span class="price-estimate">0</span></h3>
-    <hr>
-    <p>
-        <label for="first-name">First Name</label>
-        <input id="first-name" name="first-name" placeholder="Johnny" required>
-    </p>
+<section class="select-equipment">
+    <form id="rental">
+        <p>
+            <label ng-init="hybrid_count=0">Hybrid</label>
+            <button ng-disabled="hybrid_count <= 0" ng-click="hybrid_count = hybrid_count - 1">
+                -
+            </button>
+            <span>
+                {{hybrid_count}}
+            </span>
+            <button ng-click="hybrid_count = hybrid_count + 1">
+                +
+            </button>
+        </p>
+        <p>
+            <label ng-init="tandem_count=0">Tandem</label>
+            <button ng-disabled="tandem_count <= 0" ng-click="tandem_count = tandem_count - 1">
+                -
+            </button>
+            <span>
+                {{tandem_count}}
+            </span>
+            <button ng-click="tandem_count = tandem_count + 1">
+                +
+            </button>
+        </p>
+        <p>
+            <label ng-init="cargo_count=0">Cargo</label>
+            <button ng-disabled="cargo_count <= 0" ng-click="cargo_count = cargo_count - 1">
+                -
+            </button>
+            <span>
+                {{cargo_count}}
+            </span>
+            <button ng-click="cargo_count = cargo_count + 1">
+                +
+            </button>
+        </p>
+    </form>
+</section>
+<section class="select-time">
+    <form>
+        <p>
+            Rent by the 
+            <input type="radio" ng-model="timeIncrement" id="time-hour" name="time" ng-value="byHour">
+            <label for="time-hour">Hour</label>
+            <input type="radio" ng-model="timeIncrement" id="time-day" name="time" ng-value="byDay">
+            <label for="time-day">Day</label>
+            <input type="radio" ng-model="timeIncrement" id="time-week" name="time" ng-value="byWeek">
+            <label for="time-week">Week</label>
+        </p>
+        <h3 ng-if="timeIncrement">Estimate: ${{hybrid_count*timeIncrement.hybrid 
+            + tandem_count*timeIncrement.tandem 
+            + cargo_count*timeIncrement.cargo}}/hr</h3>
+    </form>
+</section>
+<section class="select-pickup">
+    <form></form>
+</section>
+<section class="personal info">
+    <form>
+        <p>
+            <label for="first_name">First Name</label>
+            <input ng-model="first_name" id="first_name" name="first_name" placeholder="Johnny" required>
+        </p>
 
-    <p>
-        <label for="last-name">Last Name</label>
-        <input id="last-name" name="last-name" placeholder="Doe" required>
-    </p>
-    <p>
-        <label for="email">Email Address</label>
-        <input id="email" name="email" type="email" placeholder="givemeabike@now.com" required>
-    </p>
+        <p>
+            <label for="last_name">Last Name</label>
+            <input ng-model="last_name" id="last_name" name="last-name" placeholder="Doe" required>
+        </p>
+        <p>
+            <label for="email">Email Address</label>
+            <input id="email" name="email" type="email" placeholder="givemeabike@now.com" required>
+        </p>
 
-    <p>
-        <label for="phone">Phone Number</label>
-        <input id="phone" name="phone" placeholder="(420) 666-6969">
-    </p>
+        <p>
+            <label for="phone">Phone Number</label>
+            <input ng-model="phone" id="phone" name="phone" placeholder="(420) 666-6969">
+        </p>
 
-    <p>
-        <label for="pickup_date">Pickup Date</label>
-        <input id="pickup_date" name="pickup_date" placeholder="MM/DD/YYYY">
-    </p>
+        <p>
+            <label for="pickup_date">Pickup Date</label>
+            <input ng-model="pickup_date" id="pickup_date" name="pickup_date" placeholder="MM/DD/YYYY">
+        </p>
 
-    <p>
-        <label for="pickup_time">Pickup Time</label>
-        <input type="select" id="pickup_time" name="pickup_time" placeholder="Pickup time">
-    </p>
-
-    <button id="butts" type="button">Click me to submit!</button>
-</form>
+        <p>
+            <label for="pickup_time">Pickup Time</label>
+            <input ng-model="pickup_time" type="select" id="pickup_time" name="pickup_time" placeholder="Pickup time">
+        </p>
+        Location:
+        <select ng-model="location" name="location">
+            <option selected value="nchq">Neutral Cycle</option>
+            <option value="flymach">Flying Machine</option>
+            <option value="pharm">The Pharmacy</option>
+        </select>
+        
+        <br><br>
+        
+        <button ng-click="submit" id="butts" type="button">Click me to submit!</button>
+    </form>
+</section>
 
 <table class="log">
     <tr ng-repeat='rv in reservations'>
