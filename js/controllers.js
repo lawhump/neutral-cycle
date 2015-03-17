@@ -13,7 +13,7 @@ ncControllers.controller('RentalCtrl', ['$scope', '$firebase',
     function($scope, $firebase) {
 
         $scope.reservations = $firebase(ref).$asArray();
-        $scope.baseRef = $firebase(ref);
+        var baseRef = $firebase(ref);
         
         $scope.byHour = {
             'hybrid': 8,
@@ -34,12 +34,12 @@ ncControllers.controller('RentalCtrl', ['$scope', '$firebase',
         $scope.submit = function() {
             var datetime = new Date($scope.pickup_date + " " + $scope.pickup_time + " CST");
             
-            $scope.baseRef.$add({
+            $scope.reservations.$add({
                 date        : datetime.toString(),
                 email       : $scope.email,
                 first_name  : $scope.first_name,
                 last_name   : $scope.last_name,
-                phone       : $scope.phone,
+                phone       : $scope.phone || null,
                 rented      : false,
                 location    : $scope.location
             });

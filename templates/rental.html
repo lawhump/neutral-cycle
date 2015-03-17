@@ -70,7 +70,7 @@
         </p>
         <p>
             <label for="email">Email Address</label>
-            <input id="email" name="email" type="email" placeholder="givemeabike@now.com" required>
+            <input ng-model="email" id="email" name="email" type="email" placeholder="givemeabike@now.com" required>
         </p>
 
         <p>
@@ -96,10 +96,11 @@
         
         <br><br>
         
-        <button ng-click="submit" id="butts" type="button">Click me to submit!</button>
+        <button ng-click="submit()" id="butts" type="button">Click me to submit!</button>
     </form>
 </section>
 
+<!--
 <table class="log">
     <tr ng-repeat='rv in reservations'>
         <td>{{rv.first_name}}</td>
@@ -109,6 +110,7 @@
         <td>{{rv.email}}</td>
     </tr>
 </table>
+-->
 
 <script src="/js/plugins.js"></script>
 <script src="/js/submit.js"></script>
