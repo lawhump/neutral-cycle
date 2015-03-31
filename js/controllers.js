@@ -8,12 +8,23 @@ ncControllers.controller('MGMTFullCtrl', ['$scope', '$firebase',
         $scope.reservations = $firebase(ref).$asArray();
         
         $scope.locations = [
+                { label: 'All', value: 'all' },
                 { label: 'Neutral Cycle HQ', value: 'nchq' },
                 { label: 'Flying Machine', value: 'flymach' },
                 { label: 'The Pharmacy', value: 'pharm' }
             ];
         
-        $scope.location = $scope.locations[0];
+        $scope.location = $scope.locations[1];
+        
+        var statuses = [
+            'pending_pickup',
+            'pending_return',
+            'completed'
+        ];
+        
+        $scope.pp = statuses[0];
+        $scope.pr = statuses[1];
+        $scope.com = statuses[2];
         
     }]);
 
@@ -42,7 +53,7 @@ ncControllers.controller('RentalCtrl', ['$scope', '$firebase',
             var datetime = new Date($scope.pickup_date + " " + $scope.pickup_time + " CST");
             
             $scope.reservations.$add({
-                date        : datetime.toString(),
+                date        : datetime,
                 email       : $scope.email,
                 first_name  : $scope.first_name,
                 last_name   : $scope.last_name,

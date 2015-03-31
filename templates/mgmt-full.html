@@ -14,24 +14,75 @@ Click me: <input type="checkbox" ng-model="checked" ng-init="checked=true" /><br
         <select ng-model="location"
                 ng-options="loc as loc.label for loc in locations">
         </select>
-        {{location.value}}
     </div>
+    
+    <h2>Pending Pickup</h2> 
     <table class="log">
         <tr>
             <th>Edit</th>
-            <th><a href="" ng-click="predicate='first_name'; reverse=!reverse">First name</a></th>
-            <th><a href="" ng-click="predicate='last_name'; reverse=!reverse">Last name</a></th>
-            <th><a href="" ng-click="predicate='date'; reverse=!reverse">Date</a></th>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Date</th>
             <th>Phone</th>
             <th>Email</th>
+            <th>Location</th>
         </tr>
-        <tr ng-repeat='rv in reservations | filter:query:location.value | orderBy:predicate:reverse'>
+        <tr ng-repeat='rv in reservations | filter:location.value:query:pp track by $index | orderBy:"-rv.date"'>
             <td class="elems"><a href="/reservations/{{rv.$id}}">+</a></td>
             <td class="elems">{{rv.first_name}}</td>
             <td class="elems">{{rv.last_name}}</td>
-            <td class="elems">{{rv.date}}</td>
+            <td class="elems">{{rv.date | date:'short'}}</td>
             <td class="elems">{{rv.phone}}</td>
             <td class="elems">{{rv.email}}</td>
+            <td class="elems">{{rv.location}}</td>
+        </tr>
+    </table>
+    
+    <hr>
+    
+    <h2>Pending Return</h2>
+    <table class="log">
+        <tr>
+            <th>Edit</th>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Date</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th>Location</th>
+        </tr>
+        <tr ng-repeat='rv in reservations | filter:location.value:query:pr track by $index | orderBy:"-rv.date"'>
+            <td class="elems"><a href="/reservations/{{rv.$id}}">+</a></td>
+            <td class="elems">{{rv.first_name}}</td>
+            <td class="elems">{{rv.last_name}}</td>
+            <td class="elems">{{rv.date | date:'short'}}</td>
+            <td class="elems">{{rv.phone}}</td>
+            <td class="elems">{{rv.email}}</td>
+            <td class="elems">{{rv.location}}</td>
+        </tr>
+    </table>
+    
+    <hr>
+    
+    <h2>Completed</h2>
+    <table class="log">
+        <tr>
+            <th>Edit</th>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Date</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th>Location</th>
+        </tr>
+        <tr ng-repeat='rv in reservations | filter:location.value:query:com track by $index | orderBy:"-rv.date"'>
+            <td class="elems"><a href="/reservations/{{rv.$id}}">+</a></td>
+            <td class="elems">{{rv.first_name}}</td>
+            <td class="elems">{{rv.last_name}}</td>
+            <td class="elems">{{rv.date | date:'short'}}</td>
+            <td class="elems">{{rv.phone}}</td>
+            <td class="elems">{{rv.email}}</td>
+            <td class="elems">{{rv.location}}</td>
         </tr>
     </table>
 </div>
