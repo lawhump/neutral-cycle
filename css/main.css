@@ -17,11 +17,12 @@
 /* line 21, /Users/lawrencehumphrey/Dev/neutral-cycle/css/main.scss */
 .log {
   width: 100%;
-  margin-top: 20px; }
-  /* line 25, /Users/lawrencehumphrey/Dev/neutral-cycle/css/main.scss */
+  margin-top: 20px;
+  padding-bottom: 30px; }
+  /* line 26, /Users/lawrencehumphrey/Dev/neutral-cycle/css/main.scss */
   .log th {
     text-align: left; }
-  /* line 29, /Users/lawrencehumphrey/Dev/neutral-cycle/css/main.scss */
+  /* line 30, /Users/lawrencehumphrey/Dev/neutral-cycle/css/main.scss */
   .log tr {
     margin-bottom: 6px; }
 

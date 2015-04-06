@@ -1,6 +1,7 @@
 var myApp = angular.module('nc', [
-  'ngRoute',
-  'ncControllers'
+    'ngRoute',
+    'ncControllers',
+    'ncFilters'
 ]);
 
 myApp.config(['$routeProvider', '$locationProvider',
