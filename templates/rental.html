@@ -38,25 +38,39 @@
         </p>
     </form>
 </section>
+
 <section class="select-time">
     <form>
-        <p>
-            Rent by the 
-            <input type="radio" ng-model="timeIncrement" id="time-hour" name="time" ng-value="byHour">
-            <label for="time-hour">Hour</label>
-            <input type="radio" ng-model="timeIncrement" id="time-day" name="time" ng-value="byDay">
-            <label for="time-day">Day</label>
-            <input type="radio" ng-model="timeIncrement" id="time-week" name="time" ng-value="byWeek">
-            <label for="time-week">Week</label>
-        </p>
-        <h3 ng-if="timeIncrement">Estimate: ${{hybrid_count*timeIncrement.hybrid 
+        <h3>How long do you need it for?</h3>
+        <input type="number" min="1" max="4" step="1" ng-model="timeCount">
+        <select ng-model="timeIncrement">
+            <option value="byHour">hours</option>
+            <option value="byDay">days</option>
+            <option value="byWeek">weeks</option>
+        </select>
+        
+        , and I would like to rent for 
+        <select ng-if="timeIncrement == byHour" ng-model="rental_time" ng-options="num for num in hours">
+            
+        <select ng-if="timeIncrement == byDay || timeIncrement == byWeek" ng-options="num for num in daysAndWeeks">
+        
+        
+        <h3 ng-if="timeIncrement && ">Estimate: ${{ (hybrid_count*timeIncrement.hybrid 
             + tandem_count*timeIncrement.tandem 
-            + cargo_count*timeIncrement.cargo}}/hr</h3>
+            + cargo_count*timeIncrement.cargo) }}/hr</h3>
+        
+        <p>
+            <label for="pickup_date">Pickup Date</label>
+            <input ng-model="pickup_date" id="pickup_date" name="pickup_date" placeholder="MM/DD/YYYY">
+        </p>
+
+        <p>
+            <label for="pickup_time">Pickup Time</label>
+            <input ng-model="pickup_time" type="select" id="pickup_time" name="pickup_time" placeholder="Pickup time">
+        </p>
     </form>
 </section>
-<section class="select-pickup">
-    <form></form>
-</section>
+
 <section class="personal info">
     <form>
         <p>
@@ -76,16 +90,6 @@
         <p>
             <label for="phone">Phone Number</label>
             <input ng-model="phone" id="phone" name="phone" placeholder="(420) 666-6969">
-        </p>
-
-        <p>
-            <label for="pickup_date">Pickup Date</label>
-            <input ng-model="pickup_date" id="pickup_date" name="pickup_date" placeholder="MM/DD/YYYY">
-        </p>
-
-        <p>
-            <label for="pickup_time">Pickup Time</label>
-            <input ng-model="pickup_time" type="select" id="pickup_time" name="pickup_time" placeholder="Pickup time">
         </p>
         Location:
         <select ng-model="location" name="location">
