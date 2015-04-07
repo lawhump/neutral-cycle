@@ -28,6 +28,17 @@ ncControllers.controller('MGMTFullCtrl', ['$scope', '$firebase',
         
     }]);
 
+ncControllers.controller('MGMTSingleCtrl', ['$scope', '$firebase', '$routeParams',
+    function($scope, $firebase, $routeParams) {
+        $scope.resId = $routeParams.resId;
+        var resRef = new Firebase(ref + "/" + $routeParams.resId);
+        $scope.userRes = $firebase(resRef).$asObject();
+        
+        $scope.update = function() {
+            $scope.userRes.$save();
+        };
+    }]); 
+
 ncControllers.controller('RentalCtrl', ['$scope', '$firebase',
     function($scope, $firebase) {
         $scope.bikes = [{ 
@@ -92,13 +103,30 @@ ncControllers.controller('RentalCtrl', ['$scope', '$firebase',
         }
     }]);
 
-ncControllers.controller('MGMTSingleCtrl', ['$scope', '$firebase', '$routeParams',
-    function($scope, $firebase, $routeParams) {
-        $scope.resId = $routeParams.resId;
-        var resRef = new Firebase(ref + "/" + $routeParams.resId);
-        $scope.userRes = $firebase(resRef).$asObject();
+ncControllers.controller('PayCtrl', ['$scope', '$http',
+    function($scope, $http) {
+        // Stripe Response Handler
+        $scope.stripeCallback = function (code, result) {
+			if (result.error) {
+				window.alert('it failed! error: ' + result.error.message);
+			} 
+            else {
+				console.log('success! token: ' + result.id);
+                
+                console.log(result);
+
+                 $http.post('http://localhost:3000/charge', result).
+                 success(function(data, status, headers, config) {
+                     // this callback will be called asynchronously
+                     // when the response is available
+                     console.log(data);
+                 }).
+                 error(function(data, status, headers, config) {
+                     // called asynchronously if an error occurs
+                     // or server returns response with an error status.
+                 });
+
+			 }
+		};
         
-        $scope.update = function() {
-            $scope.userRes.$save();
-        };
-    }]); 
+    }]);

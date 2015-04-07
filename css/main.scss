@@ -2,6 +2,10 @@
     color: blue;
 }
 
+.portal {
+    float: right;
+}
+
 #rental {
     label:first-child {
         width: 120px;
@@ -12,7 +16,7 @@
     .error {
         color: red;   
     }
-}
+} 
 
 .log { 
     width: 100%;
