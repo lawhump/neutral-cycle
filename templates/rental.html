@@ -1,77 +1,95 @@
-<section class="select-equipment">
+<section class="select-equipment rental_section">
+    <h2>What would you like to rent?</h2>
+    <a>Pricing Details</a>
     <form id="rental">
-        <p>
-            <label ng-init="hybrid_count=0">Hybrid</label>
-            <button ng-disabled="hybrid_count <= 0" ng-click="hybrid_count = hybrid_count - 1">
-                -
-            </button>
-            <span>
-                {{hybrid_count}}
-            </span>
-            <button ng-click="hybrid_count = hybrid_count + 1">
-                +
-            </button>
-        </p>
-        <p>
-            <label ng-init="tandem_count=0">Tandem</label>
-            <button ng-disabled="tandem_count <= 0" ng-click="tandem_count = tandem_count - 1">
-                -
-            </button>
-            <span>
-                {{tandem_count}}
-            </span>
-            <button ng-click="tandem_count = tandem_count + 1">
-                +
-            </button>
-        </p>
-        <p>
-            <label ng-init="cargo_count=0">Cargo</label>
-            <button ng-disabled="cargo_count <= 0" ng-click="cargo_count = cargo_count - 1">
-                -
-            </button>
-            <span>
-                {{cargo_count}}
-            </span>
-            <button ng-click="cargo_count = cargo_count + 1">
-                +
-            </button>
-        </p>
+        <ul>
+            <li ng-repeat="bike in bikes">
+                <div class="box" ng-click="bike.control = !bike.control" ng-class="{control: bike.control}">
+                    <img src="img/rental/{{bike.src}}">
+                    <label>{{bike.label}}</label>
+                </div>
+                <div class="controls" ng-if="bike.control">
+                    <button ng-disabled="bike.quantity <= 0" ng-click="bike.quantity = bike.quantity - 1">
+                        -
+                    </button>
+                    <span>
+                        {{bike.quantity}}
+                    </span>
+                    <button ng-disabled="bike.quantity >= 5" ng-click="bike.quantity = bike.quantity + 1">
+                        +
+                    </button>
+                </div>
+            </li>
+        </ul>
     </form>
 </section>
 
-<section class="select-time">
+<section class="select-time rental_section">
     <form>
-        <h3>How long do you need it for?</h3>
-        <input type="number" min="1" max="4" step="1" ng-model="timeCount">
-        <select ng-model="timeIncrement">
-            <option value="byHour">hours</option>
-            <option value="byDay">days</option>
-            <option value="byWeek">weeks</option>
-        </select>
-        
-        , and I would like to rent for 
-        <select ng-if="timeIncrement == byHour" ng-model="rental_time" ng-options="num for num in hours">
+        <h2>How long do you need it for?</h2>
+        <div class="how-long">
+<!--            <input type="number" step="1" ng-model="timeCount">-->
+            <input id="count_1" type="radio" ng-model="timeCount" value="1">
+            <label class="count" for="count_1">1</label>
+            <input id="count_2" type="radio" ng-model="timeCount" value="2">
+            <label class="count" for="count_2">2</label>
+            <input id="count_3" type="radio" ng-model="timeCount" value="3">
+            <label class="count" for="count_3">3</label>
+            <input id="count_4" type="radio" ng-model="timeCount" value="4">
+            <label class="count last-count" for="count_4">4</label>
             
-        <select ng-if="timeIncrement == byDay || timeIncrement == byWeek" ng-options="num for num in daysAndWeeks">
+            <input id="time_hours" type="radio" ng-model="timeIncrement" ng-value="byHour">
+            <label for="time_hours">Hour<span ng-if="timeCount > 1">s</span></label>
+            <input id="time_days" type="radio" ng-model="timeIncrement" ng-value="byDay">
+            <label for="time_days">Day<span ng-if="timeCount > 1">s</span></label>
+            <input id="time_weeks" type="radio" ng-model="timeIncrement" ng-value="byWeek">
+            <label for="time_weeks">Week<span ng-if="timeCount > 1">s</span></label>
+        </div>
         
+        <h3>Drop Off Date</h3>
+        <div class="drop-off">
+            <p>March 17</p>
+        </div>
         
-        <h3 ng-if="timeIncrement && ">Estimate: ${{ (hybrid_count*timeIncrement.hybrid 
-            + tandem_count*timeIncrement.tandem 
-            + cargo_count*timeIncrement.cargo) }}/hr</h3>
-        
-        <p>
-            <label for="pickup_date">Pickup Date</label>
-            <input ng-model="pickup_date" id="pickup_date" name="pickup_date" placeholder="MM/DD/YYYY">
-        </p>
-
-        <p>
-            <label for="pickup_time">Pickup Time</label>
-            <input ng-model="pickup_time" type="select" id="pickup_time" name="pickup_time" placeholder="Pickup time">
-        </p>
+        <h3>Price Breakdown</h3>
+        <div class="breakdown">
+            {
+            <span ng-if="hybrid_count > 0" ng-class="{plus: tandem_count || cargo_count}">        
+                (
+                <b>{{hybrid_count}}</b>
+                *
+                <b><em>$</em>{{timeIncrement.hybrid}}</b>
+                )
+            </span>
+            
+            <span ng-if="tandem_count > 0" class="price" ng-class="{plus: cargo_count}">        
+                (
+                <b>{{tandem_count}}</b>
+                *
+                <b><em>$</em>{{timeIncrement.tandem}}</b>
+                )
+            </span>
+            
+            <span ng-if="cargo_count > 0" class="price">        
+                (
+                <b>{{cargo_count}}</b>
+                *
+                <b><em>$</em>{{timeIncrement.cargo}}</b>
+                )
+            </span>
+            } * <b>{{timeCount}}</b> = 
+            <span class="total">
+                {{ 
+                ( hybrid_count * timeIncrement.hybrid 
+                + tandem_count * timeIncrement.tandem 
+                + cargo_count  * timeIncrement.cargo  ) * timeCount 
+                }}
+            </span>
+        </div>
     </form>
 </section>
 
-<section class="personal info">
+<section class="personal-info rental_section">
     <form>
         <p>
             <label for="first_name">First Name</label>
@@ -103,18 +121,6 @@
         <button ng-click="submit()" id="butts" type="button">Click me to submit!</button>
     </form>
 </section>
-
-<!--
-<table class="log">
-    <tr ng-repeat='rv in reservations'>
-        <td>{{rv.first_name}}</td>
-        <td>{{rv.last_name}}</td>
-        <td>{{rv.date}}</td>
-        <td>{{rv.phone}}</td>
-        <td>{{rv.email}}</td>
-    </tr>
-</table>
--->
 
 <script src="/js/plugins.js"></script>
 <script src="/js/submit.js"></script>

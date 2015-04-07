@@ -30,24 +30,52 @@ ncControllers.controller('MGMTFullCtrl', ['$scope', '$firebase',
 
 ncControllers.controller('RentalCtrl', ['$scope', '$firebase',
     function($scope, $firebase) {
-
-        $scope.reservations = $firebase(ref).$asArray();
+        $scope.bikes = [{ 
+            quantity: 1,
+            control: false,
+            src: 'hybrid.png',
+            label: 'Hybrid Bike'
+        }, {
+            quantity: 1,
+            control: true,
+            src: 'tandem.png',
+            label: 'Tandem Bike'
+        }, {
+            quantity: 1,
+            control: false,
+            src: 'cargo.png',
+            label: 'Cargo Bike'
+        }, {
+            quantity: 1,
+            control: false,
+            src: 'trailer.png',
+            label: 'Bike Trailer'
+        }, {
+            quantity: 1,
+            control: false,
+            src: 'car-rack.png',
+            label: 'Car Rack'
+        }];
+             
         
         $scope.byHour = {
-            'hybrid': 8,
-            'tandem': 10,
-            'cargo': 10
+            hybrid: 8,
+            tandem: 10,
+            cargo: 10
         };
         $scope.byDay = {
-            'hybrid': 25,
-            'tandem': 35,
-            'cargo': 35
+            hybrid: 25,
+            tandem: 35,
+            cargo: 35
         };
         $scope.byWeek = {
-            'hybrid': 100,
-            'tandem': 140,
-            'cargo': 140
+            hybrid: 100,
+            tandem: 140,
+            cargo: 140
         };
+        
+        $scope.timeIncrement = $scope.byHour;
+        $scope.timeCount = 1;
         
         $scope.submit = function() {
             var datetime = new Date($scope.pickup_date + " " + $scope.pickup_time + " CST");

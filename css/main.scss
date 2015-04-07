@@ -9,10 +9,6 @@
         display: inline-block;
     }
     
-    button {
-        margin-left: 124px;
-    }
-    
     .error {
         color: red;   
     }
@@ -31,3 +27,5 @@
         margin-bottom: 6px;
     }
 }
+
+@import 'rental';
