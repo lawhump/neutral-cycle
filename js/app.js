@@ -1,8 +1,13 @@
 var myApp = angular.module('nc', [
     'ngRoute',
     'ncControllers',
-    'ncFilters'
+    'ncFilters',
+    'angularPayments'
 ]);
+
+myApp.config(function() {
+		window.Stripe.setPublishableKey('pk_test_uRt8KmhZbeKjvbA9bt1VmWJR');
+	});
 
 myApp.config(['$routeProvider', '$locationProvider',
     function($routeProvider, $locationProvider) {
@@ -11,6 +16,11 @@ myApp.config(['$routeProvider', '$locationProvider',
         .when('/', {
             templateUrl: '/templates/rental.html',
             controller: 'RentalCtrl'
+        })
+        
+        .when('/payment', {
+            templateUrl: '/templates/payment.html',
+            controller: 'PayCtrl'
         })
         
         .when('/reservations', {
