@@ -1,125 +1,119 @@
 <section class="select-equipment rental_section">
+    <div class="banner">
+        <nav>
+            <a href="http://www.neutralcycle.com">neutralcycle.com</a>
+            <a href="http://www.neutralcycle.com/make-a-appoinment/">Contact</a>
+        </nav>
+        <div>
+            <img src="img/nc-logo.png">
+            <h1>Neutral Cycle Bike Rental</h1>
+            <button type="button">How it Works</button>
+        </div>
+    </div>
+    
     <h2>What would you like to rent?</h2>
-    <a>Pricing Details</a>
     <form id="rental">
         <ul>
             <li ng-repeat="bike in bikes">
-                <div class="box" ng-click="bike.control = !bike.control" ng-class="{control: bike.control}">
+                <div class="box" ng-click="bike.control = !bike.control; updateQuantity()" ng-class="{control: bike.control}">
                     <img src="img/rental/{{bike.src}}">
                     <label>{{bike.label}}</label>
                 </div>
-                <div class="controls" ng-if="bike.control">
-                    <button ng-disabled="bike.quantity <= 0" ng-click="bike.quantity = bike.quantity - 1">
+                <div class="controls">
+                    <button ng-disabled="bike.quantity <= 0" ng-click="decrementBike(bike); updateQuantity()">
                         -
                     </button>
                     <span>
                         {{bike.quantity}}
                     </span>
-                    <button ng-disabled="bike.quantity >= 5" ng-click="bike.quantity = bike.quantity + 1">
+                    <button ng-disabled="bike.quantity >= 5" ng-click="incrementBike(bike); updateQuantity()">
                         +
                     </button>
                 </div>
             </li>
         </ul>
     </form>
+    <button class="continue" ng-disabled="!quantity">Rent</button>
 </section>
 
-<section class="select-time rental_section">
-    <form>
-        <h2>How long do you need it for?</h2>
-        <div class="how-long">
-<!--            <input type="number" step="1" ng-model="timeCount">-->
-            <input id="count_1" type="radio" ng-model="timeCount" value="1">
-            <label class="count" for="count_1">1</label>
-            <input id="count_2" type="radio" ng-model="timeCount" value="2">
-            <label class="count" for="count_2">2</label>
-            <input id="count_3" type="radio" ng-model="timeCount" value="3">
-            <label class="count" for="count_3">3</label>
-            <input id="count_4" type="radio" ng-model="timeCount" value="4">
-            <label class="count last-count" for="count_4">4</label>
-            
-            <input id="time_hours" type="radio" ng-model="timeIncrement" ng-value="byHour">
-            <label for="time_hours">Hour<span ng-if="timeCount > 1">s</span></label>
-            <input id="time_days" type="radio" ng-model="timeIncrement" ng-value="byDay">
-            <label for="time_days">Day<span ng-if="timeCount > 1">s</span></label>
-            <input id="time_weeks" type="radio" ng-model="timeIncrement" ng-value="byWeek">
-            <label for="time_weeks">Week<span ng-if="timeCount > 1">s</span></label>
-        </div>
-        
-        <h3>Drop Off Date</h3>
-        <div class="drop-off">
-            <p>March 17</p>
-        </div>
-        
-        <h3>Price Breakdown</h3>
-        <div class="breakdown">
-            {
-            <span ng-if="hybrid_count > 0" ng-class="{plus: tandem_count || cargo_count}">        
-                (
-                <b>{{hybrid_count}}</b>
-                *
-                <b><em>$</em>{{timeIncrement.hybrid}}</b>
-                )
-            </span>
-            
-            <span ng-if="tandem_count > 0" class="price" ng-class="{plus: cargo_count}">        
-                (
-                <b>{{tandem_count}}</b>
-                *
-                <b><em>$</em>{{timeIncrement.tandem}}</b>
-                )
-            </span>
-            
-            <span ng-if="cargo_count > 0" class="price">        
-                (
-                <b>{{cargo_count}}</b>
-                *
-                <b><em>$</em>{{timeIncrement.cargo}}</b>
-                )
-            </span>
-            } * <b>{{timeCount}}</b> = 
-            <span class="total">
-                {{ 
-                ( hybrid_count * timeIncrement.hybrid 
-                + tandem_count * timeIncrement.tandem 
-                + cargo_count  * timeIncrement.cargo  ) * timeCount 
-                }}
-            </span>
-        </div>
-    </form>
+<section class="select-time rental_section" ng-if="quantity">
+    <div class="content">
+        <form>
+            <h2>How long do you need it for?</h2>
+            <div class="how-long">
+    <!--            <input type="number" step="1" ng-model="timeCount">-->
+                <input id="count_1" type="radio" ng-model="timeCount" value="1">
+                <label class="count" for="count_1">1</label>
+                <input id="count_2" type="radio" ng-model="timeCount" value="2">
+                <label class="count" for="count_2">2</label>
+                <input id="count_3" type="radio" ng-model="timeCount" value="3">
+                <label class="count" for="count_3">3</label>
+                <input id="count_4" type="radio" ng-model="timeCount" value="4">
+                <label class="count last-count" for="count_4">4</label>
+
+                <input id="time_hours" type="radio" ng-model="timeIncrement" ng-value="byHour">
+                <label for="time_hours">Hour<span ng-if="timeCount > 1">s</span></label>
+                <input id="time_days" type="radio" ng-model="timeIncrement" ng-value="byDay">
+                <label for="time_days">Day<span ng-if="timeCount > 1">s</span></label>
+                <input id="time_weeks" type="radio" ng-model="timeIncrement" ng-value="byWeek">
+                <label for="time_weeks">Week<span ng-if="timeCount > 1">s</span></label>
+            </div>
+
+            <h3>Drop Off Date</h3>
+            <div class="drop-off">
+                <p>March 17</p>
+            </div>
+
+            <h3>Price Breakdown</h3>
+            <div class="breakdown">
+                {
+                <span ng-repeat="bike in bikes" ng-class="{plus: $index > 0}">        
+                    (
+                    <b>{{bike.quantity}}</b>
+                    *
+                    <b><em>$</em>{{timeIncrement[$index]}}</b>
+                    )
+                </span>
+                } * <b>{{timeCount}}</b> = 
+                <span class="total">
+                    {{ 
+                    ( hybrid_count * timeIncrement.hybrid 
+                    + tandem_count * timeIncrement.tandem 
+                    + cargo_count  * timeIncrement.cargo  ) * timeCount 
+                    }}
+                </span>
+            </div>
+        </form>
+        <button class="continue">Reserve</button>
+    </div>
 </section>
 
-<section class="personal-info rental_section">
-    <form>
-        <p>
-            <label for="first_name">First Name</label>
-            <input ng-model="first_name" id="first_name" name="first_name" placeholder="Johnny" required>
-        </p>
+<section class="personal-info rental_section" ng-if="quantity">
+    <div class="content">
+        <h2>Tell us about yourself</h2>
+        <form>
+            <p>
+                <label for="first_name">First Name</label>
+                <input ng-model="first_name" id="first_name" name="first_name" placeholder="Johnny" required>
+            </p>
 
-        <p>
-            <label for="last_name">Last Name</label>
-            <input ng-model="last_name" id="last_name" name="last-name" placeholder="Doe" required>
-        </p>
-        <p>
-            <label for="email">Email Address</label>
-            <input ng-model="email" id="email" name="email" type="email" placeholder="givemeabike@now.com" required>
-        </p>
+            <p>
+                <label for="last_name">Last Name</label>
+                <input ng-model="last_name" id="last_name" name="last-name" placeholder="Doe" required>
+            </p>
+            <p>
+                <label for="email">Email Address</label>
+                <input ng-model="email" id="email" name="email" type="email" placeholder="givemeabike@now.com" required>
+            </p>
 
-        <p>
-            <label for="phone">Phone Number</label>
-            <input ng-model="phone" id="phone" name="phone" placeholder="(420) 666-6969">
-        </p>
-        Location:
-        <select ng-model="location" name="location">
-            <option selected value="nchq">Neutral Cycle</option>
-            <option value="flymach">Flying Machine</option>
-            <option value="pharm">The Pharmacy</option>
-        </select>
-        
-        <br><br>
-        
-        <button ng-click="submit()" id="butts" type="button">Click me to submit!</button>
-    </form>
+            <p>
+                <label for="phone">Phone Number</label>
+                <input ng-model="phone" id="phone" name="phone" placeholder="(420) 666-6969">
+            </p>
+
+            <button type="button" class="continue">Confirm</button>
+        </form>
+    </div>
 </section>
 
 <a href="/payment">Next</a>

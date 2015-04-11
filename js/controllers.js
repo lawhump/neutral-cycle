@@ -44,7 +44,7 @@ ncControllers.controller('RentalCtrl', ['$scope', '$firebase',
             label: 'Hybrid Bike'
         }, {
             quantity: 1,
-            control: true,
+            control: false,
             src: 'tandem.png',
             label: 'Tandem Bike'
         }, {
@@ -63,23 +63,26 @@ ncControllers.controller('RentalCtrl', ['$scope', '$firebase',
             src: 'car-rack.png',
             label: 'Car Rack'
         }];
-             
         
-        $scope.byHour = {
-            hybrid: 8,
-            tandem: 10,
-            cargo: 10
-        };
-        $scope.byDay = {
-            hybrid: 25,
-            tandem: 35,
-            cargo: 35
-        };
-        $scope.byWeek = {
-            hybrid: 100,
-            tandem: 140,
-            cargo: 140
-        };
+        $scope.decrementBike = function(bike) {
+            bike.quantity == 1 ? bike.control = false : bike.quantity -= 1;
+        }
+        
+        $scope.incrementBike = function(bike) {
+            bike.quantity += 1;
+        }
+        
+        $scope.quantity = 0;
+        $scope.updateQuantity = function() {
+            $scope.quantity = $scope.bikes.reduce( 
+                function(total, bike) { 
+                    return bike.control ? total + bike.quantity : total;
+                }, 0);
+        }
+        
+        $scope.byHour = [8, 10, 10];
+        $scope.byDay = [25, 35, 35];
+        $scope.byWeek = [100, 140, 140];
         
         $scope.timeIncrement = $scope.byHour;
         $scope.timeCount = 1;
@@ -102,6 +105,11 @@ ncControllers.controller('RentalCtrl', ['$scope', '$firebase',
 
             $location.path('/payment');
         }
+        
+        $('.continue').click(function() {
+            var $nextSection = $(this).closest('.rental_section').next();
+            $('html,body').animate({scrollTop: $nextSection.offset().top }, 600);
+        });
     }]);
 
 ncControllers.controller('PayCtrl', ['$scope', '$http', '$firebase',

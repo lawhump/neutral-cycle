@@ -1,4 +1,5 @@
 $color-accent: #f2d81c;
+$color-accent_hover: #d3b81a;
 $color-background: #f9f9f9;
 $color-button_back: #e6e6e6;
 $color-button_text: #ccc;
@@ -11,13 +12,104 @@ body {
     background-color: $color-background;
 }
 
+.banner {
+    position: relative;
+    background: url(../img/bike-photo.png) no-repeat center center;
+    background-size: cover;
+    
+    height: 40%;
+    min-height: 300px;
+    max-height: 400px;
+    margin-bottom: 40px;
+    
+    font: { family: 'Montserrat'; }
+    
+    img {
+        height: 70px;
+        width: auto;
+    }
+    
+    nav {
+        position: absolute;
+        top: 0;
+        right: 0;
+        
+        padding: 26px 26px 0 0; 
+        
+        a {
+            text: { transform: uppercase; decoration: none; }
+            color: #fff;
+            cursor: pointer;
+            
+            &:first-child {
+                margin-right: 50px;
+            }
+            
+            &:hover {
+                color: $color-button_back;
+            }
+        }
+    }
+    
+    h1 {
+        text: { transform: uppercase; }
+        font: { size: 3.2em; }
+        color: #fff;
+    }
+    
+    button {
+        padding: 18px;
+        
+        border: none;
+        outline: none;
+            
+        text: { transform: uppercase; }
+        background-color: rgba(0, 113, 188, .6);
+        color: #fff;
+        
+        &:hover {
+            background-color: rgba(0, 113, 188, .75);
+        }
+    }
+    
+    > div {
+        position: absolute;
+        width: 100%;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+}
+
 section.rental_section {
     height: 100vh;
     min-height: 600px;
     text-align: center;
+    position: relative;
+    
+//    border: 1px solid red;
+    
+    > div.content {
+        position: absolute;
+        width: 100%;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
 }
 
 section.select-equipment {
+    min-height: 800px;
+    
+    h2 {
+        margin-bottom: 12px;
+        font-size: 2em;
+    }
+    
     ul {
         margin-top: 40px;
     }
@@ -39,6 +131,7 @@ section.select-equipment {
         width: 180px;
         margin-bottom: 10px;
         
+        transition: border 0.1s;
         cursor: pointer;
         
         &.control {
@@ -60,6 +153,8 @@ section.select-equipment {
     }
     
     .controls {
+        visibility: hidden;
+        
         span {
             display: inline-block;
             width: 80px;
@@ -89,12 +184,42 @@ section.select-equipment {
             color: $color-grey_text;
         }
     }
+    
+    .box.control + div {
+        visibility: visible;
+    }
+}
+
+.continue {
+    width: 200px;
+    padding: 12px 0;
+    text: { transform: uppercase; }
+    font: { family: 'Montserrat'; size: 1.2em; }
+    
+    border: none;
+    outline: none;
+    
+    background-color: $color-accent;
+    color: #fff;
+    
+    transition: background-color 0.2s, color 0.2s;
+    
+    &[disabled] {
+        background-color: $color-button_back;
+        color: $color-button_text;
+    }
+    
+    &:hover:not([disabled]) {
+        background-color: $color-accent_hover;
+    }
 }
 
 .breakdown {
-    .plus::after {
+    .plus::before {
         content: "+";
     }
+    
+    margin-bottom: 40px;
 }
 
 h2 {
