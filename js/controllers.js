@@ -16,15 +16,11 @@ ncControllers.controller('MGMTFullCtrl', ['$scope', '$firebase',
         
         $scope.location = $scope.locations[1];
         
-        var statuses = [
-            'pending_pickup',
-            'pending_return',
-            'completed'
-        ];
+        $scope.setStatus = function(status) {
+            $scope.status = status;
+        }
         
-        $scope.pp = statuses[0];
-        $scope.pr = statuses[1];
-        $scope.com = statuses[2];
+        $scope.status = 'pending_pickup';
         
     }]);
 
@@ -40,7 +36,7 @@ ncControllers.controller('MGMTSingleCtrl', ['$scope', '$firebase', '$routeParams
     }]); 
 
 ncControllers.controller('RentalCtrl', ['$scope', '$firebase',
-    function($scope, $firebase) {
+    function($scope, $firebase, reservationMeta) {
         $scope.bikes = [{ 
             quantity: 1,
             control: false,
@@ -90,8 +86,7 @@ ncControllers.controller('RentalCtrl', ['$scope', '$firebase',
         
         $scope.submit = function() {
             var datetime = new Date($scope.pickup_date + " " + $scope.pickup_time + " CST");
-            
-            $scope.reservations.$add({
+            var res = {
                 date        : datetime,
                 email       : $scope.email,
                 first_name  : $scope.first_name,
@@ -99,12 +94,19 @@ ncControllers.controller('RentalCtrl', ['$scope', '$firebase',
                 phone       : $scope.phone || null,
                 rented      : false,
                 location    : $scope.location
-            });
+            };
+            
+            var meta = {};
+            meta.res = res; meta.bikes = $scope.bikes;
+            reservationMeta.setMeta(meta);
+
+            $location.path('/payment');
         }
     }]);
 
-ncControllers.controller('PayCtrl', ['$scope', '$http',
-    function($scope, $http) {
+ncControllers.controller('PayCtrl', ['$scope', '$http', '$firebase',
+    function($scope, $http, $firebase, reservationMeta) {
+        console.log(reservationMeta.getMeta());
         // Stripe Response Handler
         $scope.stripeCallback = function (code, result) {
 			if (result.error) {
@@ -115,12 +117,22 @@ ncControllers.controller('PayCtrl', ['$scope', '$http',
                 
                 console.log(result);
 
-                 $http.post('http://localhost:3000/charge', result).
-                 success(function(data, status, headers, config) {
-                     // this callback will be called asynchronously
-                     // when the response is available
-                     console.log(data);
-                 }).
+                $http.post('http://localhost:3000/charge', result).
+                success(function(data, status, headers, config) {
+                    // this callback will be called asynchronously
+                    // when the response is available
+                    console.log(data);
+            
+//                    $scope.reservations.$add({
+//                        date        : datetime,
+//                        email       : $scope.email,
+//                        first_name  : $scope.first_name,
+//                        last_name   : $scope.last_name,
+//                        phone       : $scope.phone || null,
+//                        rented      : false,
+//                        location    : $scope.location
+//                    });
+                }).
                  error(function(data, status, headers, config) {
                      // called asynchronously if an error occurs
                      // or server returns response with an error status.
