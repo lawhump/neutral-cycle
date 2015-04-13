@@ -279,4 +279,9 @@ h3 {
   .breakdown .total {
     color: #f2d81c; }
 
+/* line 307, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental */
+section.personal-info label {
+  font-family: 'Montserrat';
+  text-transform: uppercase; }
+
 /*# sourceMappingURL=main.css.map */
