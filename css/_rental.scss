@@ -234,6 +234,12 @@ h3 {
     margin: 60px 0 20px;
 }
 
+.rental_section.select-date {
+    h2 {
+        margin: 0;
+    }
+}
+
 .datepicker {
     height: 400px;
 }
@@ -248,6 +254,11 @@ h3 {
         
         border-collapse: separate;
         border-spacing: 10px;
+    }
+    
+    th {
+        font: { family: 'Montserrat'; }
+        text: { transform: uppercase; }
     }
     
     a {
@@ -289,6 +300,38 @@ h3 {
     }
     
     .ui-datepicker-year { display: none; }
+    
+    .ui-datepicker-prev, .ui-datepicker-next {
+        display: block;
+        position: relative;
+        height: 20px;
+        width: 10px;
+        
+        cursor: pointer;
+        
+        span { display: none; }
+        
+        &.ui-state-disabled {
+            opacity: .3;
+            cursor: default;
+        }
+    }
+    
+    .ui-datepicker-prev {
+        background: url(../img/rental/left.png) no-repeat center center;
+        background-size: 10px auto;
+        
+        left: calc(50% - 110px);
+        top: 40px;
+    }
+    
+    .ui-datepicker-next {
+        background: url(../img/rental/right.png) no-repeat center center;
+        background-size: 10px auto;
+        
+        left: calc(50% + 100px);
+        top: 20px;
+    }
 }
 
 .how-long {
