@@ -8,81 +8,38 @@ Click me: <input type="checkbox" ng-model="checked" ng-init="checked=true" /><br
 <div ng-if="checked === true">
 -->
 <div>
-    <h1>Management</h1>
-    <div>
-        <input ng-model="query">
+    <div class="head">
+        <h1>BIKE RENTAL MANAGER</h1>
+        <div class="input-cont">
+            <img src="../img/search.png" id="icon">
+            <input ng-model="query" placeholder="Search">
+        </div>
         <select ng-model="location"
-                ng-options="loc as loc.label for loc in locations">
+            ng-options="loc as loc.label for loc in locations">
         </select>
+     </div>
+    
+    <div class="status">
+        <h3>VIEW</h3>
+        <h4 ng-class="{active : status == 'pending_pickup'}" ng-click="setStatus('pending_pickup')">Pending Pick Ups</h4><h4 ng-class="{active : status == 'pending_return'}" ng-click="setStatus('pending_return')">Pending Returns</h4><h4 ng-class="{active : status == 'completed'}" ng-click="setStatus('completed')">Completed Reservations</h4>
     </div>
     
-    <h2>Pending Pickup</h2> 
     <table class="log">
-        <tr>
-            <th>Edit</th>
-            <th>First name</th>
-            <th>Last name</th>
-            <th>Date</th>
-            <th>Phone</th>
-            <th>Email</th>
-            <th>Location</th>
+        <tr class="table-head">
+            <th>PICK UP DATE</th>
+            <th>NAME</th>
+            <th>CONRACT</th>
+            <th>EQUIPMENT</th>
+            <th class="hidden">Hidden</th>
         </tr>
-        <tr ng-repeat='rv in reservations | filter:location.value:query:pp track by $index | orderBy:"-rv.date"'>
-            <td class="elems"><a href="/reservations/{{rv.$id}}">+</a></td>
-            <td class="elems">{{rv.first_name}}</td>
-            <td class="elems">{{rv.last_name}}</td>
-            <td class="elems">{{rv.date | date:'short'}}</td>
-            <td class="elems">{{rv.phone}}</td>
-            <td class="elems">{{rv.email}}</td>
-            <td class="elems">{{rv.location}}</td>
-        </tr>
-    </table>
-    
-    <hr>
-    
-    <h2>Pending Return</h2>
-    <table class="log">
-        <tr>
-            <th>Edit</th>
-            <th>First name</th>
-            <th>Last name</th>
-            <th>Date</th>
-            <th>Phone</th>
-            <th>Email</th>
-            <th>Location</th>
-        </tr>
-        <tr ng-repeat='rv in reservations | filter:location.value:query:pr track by $index | orderBy:"-rv.date"'>
-            <td class="elems"><a href="/reservations/{{rv.$id}}">+</a></td>
-            <td class="elems">{{rv.first_name}}</td>
-            <td class="elems">{{rv.last_name}}</td>
-            <td class="elems">{{rv.date | date:'short'}}</td>
-            <td class="elems">{{rv.phone}}</td>
-            <td class="elems">{{rv.email}}</td>
-            <td class="elems">{{rv.location}}</td>
-        </tr>
-    </table>
-    
-    <hr>
-    
-    <h2>Completed</h2>
-    <table class="log">
-        <tr>
-            <th>Edit</th>
-            <th>First name</th>
-            <th>Last name</th>
-            <th>Date</th>
-            <th>Phone</th>
-            <th>Email</th>
-            <th>Location</th>
-        </tr>
-        <tr ng-repeat='rv in reservations | filter:location.value:query:com track by $index | orderBy:"-rv.date"'>
-            <td class="elems"><a href="/reservations/{{rv.$id}}">+</a></td>
-            <td class="elems">{{rv.first_name}}</td>
-            <td class="elems">{{rv.last_name}}</td>
-            <td class="elems">{{rv.date | date:'short'}}</td>
-            <td class="elems">{{rv.phone}}</td>
-            <td class="elems">{{rv.email}}</td>
-            <td class="elems">{{rv.location}}</td>
+
+        <tr class="entry" ng-repeat='rv in reservations | filter:location.value:query:status track by $index | orderBy:"-rv.date"'>
+<!--            <td class="elems"><a href="/reservations/{{rv.$id}}">+</a></td>-->
+            <td class="elems">{{rv.date | date:'MMMM d'}}</td>
+            <td class="elems">{{rv.first_name + " " + rv.last_name}}</td>
+            <td class="elems">{{rv.email}}<br>{{rv.phone}}</td>
+            <td class="elems">1 Hybrid</td>
+            <td class="elems modifiers"><p>Picked up</p><a href="/reservations/{{rv.$id}}">Edit<a/></td>
         </tr>
     </table>
 </div>

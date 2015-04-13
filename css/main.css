@@ -15,18 +15,6 @@
 #rental .error {
   color: red; }
 
-/* line 21, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/main.scss */
-.log {
-  width: 100%;
-  margin-top: 20px;
-  padding-bottom: 30px; }
-  /* line 26, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/main.scss */
-  .log th {
-    text-align: left; }
-  /* line 30, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/main.scss */
-  .log tr {
-    margin-bottom: 6px; }
-
 /* line 8, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental */
 * {
   margin: 0;
@@ -283,5 +271,102 @@ h3 {
 section.personal-info label {
   font-family: 'Montserrat';
   text-transform: uppercase; }
+
+/* line 3, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/mgmt */
+table {
+  table-layout: fixed; }
+
+/* line 7, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/mgmt */
+.active {
+  color: #E8E595; }
+
+/* line 11, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/mgmt */
+.hidden {
+  visibility: hidden; }
+
+/* line 15, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/mgmt */
+.input-cont {
+  position: relative;
+  padding: 0;
+  margin: 0;
+  display: inline; }
+  /* line 21, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/mgmt */
+  .input-cont input {
+    padding-left: 30px;
+    width: 250px;
+    height: 28px;
+    border: 1px solid #d9d9d9;
+    border-radius: 16px; }
+  /* line 29, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/mgmt */
+  .input-cont #icon {
+    position: absolute;
+    bottom: 4px;
+    left: 10px;
+    width: 10px;
+    height: 10px; }
+
+/* line 38, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/mgmt */
+.head {
+  margin-top: 2em;
+  margin-left: 5.2em; }
+  /* line 42, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/mgmt */
+  .head h1 {
+    margin-top: 6px;
+    display: inline;
+    font-weight: bold; }
+  /* line 48, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/mgmt */
+  .head select {
+    display: inline; }
+
+/* line 53, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/mgmt */
+.status {
+  padding: 1em 0em;
+  margin-left: 5.2em;
+  line-height: 0.75; }
+  /* line 58, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/mgmt */
+  .status h4 {
+    display: inline;
+    padding-right: 3em;
+    color: #ccc; }
+    /* line 63, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/mgmt */
+    .status h4:hover {
+      cursor: pointer; }
+
+/* line 69, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/mgmt */
+.log {
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+  margin-top: 20px;
+  padding: 30px; }
+  /* line 76, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/mgmt */
+  .log th {
+    text-align: left; }
+  /* line 80, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/mgmt */
+  .log tr {
+    margin-bottom: 6px; }
+  /* line 84, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/mgmt */
+  .log td {
+    padding: 25px 0px; }
+
+/* line 89, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/mgmt */
+.entry {
+  border-bottom: 3px solid #eee; }
+  /* line 92, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/mgmt */
+  .entry:hover {
+    cursor: pointer;
+    background-color: #eee; }
+
+/* line 99, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/mgmt */
+.modifiers p {
+  display: inline; }
+/* line 103, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/mgmt */
+.modifiers a {
+  display: inline;
+  margin-left: 1.5em; }
+
+/* line 109, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/mgmt */
+.table-head {
+  border-bottom: 2px solid #ccc; }
 
 /*# sourceMappingURL=main.css.map */

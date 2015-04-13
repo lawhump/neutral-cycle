@@ -1,0 +1,111 @@
+$left-margin: 5.2em;
+
+table {
+    table-layout: fixed;
+}
+
+.active {
+    color: #E8E595;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.input-cont {
+    position:relative;
+    padding:0;
+    margin:0;
+    display: inline;
+    
+    input {
+        padding-left: 30px;
+        width: 250px;
+        height: 28px;
+        border: 1px solid #d9d9d9;
+        border-radius: 16px;
+    }
+    
+    #icon {
+        position:absolute;
+        bottom:4px;
+        left:10px;
+        width:10px;
+        height:10px;
+    }
+}
+
+.head {
+    margin-top: 2em;
+    margin-left: $left-margin;
+    
+    h1 {
+        margin-top: 6px;
+        display: inline;
+        font-weight: bold;
+    }
+    
+    select {
+        display: inline;
+    }
+}
+
+.status {
+    padding: 1em 0em;
+    margin-left: $left-margin;
+    line-height: 0.75;
+    
+    h4 { 
+        display: inline;
+        padding-right: 3em;
+        color: #ccc;
+        
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}
+
+.log {
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    margin-top: 20px;
+    padding: 30px;
+    
+    th {
+        text-align: left;
+    }
+    
+    tr {
+        margin-bottom: 6px;
+    }
+    
+    td {
+        padding: 25px 0px;    
+    }
+}
+
+.entry {
+    border-bottom: 3px solid #eee;  
+    
+    &:hover {
+        cursor: pointer;
+        background-color: #eee;
+    }
+}
+
+.modifiers {
+    p {
+        display: inline;
+    }
+    
+    a {
+        display: inline;
+        margin-left: 1.5em;
+    }
+}
+
+.table-head {
+    border-bottom: 2px solid #ccc;
+}
