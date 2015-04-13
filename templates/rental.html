@@ -16,7 +16,7 @@
         <ul>
             <li ng-repeat="bike in bikes">
                 <div class="box" ng-click="bike.control = !bike.control; updateQuantity()" ng-class="{control: bike.control}">
-                    <img src="img/rental/{{bike.src}}">
+                    <img ng-src="img/rental/{{bike.src}}">
                     <label>{{bike.label}}</label>
                 </div>
                 <div class="controls">
@@ -36,12 +36,19 @@
     <button class="continue" ng-disabled="!quantity">Rent</button>
 </section>
 
-<section class="select-time rental_section" ng-if="quantity">
+<section class="select-date rental_section" ng-show="quantity">
+    <div class="content">
+        <h2>When do you need it?</h2>
+        <div class="datepicker"></div>
+        <button class="continue" ng-disabled="!selectedDate">Select Date</button>
+    </div>
+</section>
+
+<section class="select-time rental_section" ng-show="selectedDate">
     <div class="content">
         <form>
             <h2>How long do you need it for?</h2>
             <div class="how-long">
-    <!--            <input type="number" step="1" ng-model="timeCount">-->
                 <input id="count_1" type="radio" ng-model="timeCount" value="1">
                 <label class="count" for="count_1">1</label>
                 <input id="count_2" type="radio" ng-model="timeCount" value="2">
@@ -52,16 +59,16 @@
                 <label class="count last-count" for="count_4">4</label>
 
                 <input id="time_hours" type="radio" ng-model="timeIncrement" ng-value="byHour">
-                <label for="time_hours">Hour<span ng-if="timeCount > 1">s</span></label>
+                <label class="increment" for="time_hours">Hour<span ng-if="timeCount > 1">s</span></label>
                 <input id="time_days" type="radio" ng-model="timeIncrement" ng-value="byDay">
-                <label for="time_days">Day<span ng-if="timeCount > 1">s</span></label>
+                <label class="increment" for="time_days">Day<span ng-if="timeCount > 1">s</span></label>
                 <input id="time_weeks" type="radio" ng-model="timeIncrement" ng-value="byWeek">
-                <label for="time_weeks">Week<span ng-if="timeCount > 1">s</span></label>
+                <label class="increment" for="time_weeks">Week<span ng-if="timeCount > 1">s</span></label>
             </div>
 
             <h3>Drop Off Date</h3>
             <div class="drop-off">
-                <p>March 17</p>
+                <p>{{selectedDate | date: 'MMMM d'}}</p>
             </div>
 
             <h3>Price Breakdown</h3>
@@ -88,7 +95,7 @@
     </div>
 </section>
 
-<section class="personal-info rental_section" ng-if="quantity">
+<section class="personal-info rental_section" ng-show="selectedDate">
     <div class="content">
         <h2>Tell us about yourself</h2>
         <form>
@@ -117,6 +124,3 @@
 </section>
 
 <a href="/payment">Next</a>
-
-<script src="/js/plugins.js"></script>
-<script src="/js/submit.js"></script>

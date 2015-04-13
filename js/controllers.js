@@ -87,6 +87,8 @@ ncControllers.controller('RentalCtrl', ['$scope', '$firebase',
         $scope.timeIncrement = $scope.byHour;
         $scope.timeCount = 1;
         
+        $scope.selectedDate = null;
+        
         $scope.submit = function() {
             var datetime = new Date($scope.pickup_date + " " + $scope.pickup_time + " CST");
             var res = {
@@ -106,9 +108,20 @@ ncControllers.controller('RentalCtrl', ['$scope', '$firebase',
             $location.path('/payment');
         }
         
-        $('html,body').on('click', '.continue', function() {
+        $('.continue').on('click', function() {
             var $nextSection = $(this).closest('.rental_section').next();
             $('html,body').animate({scrollTop: $nextSection.offset().top }, 600);
+        });
+        
+        $('.datepicker').datepicker({ 
+            inline: true,
+            showOtherMonths: true,
+            minDate: 0,
+            maxDate: 90,
+            onSelect: function(dateText) {
+                $scope.selectedDate = new Date(dateText);
+                $scope.$apply();
+            }
         });
     }]);
 
