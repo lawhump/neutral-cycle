@@ -267,6 +267,11 @@ h3 {
   .breakdown .total {
     color: #f2d81c; }
 
+/* line 307, /Users/lawrencehumphrey/Dev/neutral-cycle/css/rental */
+section.personal-info label {
+  font-family: 'Montserrat';
+  text-transform: uppercase; }
+
 /* line 3, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
 table {
   table-layout: fixed; }

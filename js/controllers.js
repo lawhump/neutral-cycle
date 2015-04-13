@@ -104,7 +104,7 @@ ncControllers.controller('RentalCtrl', ['$scope', '$firebase',
             $location.path('/payment');
         }
         
-        $('.continue').click(function() {
+        $('html,body').on('click', '.continue', function() {
             var $nextSection = $(this).closest('.rental_section').next();
             $('html,body').animate({scrollTop: $nextSection.offset().top }, 600);
         });
