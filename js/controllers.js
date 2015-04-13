@@ -16,12 +16,10 @@ ncControllers.controller('MGMTFullCtrl', ['$scope', '$firebase',
         
         $scope.location = $scope.locations[1];
         
+        $scope.status = 'pending_pickup';
         $scope.setStatus = function(status) {
             $scope.status = status;
         }
-        
-        $scope.status = 'pending_pickup';
-        
     }]);
 
 ncControllers.controller('MGMTSingleCtrl', ['$scope', '$firebase', '$routeParams',
@@ -127,7 +125,7 @@ ncControllers.controller('RentalCtrl', ['$scope', '$firebase',
 
 ncControllers.controller('PayCtrl', ['$scope', '$http', '$firebase',
     function($scope, $http, $firebase, reservationMeta) {
-        console.log(reservationMeta.getMeta());
+//        console.log(reservationMeta.getMeta());
         // Stripe Response Handler
         $scope.stripeCallback = function (code, result) {
 			if (result.error) {

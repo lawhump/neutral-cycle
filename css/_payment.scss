@@ -1,0 +1,59 @@
+@mixin translate(){
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+@mixin center-this($top) {
+    position: absolute;
+    top: $top;
+    left: 50%;
+    @include translate();
+}
+
+.pay-deats {
+    height: 15vh;
+    @include center-this(15%);
+}
+
+.form-cont {
+    height: 55vh;
+    @include center-this(55%);
+    
+    #card {
+        width: 75%;
+        margin-bottom: 3em;
+    }
+    
+    button {
+        @include center-this(40%);
+    }
+}
+
+.error {
+    text-align: center;
+}
+
+.continue {
+    width: 200px;
+    padding: 12px 0;
+    text: { transform: uppercase; }
+    font: { family: 'Montserrat'; size: 1.2em; }
+    
+    border: none;
+    outline: none;
+    
+    background-color: $color-accent;
+    color: #fff;
+    
+    transition: background-color 0.2s, color 0.2s;
+    
+    &[disabled] {
+        background-color: $color-button_back;
+        color: $color-button_text;
+    }
+    
+    &:hover:not([disabled]) {
+        background-color: $color-accent_hover;
+    }
+}

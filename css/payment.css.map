@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "payment.css",
+  "sources": [
+    "payment.scss"
+  ],
+  "names": [],
+  "mappings": ";AAaA;EANI,UAAU;EACV,KAMqB;EALrB,MAAM;EARN,mBAAmB;EACnB,eAAe;EACf,WAAW;;;AAcf;EACI,QAAQ;EAXR,UAAU;EACV,KAWqB;EAVrB,MAAM;EARN,mBAAmB;EACnB,eAAe;EACf,WAAW;;EAgBf,WAAW;IAGH,OAAO;IACP,eAAe;;EACvB,WAAW;IAjBP,UAAU;IACV,KAmByB;IAlBzB,MAAM;IARN,mBAAmB;IACnB,eAAe;IACf,WAAW;;;AA4Bf;EACI,YAAY",
+  "sourceRoot": ""
+}

@@ -4,12 +4,12 @@ table {
     table-layout: fixed;
 }
 
-.active {
-    color: #E8E595;
-}
-
 .hidden {
     visibility: hidden;
+}
+
+textarea:focus, input:focus {
+    outline: 0;
 }
 
 .input-cont {
@@ -59,9 +59,14 @@ table {
         display: inline;
         padding-right: 3em;
         color: #ccc;
+        cursor: pointer;
         
         &:hover {
-            cursor: pointer;
+            color: #999;
+        }
+        
+        &.active {
+            color: #E8E595;
         }
     }
 }

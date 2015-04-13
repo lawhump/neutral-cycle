@@ -1,0 +1,36 @@
+/* line 14, /Users/lawrencehumphrey/Dev/neutral-cycle/css/payment.scss */
+.pay-deats {
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); }
+
+/* line 18, /Users/lawrencehumphrey/Dev/neutral-cycle/css/payment.scss */
+.form-cont {
+  height: 55vh;
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); }
+  /* line 22, /Users/lawrencehumphrey/Dev/neutral-cycle/css/payment.scss */
+  .form-cont #card {
+    width: 75%;
+    margin-bottom: 3em; }
+  /* line 27, /Users/lawrencehumphrey/Dev/neutral-cycle/css/payment.scss */
+  .form-cont button {
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%); }
+
+/* line 32, /Users/lawrencehumphrey/Dev/neutral-cycle/css/payment.scss */
+.error {
+  text-align: center; }
+
+/*# sourceMappingURL=payment.css.map */

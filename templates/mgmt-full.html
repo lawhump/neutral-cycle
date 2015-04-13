@@ -1,12 +1,3 @@
-<!--
-Click me: <input type="checkbox" ng-model="checked" ng-init="checked=true" /><br/>
-
-<div ng-if="checked === false">
-    <p>bruh</p>
-</div>
-
-<div ng-if="checked === true">
--->
 <div>
     <div class="head">
         <h1>BIKE RENTAL MANAGER</h1>
@@ -21,7 +12,9 @@ Click me: <input type="checkbox" ng-model="checked" ng-init="checked=true" /><br
     
     <div class="status">
         <h3>VIEW</h3>
-        <h4 ng-class="{active : status == 'pending_pickup'}" ng-click="setStatus('pending_pickup')">Pending Pick Ups</h4><h4 ng-class="{active : status == 'pending_return'}" ng-click="setStatus('pending_return')">Pending Returns</h4><h4 ng-class="{active : status == 'completed'}" ng-click="setStatus('completed')">Completed Reservations</h4>
+        <h4 ng-class="{active : status == 'pending_pickup'}" ng-click="setStatus('pending_pickup')">Pending Pick Ups</h4>
+        <h4 ng-class="{active : status == 'pending_return'}" ng-click="setStatus('pending_return')">Pending Returns</h4>
+        <h4 ng-class="{active : status == 'completed'}" ng-click="setStatus('completed')">Completed Reservations</h4>
     </div>
     
     <table class="log">
@@ -34,7 +27,6 @@ Click me: <input type="checkbox" ng-model="checked" ng-init="checked=true" /><br
         </tr>
 
         <tr class="entry" ng-repeat='rv in reservations | filter:location.value:query:status track by $index | orderBy:"-rv.date"'>
-<!--            <td class="elems"><a href="/reservations/{{rv.$id}}">+</a></td>-->
             <td class="elems">{{rv.date | date:'MMMM d'}}</td>
             <td class="elems">{{rv.first_name + " " + rv.last_name}}</td>
             <td class="elems">{{rv.email}}<br>{{rv.phone}}</td>
