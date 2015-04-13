@@ -1,11 +1,19 @@
-<div class="order-summary">
-    
+<div class="pay-deats">
+    <h2>Payment Details</h2>
 </div>
 
-<form stripe-form="stripeCallback" name="checkoutForm">
-    <input ng-model="number" placeholder="Card Number" payments-format="card" payments-validate="card" name="card" />
-    <input ng-model="expiry" placeholder="Expiration" payments-format="expiry" payments-validate="expiry" name="expiry" />
-    <input ng-model="cvc" placeholder="CVC" payments-format="cvc" payments-validate="cvc" name="cvc" />
-    <button type="submit">Submit</button>
-    <div ng-if="checkoutForm.card.$invalid"> Error: invalid card number! </div>
-</form>
+<div class="order-summary">
+    <span class="total">
+        
+    </span>
+</div>
+
+<div class="form-cont">
+    <form class="card-info" stripe-form="stripeCallback" name="checkoutForm">
+        <div class="error" ng-if="checkoutForm.card.$invalid"> <h4>Error: invalid card number! </h4></div>
+        <label for="card">CARD NUMBER</label><input id="card" ng-model="number" placeholder="XXXX XXXX XXXX XXXX" payments-format="card" payments-validate="card" name="card" /> <br>
+        <label for="exp">EXPIRATION</label><input id="exp" ng-model="expiry" placeholder="MM / YY" payments-format="expiry" payments-validate="expiry" name="expiry" />
+        <label for="cvc">CVC</label><input id="cvc" ng-model="cvc" placeholder="XXX" payments-format="cvc" payments-validate="cvc" name="cvc" /> <br>
+        <button class="continue" type="submit">Submit</button>
+    </form>
+</div>
