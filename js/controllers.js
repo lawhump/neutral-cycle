@@ -2,6 +2,35 @@ var ncControllers = angular.module('ncControllers', ['firebase']);
 //CREATE A FIREBASE REFERENCE
 var ref = new Firebase("https://neutral-cycle.firebaseio.com/");
 
+ncControllers.service('Reservation', function() {
+    var res = undefined;
+    var price = 0;
+        
+    var addRes = function(rv) {
+        res = rv;
+    }
+
+    var getRes = function(){
+        return res;
+    }
+
+    var addPrice = function(p) {
+        price = p;
+    }
+
+    var getPrice = function(){
+        return price;
+    }
+    
+    return {
+        addRes: addRes,
+        getRes: getRes,
+        addPrice: addPrice,
+        getPrice: getPrice
+    };
+
+});
+
 ncControllers.controller('MGMTFullCtrl', ['$scope', '$firebase',
     function($scope, $firebase) {
         // GET MESSAGES AS AN ARRAY
@@ -33,7 +62,7 @@ ncControllers.controller('MGMTSingleCtrl', ['$scope', '$firebase', '$routeParams
         };
     }]); 
 
-ncControllers.controller('RentalCtrl', ['$scope', '$firebase', '$location',
+ncControllers.controller('RentalCtrl', ['$scope', '$firebase', '$location', 'Reservation',
     function($scope, $firebase, $location, Reservation) {
         $scope.Reservation = Reservation;
         
@@ -87,24 +116,46 @@ ncControllers.controller('RentalCtrl', ['$scope', '$firebase', '$location',
         $scope.timeIncrement = $scope.byHour;
         $scope.timeCount = 1;
         
+        $scope.selectedDate = null;
+        
         $scope.submit = function() {
-//            console.log($scope.Reservation);
+            var res = {
+//                date        : datetime,
+                email       : $scope.email,
+                first_name  : $scope.first_name,
+                last_name   : $scope.last_name,
+                phone       : $scope.phone || null,
+                rented      : false,
+                location    : $scope.location
+            };
+            Reservation.addRes(res);
 
             $location.path('/payment');
         }
         
-        $('html,body').on('click', '.continue', function() {
+        $('.continue').on('click', function() {
             var $nextSection = $(this).closest('.rental_section').next();
             $('html,body').animate({scrollTop: $nextSection.offset().top }, 600);
         });
+        
+        $('.datepicker').datepicker({ 
+            inline: true,
+            showOtherMonths: true,
+            minDate: 0,
+            maxDate: 90,
+            onSelect: function(dateText) {
+                $scope.selectedDate = new Date(dateText);
+                $scope.$apply();
+            }
+        });
     }]);
 
-ncControllers.controller('PayCtrl', ['$scope', '$http', '$firebase',
+ncControllers.controller('PayCtrl', ['$scope', '$http', '$firebase', 'Reservation',
     function($scope, $http, $firebase, Reservation) {
         
-        $scope.Reservation = Reservation;
+        $scope.res = Reservation.getRes();
         
-        console.log($scope.Reservation);
+        console.log($scope.res);
         
         // Stripe Response Handler
         $scope.stripeCallback = function (code, result) {

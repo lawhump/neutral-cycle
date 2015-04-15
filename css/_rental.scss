@@ -4,6 +4,7 @@ $color-background: #f9f9f9;
 $color-button_back: #e6e6e6;
 $color-button_text: #ccc;
 $color-grey_text: #b3b3b3;
+$color-dark_grey: #333;
 
 * { margin: 0; padding: 0; }
 
@@ -214,6 +215,10 @@ section.select-equipment {
     }
 }
 
+.submit {
+    @extend .continue;
+}
+
 .breakdown {
     .plus::before {
         content: "+";
@@ -234,6 +239,106 @@ h3 {
     margin: 60px 0 20px;
 }
 
+.rental_section.select-date {
+    h2 {
+        margin: 0;
+    }
+}
+
+.datepicker {
+    height: 400px;
+}
+
+.ui-datepicker {
+    max-width: 800px;
+    margin: 0 auto;
+    
+    table {
+        width: 100%;
+        margin-top: 20px;
+        
+        border-collapse: separate;
+        border-spacing: 10px;
+    }
+    
+    th {
+        font: { family: 'Montserrat'; }
+        text: { transform: uppercase; }
+    }
+    
+    a {
+        text-decoration: none;
+    }
+    
+    td {
+        box-sizing: border-box;
+        border: 2px solid #000;
+        padding: 8px 0;
+        
+        font-size: 1.2em; 
+        color: #000;
+        
+        cursor: pointer;
+        
+        a { color: #000; }
+        
+        &.ui-datepicker-unselectable {
+            cursor: default;
+            border-color: $color-button_text;
+            color: $color-button_text;
+        }
+        
+        &.ui-datepicker-other-month {
+            visibility: hidden;
+        }
+        
+        &.ui-datepicker-current-day {
+            border-color: $color-accent;   
+            a { color: $color-accent; }
+        }
+    }
+    
+    .ui-datepicker-month {
+        text: { transform: uppercase; }
+        font: { family: 'Montserrat'; size: 1.1em; }
+        letter-spacing: 1px;
+    }
+    
+    .ui-datepicker-year { display: none; }
+    
+    .ui-datepicker-prev, .ui-datepicker-next {
+        display: block;
+        position: relative;
+        height: 20px;
+        width: 10px;
+        
+        cursor: pointer;
+        
+        span { display: none; }
+        
+        &.ui-state-disabled {
+            opacity: .3;
+            cursor: default;
+        }
+    }
+    
+    .ui-datepicker-prev {
+        background: url(../img/rental/left.png) no-repeat center center;
+        background-size: 10px auto;
+        
+        left: calc(50% - 110px);
+        top: 40px;
+    }
+    
+    .ui-datepicker-next {
+        background: url(../img/rental/right.png) no-repeat center center;
+        background-size: 10px auto;
+        
+        left: calc(50% + 100px);
+        top: 20px;
+    }
+}
+
 .how-long {
     input[type="number"] {
         box-sizing: border-box;
@@ -252,9 +357,6 @@ h3 {
     }
     
     label {
-        background-color: $color-button_back;
-        color: $color-button_text;
-        
         display: inline-block;
         width: 100%;
         max-width: 160px;
@@ -268,8 +370,15 @@ h3 {
         
         cursor: pointer;
         
+        &.increment {
+            background-color: $color-button_back;
+            color: $color-button_text;
+        }
+        
         &.count {
+            font-size: 1.2em;
             max-width: 40px;
+            color: $color-grey_text;
         }
         
         &.last-count {
@@ -278,13 +387,20 @@ h3 {
     }
     
     input[type="radio"]:checked + label {
-        background-color: $color-accent;
-        color: #fff; 
+        &.increment {
+            background-color: $color-accent;
+            color: #fff;
+        }
+        
+        &.count {
+            color: $color-accent;
+        }
     }
 }
 
 .drop-off {
     font: { size: 4em; }
+    color: $color-dark_grey;
 }
 
 .breakdown {
@@ -304,8 +420,44 @@ h3 {
 }
 
 section.personal-info {
+    p { margin-bottom: 20px; }
+    
     label {
-        font: { family: 'Montserrat'; }
-        text: { transform: uppercase; }
+        display: inline-block;
+        font: { family: 'Montserrat'; size: .9em; }
+        text: { transform: uppercase; align: right; }
+        letter-spacing: 1px;
+        color: $color-dark_grey;
+        
+        width: 140px;
+        margin-right: 4px;
+    }
+    
+    input[type="text"] {
+        background: none;
+        
+        outline: none;
+        border: none;
+        border-bottom: 1px solid $color-dark_grey;
+        width: 300px;
+        padding-bottom: 4px;
+        padding-left: 2px;
+        
+        &::-webkit-input-placeholder {
+            font-style: italic;
+            font-size: 1.1em;
+        }
+
+        &:-moz-placeholder { /* Firefox 18- */
+            font-style: italic;
+        }
+
+        &::-moz-placeholder {  /* Firefox 19+ */
+            font-style: italic;
+        }
+
+        &:-ms-input-placeholder {  
+            font-style: italic;
+        }
     }
 }
