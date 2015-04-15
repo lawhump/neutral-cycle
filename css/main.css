@@ -362,41 +362,45 @@ h3 {
     color: #f2d81c; }
 
 /* line 419, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental */
-section.personal-info p {
-  margin-bottom: 20px; }
+section.personal-info form {
+  margin-bottom: 80px; }
 /* line 421, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental */
+section.personal-info p {
+  margin-bottom: 50px; }
+/* line 423, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental */
 section.personal-info label {
+  position: relative;
+  top: 10px;
   display: inline-block;
   font-family: 'Montserrat';
-  font-size: 0.9em;
+  font-size: 0.8em;
   text-transform: uppercase;
   text-align: right;
-  letter-spacing: 1px;
   color: #333;
   width: 140px;
-  margin-right: 4px; }
-/* line 432, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental */
+  margin-right: 10px; }
+/* line 436, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental */
 section.personal-info input[type="text"] {
   background: none;
   outline: none;
   border: none;
   border-bottom: 1px solid #333;
   width: 300px;
-  padding-bottom: 4px;
-  padding-left: 2px; }
-  /* line 442, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental */
+  padding-bottom: 6px;
+  padding-left: 2px;
+  font-size: 1.1em; }
+  /* line 449, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental */
   section.personal-info input[type="text"]::-webkit-input-placeholder {
-    font-style: italic;
-    font-size: 1.1em; }
-  /* line 447, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental */
+    font-style: italic; }
+  /* line 454, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental */
   section.personal-info input[type="text"]:-moz-placeholder {
     /* Firefox 18- */
     font-style: italic; }
-  /* line 451, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental */
+  /* line 458, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental */
   section.personal-info input[type="text"]::-moz-placeholder {
     /* Firefox 19+ */
     font-style: italic; }
-  /* line 455, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental */
+  /* line 462, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental */
   section.personal-info input[type="text"]:-ms-input-placeholder {
     font-style: italic; }
 

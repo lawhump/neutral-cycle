@@ -98,28 +98,40 @@
 <section class="personal-info rental_section" ng-show="selectedDate">
     <div class="content">
         <h2>Tell us about yourself</h2>
-        <form>
+        <form name="personalInfo" novalidate>
             <p>
                 <label for="first_name">First Name</label>
                 <input type="text" ng-model="first_name" id="first_name" name="first_name" placeholder="Johnny" required>
+                <span ng-show="personalInfo.first_name.$dirty && personalInfo.first_name.$invalid">
+                    <span ng-show="personalInfo.first_name.$error.required">First name is required</span>
+                </span>
             </p>
 
             <p>
                 <label for="last_name">Last Name</label>
                 <input type="text" ng-model="last_name" id="last_name" name="last-name" placeholder="Doe" required>
+                <span ng-show="personalInfo.last_name.$dirty && personalInfo.last_name.$invalid">
+                    <span ng-show="personalInfo.last_name.$error.required">Last name is required</span>
+                </span>
             </p>
             <p>
                 <label for="email">Email Address</label>
                 <input type="text" ng-model="email" id="email" name="email" type="email" placeholder="givemeabike@now.com" required>
+                <span ng-show="personalInfo.email.$dirty && personalInfo.email.$invalid">
+                    <span ng-show="personalInfo.email.$error.required">Email is required</span>
+                    <span ng-show="personalInfo.email.$error.email">Invalid email address</span>
+                </span>
             </p>
 
             <p>
                 <label for="phone">Phone Number</label>
-                <input type="text" ng-model="phone" id="phone" name="phone" placeholder="(420) 666-6969">
+                <input type="text" ng-model="phone" id="phone" name="phone" placeholder="(420) 666-6969" ng-blur="checkPhone($event)">
+                <span ng-show="personalInfo.phone.$dirty">
+                    <span style="display:none" class="phone-error">Valid phone number is required</span>
+                </span>
             </p>
-
-            <button type="button" class="continue">Confirm</button>
         </form>
+        <button type="button" class="continue">Confirm</button>
     </div>
 </section>
 
