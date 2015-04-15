@@ -88,35 +88,30 @@
     </div>
 </section>
 
-<section class="personal-info rental_section" ng-if="quantity">
+<section class="personal-info rental_section" ng-show="quantity">
     <div class="content">
         <h2>Tell us about yourself</h2>
         <form>
             <p>
                 <label for="first_name">First Name</label>
-                <input ng-model="first_name" id="first_name" name="first_name" placeholder="Johnny" required>
+                <input ng-model="Reservation.res.first_name" id="first_name" name="first_name" placeholder="Johnny" required>
             </p>
 
             <p>
                 <label for="last_name">Last Name</label>
-                <input ng-model="last_name" id="last_name" name="last-name" placeholder="Doe" required>
+                <input ng-model="Reservation.res.last_name" id="last_name" name="last-name" placeholder="Doe" required>
             </p>
             <p>
                 <label for="email">Email Address</label>
-                <input ng-model="email" id="email" name="email" type="email" placeholder="givemeabike@now.com" required>
+                <input ng-model="Reservation.res.email" id="email" name="email" type="email" placeholder="givemeabike@now.com" required>
             </p>
 
             <p>
                 <label for="phone">Phone Number</label>
-                <input ng-model="phone" id="phone" name="phone" placeholder="(420) 666-6969">
+                <input ng-model="Reservation.res.phone" id="phone" name="phone" placeholder="(420) 666-6969">
             </p>
 
-            <button type="button" class="continue">Confirm</button>
+            <button ng-click="submit()" type="button" class="continue">Confirm</button>
         </form>
     </div>
 </section>
-
-<a href="/payment">Next</a>
-
-<script src="/js/plugins.js"></script>
-<script src="/js/submit.js"></script>

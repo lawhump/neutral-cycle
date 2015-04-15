@@ -33,8 +33,10 @@ ncControllers.controller('MGMTSingleCtrl', ['$scope', '$firebase', '$routeParams
         };
     }]); 
 
-ncControllers.controller('RentalCtrl', ['$scope', '$firebase',
-    function($scope, $firebase, reservationMeta) {
+ncControllers.controller('RentalCtrl', ['$scope', '$firebase', '$location',
+    function($scope, $firebase, $location, Reservation) {
+        $scope.Reservation = Reservation;
+        
         $scope.bikes = [{ 
             quantity: 1,
             control: false,
@@ -86,20 +88,7 @@ ncControllers.controller('RentalCtrl', ['$scope', '$firebase',
         $scope.timeCount = 1;
         
         $scope.submit = function() {
-            var datetime = new Date($scope.pickup_date + " " + $scope.pickup_time + " CST");
-            var res = {
-                date        : datetime,
-                email       : $scope.email,
-                first_name  : $scope.first_name,
-                last_name   : $scope.last_name,
-                phone       : $scope.phone || null,
-                rented      : false,
-                location    : $scope.location
-            };
-            
-            var meta = {};
-            meta.res = res; meta.bikes = $scope.bikes;
-            reservationMeta.setMeta(meta);
+//            console.log($scope.Reservation);
 
             $location.path('/payment');
         }
@@ -111,8 +100,12 @@ ncControllers.controller('RentalCtrl', ['$scope', '$firebase',
     }]);
 
 ncControllers.controller('PayCtrl', ['$scope', '$http', '$firebase',
-    function($scope, $http, $firebase, reservationMeta) {
-//        console.log(reservationMeta.getMeta());
+    function($scope, $http, $firebase, Reservation) {
+        
+        $scope.Reservation = Reservation;
+        
+        console.log($scope.Reservation);
+        
         // Stripe Response Handler
         $scope.stripeCallback = function (code, result) {
 			if (result.error) {
