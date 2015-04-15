@@ -420,17 +420,21 @@ h3 {
 }
 
 section.personal-info {
-    p { margin-bottom: 20px; }
+    form { margin-bottom: 80px; }
+    
+    p { margin-bottom: 50px; }
     
     label {
+        position: relative;
+        top: 10px;
+        
         display: inline-block;
-        font: { family: 'Montserrat'; size: .9em; }
+        font: { family: 'Montserrat'; size: .8em; }
         text: { transform: uppercase; align: right; }
-        letter-spacing: 1px;
         color: $color-dark_grey;
         
         width: 140px;
-        margin-right: 4px;
+        margin-right: 10px;
     }
     
     input[type="text"] {
@@ -439,13 +443,16 @@ section.personal-info {
         outline: none;
         border: none;
         border-bottom: 1px solid $color-dark_grey;
+        
         width: 300px;
-        padding-bottom: 4px;
+        padding-bottom: 6px;
         padding-left: 2px;
+        
+        font: { size: 1.1em; }
         
         &::-webkit-input-placeholder {
             font-style: italic;
-            font-size: 1.1em;
+//            font-size: 1.1em;
         }
 
         &:-moz-placeholder { /* Firefox 18- */

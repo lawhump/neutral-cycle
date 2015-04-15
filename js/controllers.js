@@ -31,6 +31,29 @@ ncControllers.service('Reservation', function() {
 
 });
 
+var PHONE_REGEXP = /^[(]{0,1}[0-9]{3}[)\.\-\ ]{0,1}[0-9]{3}[\.\- ]{0,1}[0-9]{4}$/;
+
+//ncControllers.directive('phone', function() {
+//    return {
+//        restrice: 'A',
+//        require: 'ngModel',
+//        link: function(scope, element, attrs, ctrl) {
+//            angular.element(element).bind('blur', function() {
+//                var value = this.value;
+//                if(PHONE_REGEXP.test(value)) {
+//                    // Valid input
+//                    console.log("valid phone number");
+//                    $('.phone-error').css('display','none');  
+//                } else {
+//                    // Invalid input  
+//                    console.log("invalid phone number");
+//                    $('.phone-error').css('display','block');                 
+//                }
+//            });              
+//        }            
+//    }        
+//});
+
 ncControllers.controller('MGMTFullCtrl', ['$scope', '$firebase',
     function($scope, $firebase) {
         // GET MESSAGES AS AN ARRAY
@@ -117,6 +140,20 @@ ncControllers.controller('RentalCtrl', ['$scope', '$firebase', '$location', 'Res
         $scope.timeCount = 1;
         
         $scope.selectedDate = null;
+        
+        $scope.checkPhone = function(phone) {
+            var num = phone.target.value;
+            if(PHONE_REGEXP.test(num)) {
+                // Valid input
+                console.log("valid phone number");
+                $('.phone-error').css('display','none');  
+            } else {
+                // Invalid input  
+                console.log("invalid phone number");
+                $('.phone-error').css('display','block');
+                console.log($('.phone-error'));
+            }
+        }
         
         $scope.submit = function() {
             var res = {
