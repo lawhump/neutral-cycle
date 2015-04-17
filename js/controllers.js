@@ -1,3 +1,4 @@
+var PHONE_REGEXP = /^[(]{0,1}[0-9]{3}[)\.\-\ ]{0,1}[0-9]{3}[\.\- ]{0,1}[0-9]{4}$/;
 var ncControllers = angular.module('ncControllers', ['firebase']);
 //CREATE A FIREBASE REFERENCE
 var ref = new Firebase("https://neutral-cycle.firebaseio.com/");
@@ -137,6 +138,8 @@ ncControllers.controller('RentalCtrl', ['$scope', '$firebase', '$location', 'Res
                 location    : $scope.location
             };
             Reservation.addRes(res);
+            // give me price so i can do this
+            //Reservation.addPrice(price);
 
             $location.path('/payment');
         }
@@ -162,6 +165,9 @@ ncControllers.controller('PayCtrl', ['$scope', '$http', '$firebase', 'Reservatio
     function($scope, $http, $firebase, Reservation) {
         
         $scope.res = Reservation.getRes();
+        // need price so this works
+        // var price = Reservation.getPrice();
+        var price = 3000;
         
         console.log($scope.res);
         
@@ -171,30 +177,25 @@ ncControllers.controller('PayCtrl', ['$scope', '$http', '$firebase', 'Reservatio
 				window.alert('it failed! error: ' + result.error.message);
 			} 
             else {
-				console.log('success! token: ' + result.id);
-                
+				console.log('success! token: ' + result.id);                
                 console.log(result);
+                
+                var request = 'http://localhost:3000/charge?p=' + price;
 
-                $http.post('http://localhost:3000/charge', result).
+                $http.post(request, result).
                 success(function(data, status, headers, config) {
                     // this callback will be called asynchronously
                     // when the response is available
                     console.log(data);
-            
-//                    $scope.reservations.$add({
-//                        date        : datetime,
-//                        email       : $scope.email,
-//                        first_name  : $scope.first_name,
-//                        last_name   : $scope.last_name,
-//                        phone       : $scope.phone || null,
-//                        rented      : false,
-//                        location    : $scope.location
-//                    });
+                    
+                    // Payment successful; push to DB
+                    // $scope.reservations.$add($scope.res);
                 }).
-                 error(function(data, status, headers, config) {
-                     // called asynchronously if an error occurs
-                     // or server returns response with an error status.
-                 });
+                error(function(data, status, headers, config) {
+                    // called asynchronously if an error occurs
+                    // or server returns response with an error status.
+                    
+                });
 
 			 }
 		};

@@ -8,7 +8,7 @@
     </span>
 </div>
 
-<div class="form-cont">
+<div class="form-cont personal-info">
     <form class="card-info" stripe-form="stripeCallback" name="checkoutForm">
         <div class="error" ng-if="checkoutForm.card.$invalid"> <h4>Error: invalid card number! </h4></div>
         <label for="card">CARD NUMBER</label><input type="text" id="card" ng-model="number" placeholder="XXXX XXXX XXXX XXXX" payments-format="card" payments-validate="card" name="card" /> <br>

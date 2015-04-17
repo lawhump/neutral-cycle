@@ -34,16 +34,18 @@ function findByUsername(username, fn) {
 
 passport.use(new LocalStrategy(
     function(username, password, done) {
-//        users.findOne({ username: username }, function(err, user) {
-//            if (err) { return done(err); }
-//            if (!user) {
-//                return done(null, false, { message: 'Incorrect username.' });
-//            }
-//            if (!user.validPassword(password)) {
-//                return done(null, false, { message: 'Incorrect password.' });
-//            }
-//            return done(null, user);
-//        });
+        /*
+        users.findOne({ username: username }, function(err, user) {
+            if (err) { return done(err); }
+            if (!user) {
+                return done(null, false, { message: 'Incorrect username.' });
+            }
+            if (!user.validPassword(password)) {
+                return done(null, false, { message: 'Incorrect password.' });
+            }
+            return done(null, user);
+        });
+        */
         findByUsername(username, function(err, user) {
         if (err) { return done(err); }
         if (!user) { return done(null, false, { message: 'Unknown user ' + username }); }
@@ -75,7 +77,7 @@ app.post('/charge', function(req, res) {
     var stripeToken = req.body.id;
     
     var payload = {
-        amount: 10000, // amount in cents, again
+        amount: parseInt(req.query.p), // amount in cents, again
         currency: "usd",
         source: stripeToken,
         description: "email@email.com"

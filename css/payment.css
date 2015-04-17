@@ -1,5 +1,6 @@
-/* line 14, /Users/lawrencehumphrey/Dev/neutral-cycle/css/payment.scss */
+/* line 22, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/payment.scss */
 .pay-deats {
+  height: 15vh;
   position: absolute;
   top: 15%;
   left: 50%;
@@ -7,7 +8,7 @@
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%); }
 
-/* line 18, /Users/lawrencehumphrey/Dev/neutral-cycle/css/payment.scss */
+/* line 27, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/payment.scss */
 .form-cont {
   height: 55vh;
   position: absolute;
@@ -16,21 +17,87 @@
   -webkit-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%); }
-  /* line 22, /Users/lawrencehumphrey/Dev/neutral-cycle/css/payment.scss */
+  /* line 31, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/payment.scss */
   .form-cont #card {
     width: 75%;
     margin-bottom: 3em; }
-  /* line 27, /Users/lawrencehumphrey/Dev/neutral-cycle/css/payment.scss */
+  /* line 36, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/payment.scss */
   .form-cont button {
     position: absolute;
-    top: 90%;
+    top: 40%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%); }
 
-/* line 32, /Users/lawrencehumphrey/Dev/neutral-cycle/css/payment.scss */
+/* line 41, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/payment.scss */
 .error {
   text-align: center; }
+
+/* line 45, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/payment.scss */
+.continue {
+  width: 200px;
+  padding: 12px 0;
+  text-transform: uppercase;
+  font-family: 'Montserrat';
+  font-size: 1.2em;
+  border: none;
+  outline: none;
+  background-color: #f2d81c;
+  color: #fff;
+  transition: background-color 0.2s, color 0.2s; }
+  /* line 59, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/payment.scss */
+  .continue[disabled] {
+    background-color: #e6e6e6;
+    color: #ccc; }
+  /* line 64, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/payment.scss */
+  .continue:hover:not([disabled]) {
+    background-color: #d3b81a; }
+
+/* line 69, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/payment.scss */
+form {
+  margin-bottom: 80px; }
+
+/* line 71, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/payment.scss */
+p {
+  margin-bottom: 50px; }
+
+/* line 73, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/payment.scss */
+label {
+  position: relative;
+  top: 10px;
+  display: inline-block;
+  font-family: 'Montserrat';
+  font-size: 0.8em;
+  text-transform: uppercase;
+  text-align: right;
+  color: #333;
+  width: 140px;
+  margin-right: 10px; }
+
+/* line 86, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/payment.scss */
+input[type="text"] {
+  background: none;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #333;
+  width: 300px;
+  padding-bottom: 6px;
+  padding-left: 2px;
+  font-size: 1.1em; }
+  /* line 99, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/payment.scss */
+  input[type="text"]::-webkit-input-placeholder {
+    font-style: italic; }
+  /* line 103, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/payment.scss */
+  input[type="text"]:-moz-placeholder {
+    /* Firefox 18- */
+    font-style: italic; }
+  /* line 107, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/payment.scss */
+  input[type="text"]::-moz-placeholder {
+    /* Firefox 19+ */
+    font-style: italic; }
+  /* line 111, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/payment.scss */
+  input[type="text"]:-ms-input-placeholder {
+    font-style: italic; }
 
 /*# sourceMappingURL=payment.css.map */
