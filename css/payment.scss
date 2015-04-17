@@ -57,3 +57,50 @@
         background-color: $color-accent_hover;
     }
 }
+
+form { margin-bottom: 80px; }
+
+p { margin-bottom: 50px; }
+
+label {
+    position: relative;
+    top: 10px;
+
+    display: inline-block;
+    font: { family: 'Montserrat'; size: .8em; }
+    text: { transform: uppercase; align: right; }
+    color: $color-dark_grey;
+
+    width: 140px;
+    margin-right: 10px;
+}
+
+input[type="text"] {
+    background: none;
+
+    outline: none;
+    border: none;
+    border-bottom: 1px solid $color-dark_grey;
+
+    width: 300px;
+    padding-bottom: 6px;
+    padding-left: 2px;
+
+    font: { size: 1.1em; }
+
+    &::-webkit-input-placeholder {
+        font-style: italic;
+    }
+
+    &:-moz-placeholder { /* Firefox 18- */
+        font-style: italic;
+    }
+
+    &::-moz-placeholder {  /* Firefox 19+ */
+        font-style: italic;
+    }
+
+    &:-ms-input-placeholder {  
+        font-style: italic;
+    }
+}

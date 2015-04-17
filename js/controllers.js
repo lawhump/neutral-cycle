@@ -33,29 +33,8 @@ ncControllers.service('Reservation', function() {
 
 var PHONE_REGEXP = /^[(]{0,1}[0-9]{3}[)\.\-\ ]{0,1}[0-9]{3}[\.\- ]{0,1}[0-9]{4}$/;
 
-//ncControllers.directive('phone', function() {
-//    return {
-//        restrice: 'A',
-//        require: 'ngModel',
-//        link: function(scope, element, attrs, ctrl) {
-//            angular.element(element).bind('blur', function() {
-//                var value = this.value;
-//                if(PHONE_REGEXP.test(value)) {
-//                    // Valid input
-//                    console.log("valid phone number");
-//                    $('.phone-error').css('display','none');  
-//                } else {
-//                    // Invalid input  
-//                    console.log("invalid phone number");
-//                    $('.phone-error').css('display','block');                 
-//                }
-//            });              
-//        }            
-//    }        
-//});
-
-ncControllers.controller('MGMTFullCtrl', ['$scope', '$firebase',
-    function($scope, $firebase) {
+ncControllers.controller('MGMTFullCtrl', ['$scope', '$firebase', '$location',
+    function($scope, $firebase, $location) {
         // GET MESSAGES AS AN ARRAY
         $scope.reservations = $firebase(ref).$asArray();
         
@@ -125,35 +104,27 @@ ncControllers.controller('RentalCtrl', ['$scope', '$firebase', '$location', 'Res
         }
         
         $scope.quantity = 0;
+        $scope.price = 0;
         $scope.updateQuantity = function() {
             $scope.quantity = $scope.bikes.reduce( 
                 function(total, bike) { 
                     return bike.control ? total + bike.quantity : total;
                 }, 0);
+            $scope.price = $scope.bikes.reduce(
+                function(total, bike, idx) {
+                    var cost = bike.quantity * $scope.timeIncrement[idx] * $scope.timeCount;
+                    return bike.control ? cost + total: total;
+                }, 0);
         }
         
-        $scope.byHour = [8, 10, 10];
-        $scope.byDay = [25, 35, 35];
-        $scope.byWeek = [100, 140, 140];
+        $scope.byHour = [8, 10, 10, -1, -1];
+        $scope.byDay = [25, 35, 35, 15, 15];
+        $scope.byWeek = [100, 140, 140, -1, -1];
         
-        $scope.timeIncrement = $scope.byHour;
+        $scope.timeIncrement = $scope.byDay;
         $scope.timeCount = 1;
         
         $scope.selectedDate = null;
-        
-        $scope.checkPhone = function(phone) {
-            var num = phone.target.value;
-            if(PHONE_REGEXP.test(num)) {
-                // Valid input
-                console.log("valid phone number");
-                $('.phone-error').css('display','none');  
-            } else {
-                // Invalid input  
-                console.log("invalid phone number");
-                $('.phone-error').css('display','block');
-                console.log($('.phone-error'));
-            }
-        }
         
         $scope.submit = function() {
             var res = {

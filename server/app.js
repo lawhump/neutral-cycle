@@ -18,8 +18,8 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 
 var users = [
     { id: 1, username: 'root', password: 'password', email: 'noah.lafferty@gmail.com', location: 'all' },
-    { id: 1, username: 'lhumphr2', password: 'runningthruthe6', email: 'noah.lafferty@gmail.com', location: 'pharm' },
-    { id: 1, username: 'lisavuong', password: 'pigsnout', email: 'noah.lafferty@gmail.com', location: 'nchq' }
+    { id: 2, username: 'lhumphr2', password: 'runningthruthe6', email: 'noah.lafferty@gmail.com', location: 'pharm' },
+    { id: 3, username: 'lisavuong', password: 'pigsnout', email: 'noah.lafferty@gmail.com', location: 'nchq' }
 ];
 
 function findByUsername(username, fn) {

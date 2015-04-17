@@ -452,7 +452,6 @@ section.personal-info {
         
         &::-webkit-input-placeholder {
             font-style: italic;
-//            font-size: 1.1em;
         }
 
         &:-moz-placeholder { /* Firefox 18- */
@@ -464,7 +463,7 @@ section.personal-info {
         }
 
         &:-ms-input-placeholder {  
-            font-style: italic;
+            font-style: italic; 
         }
     }
 }

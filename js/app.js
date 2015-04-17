@@ -14,12 +14,14 @@ myApp.config(['$routeProvider', '$locationProvider',
         $routeProvider
         .when('/', {
             templateUrl: '/templates/rental.html',
-            controller: 'RentalCtrl'
+            controller: 'RentalCtrl',
+            css: 'css/rental.css'
         })
         
         .when('/payment', {
             templateUrl: '/templates/payment.html',
-            controller: 'PayCtrl'
+            controller: 'PayCtrl',
+            css: 'css/payment.css'
         })
         
         .when('/login', {
@@ -29,15 +31,48 @@ myApp.config(['$routeProvider', '$locationProvider',
         
         .when('/reservations', {
             templateUrl: '/templates/mgmt-full.html',
-            controller: 'MGMTFullCtrl'
+            controller: 'MGMTFullCtrl',
+            css: 'css/mgmt.css'
         })
         
         .when('/reservations/:resId', {
             templateUrl: '/templates/res-detail.html',
-            controller: 'MGMTSingleCtrl'
+            controller: 'MGMTSingleCtrl',
+            css: 'css/mgmt.css'
         })
         
         .otherwise({ 
             templateUrl: '/templates/404.html' 
         });
     }]);
+
+myApp.directive('head', ['$rootScope','$compile',
+    function($rootScope, $compile){
+        return {
+            restrict: 'E',
+            link: function(scope, elem){
+                var html = '<link rel="stylesheet" ng-repeat="(routeCtrl, cssUrl) in routeStyles" ng-href="{{cssUrl}}" />';
+                elem.append($compile(html)(scope));
+                scope.routeStyles = {};
+                $rootScope.$on('$routeChangeStart', function (e, next, current) {
+                    if(current && current.$$route && current.$$route.css){
+                        if(!angular.isArray(current.$$route.css)){
+                            current.$$route.css = [current.$$route.css];
+                        }
+                        angular.forEach(current.$$route.css, function(sheet){
+                            delete scope.routeStyles[sheet];
+                        });
+                    }
+                    if(next && next.$$route && next.$$route.css){
+                        if(!angular.isArray(next.$$route.css)){
+                            next.$$route.css = [next.$$route.css];
+                        }
+                        angular.forEach(next.$$route.css, function(sheet){
+                            scope.routeStyles[sheet] = sheet;
+                        });
+                    }
+                });
+            }
+        };
+    }
+]);
