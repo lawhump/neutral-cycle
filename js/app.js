@@ -22,6 +22,11 @@ myApp.config(['$routeProvider', '$locationProvider',
             controller: 'PayCtrl'
         })
         
+        .when('/login', {
+            templateUrl: '/templates/login.html',
+            controller: 'LoginCtrl'
+        })
+        
         .when('/reservations', {
             templateUrl: '/templates/mgmt-full.html',
             controller: 'MGMTFullCtrl'
