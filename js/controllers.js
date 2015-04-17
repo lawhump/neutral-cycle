@@ -127,9 +127,20 @@ ncControllers.controller('RentalCtrl', ['$scope', '$firebase', '$location', 'Res
         
         $scope.selectedDate = null;
         
+        $('.datepicker').datepicker({ 
+            inline: true,
+            showOtherMonths: true,
+            minDate: 0,
+            maxDate: 90,
+            onSelect: function(dateText) {
+                $scope.selectedDate = new Date(dateText);
+                $scope.$apply();
+            }
+        });
+        
         $scope.submit = function() {
             var res = {
-//                date        : datetime,
+                date        : $scope.selectedDate,
                 email       : $scope.email,
                 first_name  : $scope.first_name,
                 last_name   : $scope.last_name,
@@ -138,6 +149,7 @@ ncControllers.controller('RentalCtrl', ['$scope', '$firebase', '$location', 'Res
                 location    : $scope.location
             };
             Reservation.addRes(res);
+            Reservation.addPrice($scope.price*100);
             // give me price so i can do this
             //Reservation.addPrice(price);
 
@@ -149,16 +161,6 @@ ncControllers.controller('RentalCtrl', ['$scope', '$firebase', '$location', 'Res
             $('html,body').animate({scrollTop: $nextSection.offset().top }, 600);
         });
         
-        $('.datepicker').datepicker({ 
-            inline: true,
-            showOtherMonths: true,
-            minDate: 0,
-            maxDate: 90,
-            onSelect: function(dateText) {
-                $scope.selectedDate = new Date(dateText);
-                $scope.$apply();
-            }
-        });
     }]);
 
 ncControllers.controller('PayCtrl', ['$scope', '$http', '$firebase', 'Reservation',
@@ -166,8 +168,7 @@ ncControllers.controller('PayCtrl', ['$scope', '$http', '$firebase', 'Reservatio
         
         $scope.res = Reservation.getRes();
         // need price so this works
-        // var price = Reservation.getPrice();
-        var price = 3000;
+         var price = Reservation.getPrice();
         
         console.log($scope.res);
         
@@ -189,7 +190,7 @@ ncControllers.controller('PayCtrl', ['$scope', '$http', '$firebase', 'Reservatio
                     console.log(data);
                     
                     // Payment successful; push to DB
-                    // $scope.reservations.$add($scope.res);
+                     $scope.reservations.$add($scope.res);
                 }).
                 error(function(data, status, headers, config) {
                     // called asynchronously if an error occurs

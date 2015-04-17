@@ -28,10 +28,10 @@ $color-dark_grey: #333;
     height: 55vh;
     @include center-this(55%);
     
-    #card {
-        width: 75%;
-        margin-bottom: 3em;
-    }
+//    #card {
+//        width: 75%;
+//        margin-bottom: 3em;
+//    }
     
     button {
         @include center-this(40%);
