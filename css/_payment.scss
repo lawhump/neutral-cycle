@@ -1,3 +1,11 @@
+$color-accent: #f2d81c;
+$color-accent_hover: #d3b81a;
+$color-background: #f9f9f9;
+$color-button_back: #e6e6e6;
+$color-button_text: #ccc;
+$color-grey_text: #b3b3b3;
+$color-dark_grey: #333;
+
 @mixin translate(){
     -webkit-transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
@@ -55,5 +63,55 @@
     
     &:hover:not([disabled]) {
         background-color: $color-accent_hover;
+    }
+}
+
+div.personal-info {
+//    form { margin-bottom: 80px; }
+    
+//    p { margin-bottom: 50px; }
+    
+    label {
+        position: relative;
+        top: 10px;
+        
+        display: inline-block;
+        font: { family: 'Montserrat'; size: .8em; }
+        text: { transform: uppercase; align: right; }
+        color: $color-dark_grey;
+        
+        width: 140px;
+        margin-right: 10px;
+    }
+    
+    input[type="text"] {
+        background: none;
+        
+        outline: none;
+        border: none;
+        border-bottom: 1px solid $color-dark_grey;
+        
+        width: 300px;
+        padding-bottom: 6px;
+        padding-left: 2px;
+        
+        font: { size: 1.1em; }
+        
+        &::-webkit-input-placeholder {
+            font-style: italic;
+//            font-size: 1.1em;
+        }
+
+        &:-moz-placeholder { /* Firefox 18- */
+            font-style: italic;
+        }
+
+        &::-moz-placeholder {  /* Firefox 19+ */
+            font-style: italic;
+        }
+
+        &:-ms-input-placeholder {  
+            font-style: italic;
+        }
     }
 }

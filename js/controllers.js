@@ -167,6 +167,8 @@ ncControllers.controller('RentalCtrl', ['$scope', '$firebase', '$location', 'Res
                 location    : $scope.location
             };
             Reservation.addRes(res);
+            // give me price so i can do this
+            //Reservation.addPrice(price);
 
             $location.path('/payment');
         }
@@ -192,6 +194,9 @@ ncControllers.controller('PayCtrl', ['$scope', '$http', '$firebase', 'Reservatio
     function($scope, $http, $firebase, Reservation) {
         
         $scope.res = Reservation.getRes();
+        // need price so this works
+        // var price = Reservation.getPrice();
+        var price = 3000;
         
         console.log($scope.res);
         
@@ -201,11 +206,12 @@ ncControllers.controller('PayCtrl', ['$scope', '$http', '$firebase', 'Reservatio
 				window.alert('it failed! error: ' + result.error.message);
 			} 
             else {
-				console.log('success! token: ' + result.id);
-                
+				console.log('success! token: ' + result.id);                
                 console.log(result);
+                
+                var request = 'http://localhost:3000/charge?p=' + price;
 
-                $http.post('http://localhost:3000/charge', result).
+                $http.post(request, result).
                 success(function(data, status, headers, config) {
                     // this callback will be called asynchronously
                     // when the response is available
