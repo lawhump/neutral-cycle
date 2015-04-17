@@ -1,3 +1,4 @@
+var PHONE_REGEXP = /^[(]{0,1}[0-9]{3}[)\.\-\ ]{0,1}[0-9]{3}[\.\- ]{0,1}[0-9]{4}$/;
 var ncControllers = angular.module('ncControllers', ['firebase']);
 //CREATE A FIREBASE REFERENCE
 var ref = new Firebase("https://neutral-cycle.firebaseio.com/");
@@ -31,28 +32,28 @@ ncControllers.service('Reservation', function() {
 
 });
 
-var PHONE_REGEXP = /^[(]{0,1}[0-9]{3}[)\.\-\ ]{0,1}[0-9]{3}[\.\- ]{0,1}[0-9]{4}$/;
-
-//ncControllers.directive('phone', function() {
-//    return {
-//        restrice: 'A',
-//        require: 'ngModel',
-//        link: function(scope, element, attrs, ctrl) {
-//            angular.element(element).bind('blur', function() {
-//                var value = this.value;
-//                if(PHONE_REGEXP.test(value)) {
-//                    // Valid input
-//                    console.log("valid phone number");
-//                    $('.phone-error').css('display','none');  
-//                } else {
-//                    // Invalid input  
-//                    console.log("invalid phone number");
-//                    $('.phone-error').css('display','block');                 
-//                }
-//            });              
-//        }            
-//    }        
-//});
+/*
+ncControllers.directive('phone', function() {
+    return {
+        restrice: 'A',
+        require: 'ngModel',
+        link: function(scope, element, attrs, ctrl) {
+            angular.element(element).bind('blur', function() {
+                var value = this.value;
+                if(PHONE_REGEXP.test(value)) {
+                    // Valid input
+                    console.log("valid phone number");
+                    $('.phone-error').css('display','none');  
+                } else {
+                    // Invalid input  
+                    console.log("invalid phone number");
+                    $('.phone-error').css('display','block');                 
+                }
+            });              
+        }            
+    }        
+});
+*/
 
 ncControllers.controller('MGMTFullCtrl', ['$scope', '$firebase',
     function($scope, $firebase) {
@@ -209,21 +210,15 @@ ncControllers.controller('PayCtrl', ['$scope', '$http', '$firebase', 'Reservatio
                     // this callback will be called asynchronously
                     // when the response is available
                     console.log(data);
-            
-//                    $scope.reservations.$add({
-//                        date        : datetime,
-//                        email       : $scope.email,
-//                        first_name  : $scope.first_name,
-//                        last_name   : $scope.last_name,
-//                        phone       : $scope.phone || null,
-//                        rented      : false,
-//                        location    : $scope.location
-//                    });
+                    
+                    // Payment successful; push to DB
+                    // $scope.reservations.$add($scope.res);
                 }).
-                 error(function(data, status, headers, config) {
-                     // called asynchronously if an error occurs
-                     // or server returns response with an error status.
-                 });
+                error(function(data, status, headers, config) {
+                    // called asynchronously if an error occurs
+                    // or server returns response with an error status.
+                    
+                });
 
 			 }
 		};
