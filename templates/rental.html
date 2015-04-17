@@ -74,7 +74,7 @@
             <h3>Price Breakdown</h3>
             <div class="breakdown">
                 {
-                <span ng-repeat="bike in bikes | filter:{control:true}" ng-class="{plus: $index > 0}">        
+                <span ng-repeat="bike in bikes" ng-class="{plus: $index > 0}">        
                     (
                     <b>{{bike.quantity}}</b>
                     *

@@ -111,11 +111,13 @@ ncControllers.controller('RentalCtrl', ['$scope', '$firebase', '$location', 'Res
                 function(total, bike) { 
                     return bike.control ? total + bike.quantity : total;
                 }, 0);
-            $scope.price = $scope.bikes.reduce(
+            var newPrice = $scope.bikes.reduce(
                 function(total, bike, idx) {
                     var cost = bike.quantity * $scope.timeIncrement[idx] * $scope.timeCount;
                     return bike.control ? cost + total: total;
                 }, 0);
+            $scope.price = newPrice;
+            $scope.$apply();
         }
         
         $scope.byHour = [8, 10, 10, -1, -1];
