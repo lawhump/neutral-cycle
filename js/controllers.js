@@ -146,7 +146,7 @@ ncControllers.controller('RentalCtrl', ['$scope', '$firebase', '$location', 'Res
                 last_name   : $scope.last_name,
                 phone       : $scope.phone || null,
                 rented      : false,
-                location    : $scope.location
+                location    : 'nchq'
             };
             Reservation.addRes(res);
             Reservation.addPrice($scope.price*100);
@@ -165,12 +165,12 @@ ncControllers.controller('RentalCtrl', ['$scope', '$firebase', '$location', 'Res
 
 ncControllers.controller('PayCtrl', ['$scope', '$http', '$firebase', 'Reservation',
     function($scope, $http, $firebase, Reservation) {
-        
-        $scope.res = Reservation.getRes();
+        $scope.reservations = $firebase(ref).$asArray();
+        var res = Reservation.getRes();
         // need price so this works
-         var price = Reservation.getPrice();
+        var price = Reservation.getPrice();
         
-        console.log($scope.res);
+        console.log(res);
         
         // Stripe Response Handler
         $scope.stripeCallback = function (code, result) {
@@ -190,7 +190,7 @@ ncControllers.controller('PayCtrl', ['$scope', '$http', '$firebase', 'Reservatio
                     console.log(data);
                     
                     // Payment successful; push to DB
-                     $scope.reservations.$add($scope.res);
+                     $scope.reservations.$add(res);
                 }).
                 error(function(data, status, headers, config) {
                     // called asynchronously if an error occurs
