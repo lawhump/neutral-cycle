@@ -123,6 +123,37 @@ ncControllers.controller('RentalCtrl', ['$scope', '$firebase', '$location', 'Res
         $scope.quantity = 0;
         $scope.price = 0;
         
+        var updateDate = function() {
+            if ($scope.timeIncrement == $scope.byHour){
+                
+                $scope.returnDate = new Date(
+                    $scope.selectedDate.getFullYear(),
+                    $scope.selectedDate.getMonth(),
+                    $scope.selectedDate.getDate(),
+                    $scope.selectedDate.getHours() + parseInt($scope.timeCount)
+                );
+            }
+            
+            else if ($scope.timeIncrement == $scope.byDay){
+                $scope.returnDate = new Date(
+                    $scope.selectedDate.getFullYear(),
+                    $scope.selectedDate.getMonth(),
+                    $scope.selectedDate.getDate() + parseInt($scope.timeCount)
+                );
+            }
+            
+            else {
+                $scope.returnDate = new Date(
+                    $scope.selectedDate.getFullYear(),
+                    $scope.selectedDate.getMonth(),
+                    $scope.selectedDate.getDate() + (7 * parseInt($scope.timeCount))
+                );
+            }    
+        }
+        
+        $scope.$watch('timeCount', updateDate);
+        $scope.$watch('timeIncrement', updateDate);
+        
         $scope.updateQuantity = function() {
             $scope.quantity = $scope.bikes.reduce( 
                 function(total, bike) { 
@@ -138,43 +169,6 @@ ncControllers.controller('RentalCtrl', ['$scope', '$firebase', '$location', 'Res
                     equipment[bike.label] = bike.quantity;
                 }
             });
-//            console.log($scope.selectedDate.getDay());
-
-            if ($scope.timeIncrement == $scope.byHour){
-//                date = new Date(Date.parse($scope.selectedDate));
-                
-                $scope.returnDate = new Date(
-                    $scope.selectedDate.getFullYear(),
-                    $scope.selectedDate.getMonth(),
-                    $scope.selectedDate.getDate(),
-                    $scope.selectedDate.getHours() + parseInt($scope.timeCount)
-                );
-                
-                console.log("S -- Reporting from hours: " + $scope.selectedDate);
-                console.log("R -- Reporting from hours: " + $scope.returnDate);
-            }
-            
-            else if ($scope.timeIncrement == $scope.byDay){
-                $scope.returnDate = new Date(
-                    $scope.selectedDate.getFullYear(),
-                    $scope.selectedDate.getMonth(),
-                    $scope.selectedDate.getDate() + parseInt($scope.timeCount)
-                );
-                
-//                console.log("S -- Reporting from days: " + $scope.selectedDate);
-//                console.log("R -- Reporting from days: " + $scope.returnDate);
-            }
-            
-            else {
-                $scope.returnDate = new Date(
-                    $scope.selectedDate.getFullYear(),
-                    $scope.selectedDate.getMonth(),
-                    $scope.selectedDate.getDate() + (7 * parseInt($scope.timeCount))
-                );
-                
-//                console.log("S -- Reporting from weeks: " + $scope.selectedDate);
-//                console.log("R -- Reporting from weeks: " + $scope.returnDate);
-            }
             $scope.price = newPrice;
 //            $scope.$apply();
         }
