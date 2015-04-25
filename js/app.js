@@ -21,7 +21,16 @@ myApp.config(['$routeProvider', '$locationProvider',
         .when('/payment', {
             templateUrl: '/templates/payment.html',
             controller: 'PayCtrl',
-            css: 'css/payment.css'
+            css: 'css/payment.css',
+            resolve: {
+                myApp: function ($q, $timeout) {
+                  var defer = $q.defer;
+                  $timeout(function () {
+                        defer.resolve(); 
+                  }, 2000);
+                  return defer.promise;
+                }
+            }
         })
         
         .when('/login', {
@@ -32,7 +41,16 @@ myApp.config(['$routeProvider', '$locationProvider',
         .when('/reservations', {
             templateUrl: '/templates/mgmt-full.html',
             controller: 'MGMTFullCtrl',
-            css: 'css/mgmt.css'
+            css: 'css/mgmt.css',
+            resolve: {
+                myApp: function ($q, $timeout) {
+                  var defer = $q.defer;
+                  $timeout(function () {
+                        defer.resolve(); 
+                  }, 2000);
+                  return defer.promise;
+                }
+            }
         })
         
         .when('/reservations/:resId', {

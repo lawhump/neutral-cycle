@@ -1,132 +1,134 @@
-<section class="select-equipment rental_section">
-    <div class="banner">
-        <nav>
-            <a href="http://www.neutralcycle.com">neutralcycle.com</a>
-            <a href="http://www.neutralcycle.com/make-a-appoinment/">Contact</a>
-        </nav>
-        <div>
-            <img src="img/nc-logo.png">
-            <h1>Neutral Cycle Bike Rental</h1>
-            <button type="button">How it Works</button>
+<div class="rental-cont" ng-cloak>
+    <section class="select-equipment rental_section">
+        <div class="banner">
+            <nav>
+                <a href="http://www.neutralcycle.com">neutralcycle.com</a>
+                <a href="http://www.neutralcycle.com/make-a-appoinment/">Contact</a>
+            </nav>
+            <div>
+                <img src="img/nc-logo.png">
+                <h1>Neutral Cycle Bike Rental</h1>
+                <button type="button">How it Works</button>
+            </div>
         </div>
-    </div>
-    
-    <h2>What would you like to rent?</h2>
-    <form id="rental">
-        <ul>
-            <li ng-repeat="bike in bikes">
-                <div class="box" ng-click="bike.control = !bike.control; updateQuantity()" ng-class="{control: bike.control}">
-                    <img ng-src="img/rental/{{bike.src}}">
-                    <label>{{bike.label}}</label>
+
+        <h2>What would you like to rent?</h2>
+        <form id="rental">
+            <ul>
+                <li ng-repeat="bike in bikes">
+                    <div class="box" ng-click="bike.control = !bike.control; updateQuantity()" ng-class="{control: bike.control}">
+                        <img ng-src="img/rental/{{bike.src}}">
+                        <label>{{bike.label}}</label>
+                    </div>
+                    <div class="controls">
+                        <button ng-disabled="bike.quantity <= 0" ng-click="decrementBike(bike); updateQuantity()">
+                            -
+                        </button>
+                        <span>
+                            {{bike.quantity}}
+                        </span>
+                        <button ng-disabled="bike.quantity >= 5" ng-click="incrementBike(bike); updateQuantity()">
+                            +
+                        </button>
+                    </div>
+                </li>
+            </ul>
+        </form>
+        <button class="continue" ng-disabled="!quantity">Rent</button>
+    </section>
+
+    <section class="select-date rental_section" ng-show="quantity">
+        <div class="content">
+            <h2>When do you need it?</h2>
+            <div class="datepicker"></div>
+            <button class="continue" ng-disabled="!selectedDate">Select Date</button>
+        </div>
+    </section>
+
+    <section class="select-time rental_section" ng-show="selectedDate">
+        <div class="content">
+            <form>
+                <h2>How long do you need it for?</h2>
+                <div class="how-long">
+                    <input id="count_1" type="radio" ng-model="timeCount" value="1" ng-click="updateQuantity()">
+                    <label class="count" for="count_1">1</label>
+                    <input id="count_2" type="radio" ng-model="timeCount" value="2" ng-click="updateQuantity()">
+                    <label class="count" for="count_2">2</label>
+                    <input id="count_3" type="radio" ng-model="timeCount" value="3" ng-click="updateQuantity()">
+                    <label class="count" for="count_3">3</label>
+                    <input id="count_4" type="radio" ng-model="timeCount" value="4" ng-click="updateQuantity()">
+                    <label class="count last-count" for="count_4">4</label>
+
+                    <input id="time_hours" type="radio" ng-model="timeIncrement" ng-value="byHour" ng-disabled="bikes[3].control || bikes[4].control" ng-click="updateQuantity()">
+                    <label class="increment" for="time_hours">Hour<span ng-if="timeCount > 1">s</span></label>
+                    <input id="time_days" type="radio" ng-model="timeIncrement" ng-value="byDay" ng-selected="bikes[3].control || bikes[4].control" ng-click="updateQuantity()">
+                    <label class="increment" for="time_days">Day<span ng-if="timeCount > 1">s</span></label>
+                    <input id="time_weeks" type="radio" ng-model="timeIncrement" ng-value="byWeek" ng-disabled="bikes[3].control || bikes[4].control" ng-click="updateQuantity()">
+                    <label class="increment" for="time_weeks">Week<span ng-if="timeCount > 1">s</span></label>
                 </div>
-                <div class="controls">
-                    <button ng-disabled="bike.quantity <= 0" ng-click="decrementBike(bike); updateQuantity()">
-                        -
-                    </button>
-                    <span>
-                        {{bike.quantity}}
+
+                <h3>Drop Off Date</h3>
+                <div class="drop-off">
+                    <p>{{returnDate | date: 'MMMM d'}}</p>
+                </div>
+
+                <h3>Price Breakdown</h3>
+                <div class="breakdown">
+                    {
+                    <span ng-repeat="bike in bikes" ng-class="{plus: $index > 0}">        
+                        (
+                        <b>{{bike.quantity}}</b>
+                        *
+                        <b><em>$</em>{{timeIncrement[$index]}}</b>
+                        )
                     </span>
-                    <button ng-disabled="bike.quantity >= 5" ng-click="incrementBike(bike); updateQuantity()">
-                        +
-                    </button>
+                    } * <b>{{timeCount}}</b> = <b>{{price}}</b>
+                    <span class="total">
+                    </span>
                 </div>
-            </li>
-        </ul>
-    </form>
-    <button class="continue" ng-disabled="!quantity">Rent</button>
-</section>
-
-<section class="select-date rental_section" ng-show="quantity">
-    <div class="content">
-        <h2>When do you need it?</h2>
-        <div class="datepicker"></div>
-        <button class="continue" ng-disabled="!selectedDate">Select Date</button>
-    </div>
-</section>
-
-<section class="select-time rental_section" ng-show="selectedDate">
-    <div class="content">
-        <form>
-            <h2>How long do you need it for?</h2>
-            <div class="how-long">
-                <input id="count_1" type="radio" ng-model="timeCount" value="1" ng-click="updateQuantity()">
-                <label class="count" for="count_1">1</label>
-                <input id="count_2" type="radio" ng-model="timeCount" value="2" ng-click="updateQuantity()">
-                <label class="count" for="count_2">2</label>
-                <input id="count_3" type="radio" ng-model="timeCount" value="3" ng-click="updateQuantity()">
-                <label class="count" for="count_3">3</label>
-                <input id="count_4" type="radio" ng-model="timeCount" value="4" ng-click="updateQuantity()">
-                <label class="count last-count" for="count_4">4</label>
-
-                <input id="time_hours" type="radio" ng-model="timeIncrement" ng-value="byHour" ng-disabled="bikes[3].control || bikes[4].control" ng-click="updateQuantity()">
-                <label class="increment" for="time_hours">Hour<span ng-if="timeCount > 1">s</span></label>
-                <input id="time_days" type="radio" ng-model="timeIncrement" ng-value="byDay" ng-selected="bikes[3].control || bikes[4].control" ng-click="updateQuantity()">
-                <label class="increment" for="time_days">Day<span ng-if="timeCount > 1">s</span></label>
-                <input id="time_weeks" type="radio" ng-model="timeIncrement" ng-value="byWeek" ng-disabled="bikes[3].control || bikes[4].control" ng-click="updateQuantity()">
-                <label class="increment" for="time_weeks">Week<span ng-if="timeCount > 1">s</span></label>
-            </div>
-
-            <h3>Drop Off Date</h3>
-            <div class="drop-off">
-                <p>{{selectedDate | date: 'MMMM d'}}</p>
-            </div>
-
-            <h3>Price Breakdown</h3>
-            <div class="breakdown">
-                {
-                <span ng-repeat="bike in bikes | filter:{control:true}" ng-class="{plus: $index > 0}">        
-                    (
-                    <b>{{bike.quantity}}</b>
-                    *
-                    <b><em>$</em>{{timeIncrement[$index]}}</b>
-                    )
-                </span>
-                } * <b>{{timeCount}}</b> = <b>{{price}}</b>
-                <span class="total">
-                </span>
-            </div>
-        </form>
-        <button class="continue">Reserve</button>
-    </div>
-</section>
+            </form>
+            <button class="continue">Reserve</button>
+        </div>
+    </section>
 
 
-<section class="personal-info rental_section" ng-show="selectedDate">
-    <div class="content">
-        <h2>Tell us about yourself</h2>
-        <form name="personalInfo" novalidate>
-            <p>
-                <label for="first_name">First Name</label>
-                <input type="text" ng-model="first_name" id="first_name" name="first_name" placeholder="Johnny" required>
-                <span ng-show="personalInfo.first_name.$dirty && personalInfo.first_name.$invalid">
-                    <span ng-show="personalInfo.first_name.$error.required">First name is required</span>
-                </span>
-            </p>
+    <section class="personal-info rental_section" ng-show="selectedDate">
+        <div class="content">
+            <h2>Tell us about yourself</h2>
+            <form name="personalInfo" novalidate>
+                <p>
+                    <label for="first_name">First Name</label>
+                    <input type="text" ng-model="first_name" id="first_name" name="first_name" placeholder="Johnny" required>
+                    <span ng-show="personalInfo.first_name.$dirty && personalInfo.first_name.$invalid">
+                        <span ng-show="personalInfo.first_name.$error.required">First name is required</span>
+                    </span>
+                </p>
 
-            <p>
-                <label for="last_name">Last Name</label>
-                <input type="text" ng-model="last_name" id="last_name" name="last-name" placeholder="Doe" required>
-                <span ng-show="personalInfo.last_name.$dirty && personalInfo.last_name.$invalid">
-                    <span ng-show="personalInfo.last_name.$error.required">Last name is required</span>
-                </span>
-            </p>
-            <p>
-                <label for="email">Email Address</label>
-                <input type="text" ng-model="email" id="email" name="email" type="email" placeholder="givemeabike@now.com" required>
-                <span ng-show="personalInfo.email.$dirty && personalInfo.email.$invalid">
-                    <span ng-show="personalInfo.email.$error.required">Email is required</span>
-                    <span ng-show="personalInfo.email.$error.email">Invalid email address</span>
-                </span>
-            </p>
+                <p>
+                    <label for="last_name">Last Name</label>
+                    <input type="text" ng-model="last_name" id="last_name" name="last-name" placeholder="Doe" required>
+                    <span ng-show="personalInfo.last_name.$dirty && personalInfo.last_name.$invalid">
+                        <span ng-show="personalInfo.last_name.$error.required">Last name is required</span>
+                    </span>
+                </p>
+                <p>
+                    <label for="email">Email Address</label>
+                    <input type="text" ng-model="email" id="email" name="email" type="email" placeholder="givemeabike@now.com" required>
+                    <span ng-show="personalInfo.email.$dirty && personalInfo.email.$invalid">
+                        <span ng-show="personalInfo.email.$error.required">Email is required</span>
+                        <span ng-show="personalInfo.email.$error.email">Invalid email address</span>
+                    </span>
+                </p>
 
-            <p>
-                <label for="phone">Phone Number</label>
-                <input type="text" ng-model="phone" id="phone" name="phone" placeholder="(420) 666-6969" ng-blur="checkPhone($event)">
-                <span ng-show="personalInfo.phone.$dirty">
-                    <span style="display:none" class="phone-error">Valid phone number is required</span>
-                </span>
-            </p>
-        </form>
-        <button ng-click="submit()" type="button" class="submit">Confirm</button>
-    </div>
-</section>
+                <p>
+                    <label for="phone">Phone Number</label>
+                    <input type="text" ng-model="phone" id="phone" name="phone" placeholder="(420) 666-6969" ng-blur="checkPhone($event)">
+                    <span ng-show="personalInfo.phone.$dirty">
+                        <span style="display:none" class="phone-error">Valid phone number is required</span>
+                    </span>
+                </p>
+            </form>
+            <button ng-click="submit()" type="button" class="submit">Confirm</button>
+        </div>
+    </section>
+</div>
