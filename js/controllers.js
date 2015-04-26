@@ -68,6 +68,7 @@ ncControllers.controller('MGMTSingleCtrl', ['$scope', '$firebase', '$routeParams
 ncControllers.controller('RentalCtrl', ['$scope', '$firebase', '$location', 'Reservation',
     function($scope, $firebase, $location, Reservation) {
         $scope.Reservation = Reservation;
+        var equipment = {};
         
         $scope.bikes = [{ 
             quantity: 1,
@@ -106,18 +107,60 @@ ncControllers.controller('RentalCtrl', ['$scope', '$firebase', '$location', 'Res
         
         $scope.quantity = 0;
         $scope.price = 0;
+        
+        var updatePrice = function() {
+            $scope.price = $scope.bikes.reduce(
+                function(total, bike, idx) {
+                    var cost = bike.quantity * $scope.timeIncrement[idx] * $scope.timeCount;
+                    return bike.control ? cost + total: total;
+                }, 0);
+        }
+        
+        var updateDate = function() {
+            if ($scope.timeIncrement == $scope.byHour){
+                
+                $scope.returnDate = new Date(
+                    $scope.selectedDate.getFullYear(),
+                    $scope.selectedDate.getMonth(),
+                    $scope.selectedDate.getDate(),
+                    $scope.selectedDate.getHours() + parseInt($scope.timeCount)
+                );
+            }
+            
+            else if ($scope.timeIncrement == $scope.byDay){
+                $scope.returnDate = new Date(
+                    $scope.selectedDate.getFullYear(),
+                    $scope.selectedDate.getMonth(),
+                    $scope.selectedDate.getDate() + parseInt($scope.timeCount)
+                );
+            }
+            
+            else {
+                $scope.returnDate = new Date(
+                    $scope.selectedDate.getFullYear(),
+                    $scope.selectedDate.getMonth(),
+                    $scope.selectedDate.getDate() + (7 * parseInt($scope.timeCount))
+                );
+            }
+            
+            updatePrice();
+        }
+        
+        $scope.$watch('timeCount', updateDate);
+        $scope.$watch('timeIncrement', updateDate);
+        $scope.$watch('bikes', function() {console.log($scope.bikes);});
+        
         $scope.updateQuantity = function() {
             $scope.quantity = $scope.bikes.reduce( 
                 function(total, bike) { 
                     return bike.control ? total + bike.quantity : total;
                 }, 0);
-            var newPrice = $scope.bikes.reduce(
-                function(total, bike, idx) {
-                    var cost = bike.quantity * $scope.timeIncrement[idx] * $scope.timeCount;
-                    return bike.control ? cost + total: total;
-                }, 0);
-            $scope.price = newPrice;
-            $scope.$apply();
+            $scope.bikes.forEach(function(bike) {
+                if(bike.control) {
+                    equipment[bike.label] = bike.quantity;
+                }
+            });
+//            $scope.$apply();
         }
         
         $scope.byHour = [8, 10, 10, -1, -1];
@@ -128,6 +171,7 @@ ncControllers.controller('RentalCtrl', ['$scope', '$firebase', '$location', 'Res
         $scope.timeCount = 1;
         
         $scope.selectedDate = null;
+        $scope.returnDate = null;
         
         $('.datepicker').datepicker({ 
             inline: true,
@@ -136,24 +180,25 @@ ncControllers.controller('RentalCtrl', ['$scope', '$firebase', '$location', 'Res
             maxDate: 90,
             onSelect: function(dateText) {
                 $scope.selectedDate = new Date(dateText);
+                $scope.returnDate = new Date(dateText);
                 $scope.$apply();
             }
         });
         
         $scope.submit = function() {
             var res = {
-                date        : $scope.selectedDate,
+                date        : Date.parse($scope.selectedDate),
+                return      : Date.parse($scope.returnDate),
                 email       : $scope.email,
                 first_name  : $scope.first_name,
                 last_name   : $scope.last_name,
                 phone       : $scope.phone || null,
-                rented      : false,
-                location    : $scope.location
+                status      : 'pending_pickup',
+                location    : 'nchq',
+                equipment   : equipment
             };
             Reservation.addRes(res);
             Reservation.addPrice($scope.price*100);
-            // give me price so i can do this
-            //Reservation.addPrice(price);
 
             $location.path('/payment');
         }
@@ -167,12 +212,12 @@ ncControllers.controller('RentalCtrl', ['$scope', '$firebase', '$location', 'Res
 
 ncControllers.controller('PayCtrl', ['$scope', '$http', '$firebase', 'Reservation',
     function($scope, $http, $firebase, Reservation) {
-        
-        $scope.res = Reservation.getRes();
+        $scope.reservations = $firebase(ref).$asArray();
+        var res = Reservation.getRes();
         // need price so this works
-         var price = Reservation.getPrice();
+        var price = Reservation.getPrice();
         
-        console.log($scope.res);
+        console.log(res);
         
         // Stripe Response Handler
         $scope.stripeCallback = function (code, result) {
@@ -192,7 +237,7 @@ ncControllers.controller('PayCtrl', ['$scope', '$http', '$firebase', 'Reservatio
                     console.log(data);
                     
                     // Payment successful; push to DB
-                     $scope.reservations.$add($scope.res);
+                     $scope.reservations.$add(res);
                 }).
                 error(function(data, status, headers, config) {
                     // called asynchronously if an error occurs

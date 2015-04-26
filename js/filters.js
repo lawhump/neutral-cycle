@@ -67,3 +67,24 @@ angular.module('ncFilters', []).filter('filter', function() {
         return filtered;
     };
 });
+
+angular.module('ncFilters', []).filter('control', function() {
+    return function(bikes) {
+        var filtered = [];
+
+        function filControl(bikes) {
+            angular.forEach(bikes, function(value, key){
+                for (var property in value) {
+                        if (value.hasOwnProperty(property)) {
+                            if(value['control'] === true){ filtered.push(value); break;}
+                        }
+                    }
+            });
+        }
+        
+        // limit to location; build array, then take from it as necessary
+        filControl(bikes);
+            
+        return filtered;
+    };
+});

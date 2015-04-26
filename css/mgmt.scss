@@ -1,11 +1,8 @@
 $left-margin: 5.2em;
+$icon-div-width: 100px;
 
 table {
     table-layout: fixed;
-}
-
-.hidden {
-    visibility: hidden;
 }
 
 textarea:focus, input:focus {
@@ -54,7 +51,7 @@ textarea:focus, input:focus {
     padding: 1em 0em;
     margin-left: $left-margin;
     line-height: 0.75;
-    
+    min-width: 700px;
     h4 { 
         display: inline;
         padding-right: 3em;
@@ -75,6 +72,7 @@ textarea:focus, input:focus {
     margin-left: auto;
     margin-right: auto;
     width: 90%;
+    min-width: 1400px;
     margin-top: 20px;
     padding: 30px;
     
@@ -101,16 +99,44 @@ textarea:focus, input:focus {
 }
 
 .modifiers {
-    p {
-        display: inline;
+    visibility: hidden;
+    border-bottom: 3px solid #eee;
+    margin-top: 1.5em;
+    
+    .pickup {
+        float: left;
+        width: $icon-div-width;
     }
     
-    a {
-        display: inline;
-        margin-left: 1.5em;
+    .edit {
+        width: $icon-div-width;
+        margin-left: $icon-div-width;
+        
+        a {
+            display: block;
+            margin: 1.12em 0;
+        }
+    }
+    
+    img {
+        width: 40%;
     }
 }
 
 .table-head {
     border-bottom: 2px solid #ccc;
+}
+
+.equipment {
+    p {
+        display: inline;
+    }
+    
+    .comma::before {
+        content: ", ";
+    }
+}
+
+.visible {
+    visibility: visible;
 }

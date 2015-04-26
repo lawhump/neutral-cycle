@@ -1,19 +1,33 @@
-<div class="pay-deats">
-    <h2>Payment Details</h2>
-</div>
+<div class="payment-cont">
+    <div class="pay-deats">
+        <h2>Payment Details</h2>
+    </div>
 
-<div class="order-summary">
-    <span class="total">
-        
-    </span>
-</div>
+    <div class="order-summary">
+        <div class="breakdown">
+<!--
+            {
+            <span ng-repeat="bike in bikes" ng-class="{plus: $index > 0}">        
+                (
+                <b ng-show="bike.control">{{bike.quantity}}</b><b ng-show="!bike.control">0</b>
+                *
+                <b><em>$</em>{{timeIncrement[$index]}}</b>
+                )
+            </span>
+            } * <b>{{timeCount}}</b> = <b class="price"><em>$</em>{{price}}</b>
+            <span class="total">
+            </span>
+-->
+        </div>
+    </div>
 
-<div class="form-cont personal-info">
-    <form class="card-info" stripe-form="stripeCallback" name="checkoutForm">
-        <div class="error" ng-if="checkoutForm.card.$invalid"> <h4>Error: invalid card number! </h4></div>
-        <label for="card">CARD NUMBER</label><input type="text" id="card" ng-model="number" placeholder="XXXX XXXX XXXX XXXX" payments-format="card" payments-validate="card" name="card" /> <br>
-        <label for="exp">EXPIRATION</label><input type="text" id="exp" ng-model="expiry" placeholder="MM / YY" payments-format="expiry" payments-validate="expiry" name="expiry" /> <br>
-        <label for="cvc">CVC</label><input type="text" id="cvc" ng-model="cvc" placeholder="XXX" payments-format="cvc" payments-validate="cvc" name="cvc" /> <br>
-        <button class="continue" type="submit">Submit</button>
-    </form>
+    <div class="form-cont personal-info">
+        <form class="card-info" stripe-form="stripeCallback" name="checkoutForm">
+            <div class="error" ng-if="checkoutForm.card.$invalid"> <h4>Error: invalid card number! </h4></div>
+            <label for="card">CARD NUMBER</label><input type="text" id="card" ng-model="number" placeholder="XXXX XXXX XXXX XXXX" payments-format="card" payments-validate="card" name="card" /> <br>
+            <label for="exp">EXPIRATION</label><input type="text" id="exp" ng-model="expiry" placeholder="MM / YY" payments-format="expiry" payments-validate="expiry" name="expiry" /> <br>
+            <label for="cvc">CVC</label><input type="text" id="cvc" ng-model="cvc" placeholder="XXX" payments-format="cvc" payments-validate="cvc" name="cvc" /> <br>
+            <button class="continue" type="submit">Submit</button>
+        </form>
+    </div>
 </div>
