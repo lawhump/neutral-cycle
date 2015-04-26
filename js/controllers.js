@@ -69,21 +69,6 @@ ncControllers.controller('RentalCtrl', ['$scope', '$firebase', '$location', 'Res
     function($scope, $firebase, $location, Reservation) {
         $scope.Reservation = Reservation;
         var equipment = {};
-        Date.prototype.addHours = function(hours){
-            $scope.returnDate.setHours(
-                $scope.selectedDate.getHours() + parseInt(hours)
-            );
-            return $scope.returnDate;
-        }
-        
-        Date.prototype.addDays = function(days) {
-            return new Date(this.getTime() + days * 24 * 60 * 60 * 1000);
-        }
-        
-        Date.prototype.addWeeks = function(weeks) {
-            $scope.returnDate.setDate($scope.selectedDate.getDate() + (7 * parseInt(weeks)));
-            return $scope.returnDate;
-        }
         
         $scope.bikes = [{ 
             quantity: 1,
@@ -123,6 +108,14 @@ ncControllers.controller('RentalCtrl', ['$scope', '$firebase', '$location', 'Res
         $scope.quantity = 0;
         $scope.price = 0;
         
+        var updatePrice = function() {
+            $scope.price = $scope.bikes.reduce(
+                function(total, bike, idx) {
+                    var cost = bike.quantity * $scope.timeIncrement[idx] * $scope.timeCount;
+                    return bike.control ? cost + total: total;
+                }, 0);
+        }
+        
         var updateDate = function() {
             if ($scope.timeIncrement == $scope.byHour){
                 
@@ -148,28 +141,25 @@ ncControllers.controller('RentalCtrl', ['$scope', '$firebase', '$location', 'Res
                     $scope.selectedDate.getMonth(),
                     $scope.selectedDate.getDate() + (7 * parseInt($scope.timeCount))
                 );
-            }    
+            }
+            
+            updatePrice();
         }
         
         $scope.$watch('timeCount', updateDate);
         $scope.$watch('timeIncrement', updateDate);
+        $scope.$watch('bikes', function() {console.log($scope.bikes);});
         
         $scope.updateQuantity = function() {
             $scope.quantity = $scope.bikes.reduce( 
                 function(total, bike) { 
                     return bike.control ? total + bike.quantity : total;
                 }, 0);
-            var newPrice = $scope.bikes.reduce(
-                function(total, bike, idx) {
-                    var cost = bike.quantity * $scope.timeIncrement[idx] * $scope.timeCount;
-                    return bike.control ? cost + total: total;
-                }, 0);
             $scope.bikes.forEach(function(bike) {
                 if(bike.control) {
                     equipment[bike.label] = bike.quantity;
                 }
             });
-            $scope.price = newPrice;
 //            $scope.$apply();
         }
         

@@ -75,14 +75,14 @@
                 <h3>Price Breakdown</h3>
                 <div class="breakdown">
                     {
-                    <span ng-repeat="bike in bikes" ng-class="{plus: $index > 0}">        
+                    <span ng-repeat="bike in bikes | control" ng-class="{plus: $index > 0}">        
                         (
-                        <b>{{bike.quantity}}</b>
+                        <b ng-show="bike.control">{{bike.quantity}}</b><b ng-show="!bike.control">0</b>
                         *
                         <b><em>$</em>{{timeIncrement[$index]}}</b>
                         )
                     </span>
-                    } * <b>{{timeCount}}</b> = <b>{{price}}</b>
+                    } * <b>{{timeCount}}</b> = <b class="price"><em>$</em>{{price}}</b>
                     <span class="total">
                     </span>
                 </div>

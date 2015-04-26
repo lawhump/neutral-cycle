@@ -179,45 +179,48 @@ section.select-equipment {
   /* line 223, /Users/lawrencehumphrey/Dev/neutral-cycle/css/rental.scss */
   .breakdown .plus::before {
     content: "+"; }
+  /* line 229, /Users/lawrencehumphrey/Dev/neutral-cycle/css/rental.scss */
+  .breakdown .price {
+    color: #f2d81c; }
 
-/* line 230, /Users/lawrencehumphrey/Dev/neutral-cycle/css/rental.scss */
+/* line 234, /Users/lawrencehumphrey/Dev/neutral-cycle/css/rental.scss */
 h2 {
   font-size: 1.6em;
   letter-spacing: 1px;
   margin-bottom: 40px; }
 
-/* line 236, /Users/lawrencehumphrey/Dev/neutral-cycle/css/rental.scss */
+/* line 240, /Users/lawrencehumphrey/Dev/neutral-cycle/css/rental.scss */
 h3 {
   font-size: 1.4em;
   letter-spacing: 1px;
   margin: 60px 0 20px; }
 
-/* line 243, /Users/lawrencehumphrey/Dev/neutral-cycle/css/rental.scss */
+/* line 247, /Users/lawrencehumphrey/Dev/neutral-cycle/css/rental.scss */
 .rental_section.select-date h2 {
   margin: 0; }
 
-/* line 248, /Users/lawrencehumphrey/Dev/neutral-cycle/css/rental.scss */
+/* line 252, /Users/lawrencehumphrey/Dev/neutral-cycle/css/rental.scss */
 .datepicker {
   height: 400px; }
 
-/* line 252, /Users/lawrencehumphrey/Dev/neutral-cycle/css/rental.scss */
+/* line 256, /Users/lawrencehumphrey/Dev/neutral-cycle/css/rental.scss */
 .ui-datepicker {
   max-width: 800px;
   margin: 0 auto; }
-  /* line 256, /Users/lawrencehumphrey/Dev/neutral-cycle/css/rental.scss */
+  /* line 260, /Users/lawrencehumphrey/Dev/neutral-cycle/css/rental.scss */
   .ui-datepicker table {
     width: 100%;
     margin-top: 20px;
     border-collapse: separate;
     border-spacing: 10px; }
-  /* line 264, /Users/lawrencehumphrey/Dev/neutral-cycle/css/rental.scss */
+  /* line 268, /Users/lawrencehumphrey/Dev/neutral-cycle/css/rental.scss */
   .ui-datepicker th {
     font-family: 'Montserrat';
     text-transform: uppercase; }
-  /* line 269, /Users/lawrencehumphrey/Dev/neutral-cycle/css/rental.scss */
+  /* line 273, /Users/lawrencehumphrey/Dev/neutral-cycle/css/rental.scss */
   .ui-datepicker a {
     text-decoration: none; }
-  /* line 273, /Users/lawrencehumphrey/Dev/neutral-cycle/css/rental.scss */
+  /* line 277, /Users/lawrencehumphrey/Dev/neutral-cycle/css/rental.scss */
   .ui-datepicker td {
     box-sizing: border-box;
     border: 2px solid #000;
@@ -225,60 +228,60 @@ h3 {
     font-size: 1.2em;
     color: #000;
     cursor: pointer; }
-    /* line 283, /Users/lawrencehumphrey/Dev/neutral-cycle/css/rental.scss */
+    /* line 287, /Users/lawrencehumphrey/Dev/neutral-cycle/css/rental.scss */
     .ui-datepicker td a {
       color: #000; }
-    /* line 285, /Users/lawrencehumphrey/Dev/neutral-cycle/css/rental.scss */
+    /* line 289, /Users/lawrencehumphrey/Dev/neutral-cycle/css/rental.scss */
     .ui-datepicker td.ui-datepicker-unselectable {
       cursor: default;
       border-color: #ccc;
       color: #ccc; }
-    /* line 291, /Users/lawrencehumphrey/Dev/neutral-cycle/css/rental.scss */
+    /* line 295, /Users/lawrencehumphrey/Dev/neutral-cycle/css/rental.scss */
     .ui-datepicker td.ui-datepicker-other-month {
       visibility: hidden; }
-    /* line 295, /Users/lawrencehumphrey/Dev/neutral-cycle/css/rental.scss */
+    /* line 299, /Users/lawrencehumphrey/Dev/neutral-cycle/css/rental.scss */
     .ui-datepicker td.ui-datepicker-current-day {
       border-color: #f2d81c; }
-      /* line 297, /Users/lawrencehumphrey/Dev/neutral-cycle/css/rental.scss */
+      /* line 301, /Users/lawrencehumphrey/Dev/neutral-cycle/css/rental.scss */
       .ui-datepicker td.ui-datepicker-current-day a {
         color: #f2d81c; }
-  /* line 301, /Users/lawrencehumphrey/Dev/neutral-cycle/css/rental.scss */
+  /* line 305, /Users/lawrencehumphrey/Dev/neutral-cycle/css/rental.scss */
   .ui-datepicker .ui-datepicker-month {
     text-transform: uppercase;
     font-family: 'Montserrat';
     font-size: 1.1em;
     letter-spacing: 1px; }
-  /* line 307, /Users/lawrencehumphrey/Dev/neutral-cycle/css/rental.scss */
+  /* line 311, /Users/lawrencehumphrey/Dev/neutral-cycle/css/rental.scss */
   .ui-datepicker .ui-datepicker-year {
     display: none; }
-  /* line 309, /Users/lawrencehumphrey/Dev/neutral-cycle/css/rental.scss */
+  /* line 313, /Users/lawrencehumphrey/Dev/neutral-cycle/css/rental.scss */
   .ui-datepicker .ui-datepicker-prev, .ui-datepicker .ui-datepicker-next {
     display: block;
     position: relative;
     height: 20px;
     width: 10px;
     cursor: pointer; }
-    /* line 317, /Users/lawrencehumphrey/Dev/neutral-cycle/css/rental.scss */
+    /* line 321, /Users/lawrencehumphrey/Dev/neutral-cycle/css/rental.scss */
     .ui-datepicker .ui-datepicker-prev span, .ui-datepicker .ui-datepicker-next span {
       display: none; }
-    /* line 319, /Users/lawrencehumphrey/Dev/neutral-cycle/css/rental.scss */
+    /* line 323, /Users/lawrencehumphrey/Dev/neutral-cycle/css/rental.scss */
     .ui-datepicker .ui-datepicker-prev.ui-state-disabled, .ui-datepicker .ui-datepicker-next.ui-state-disabled {
       opacity: 0.3;
       cursor: default; }
-  /* line 325, /Users/lawrencehumphrey/Dev/neutral-cycle/css/rental.scss */
+  /* line 329, /Users/lawrencehumphrey/Dev/neutral-cycle/css/rental.scss */
   .ui-datepicker .ui-datepicker-prev {
     background: url(../img/rental/left.png) no-repeat center center;
     background-size: 10px auto;
     left: calc(50% - 110px);
     top: 40px; }
-  /* line 333, /Users/lawrencehumphrey/Dev/neutral-cycle/css/rental.scss */
+  /* line 337, /Users/lawrencehumphrey/Dev/neutral-cycle/css/rental.scss */
   .ui-datepicker .ui-datepicker-next {
     background: url(../img/rental/right.png) no-repeat center center;
     background-size: 10px auto;
     left: calc(50% + 100px);
     top: 20px; }
 
-/* line 343, /Users/lawrencehumphrey/Dev/neutral-cycle/css/rental.scss */
+/* line 347, /Users/lawrencehumphrey/Dev/neutral-cycle/css/rental.scss */
 .how-long input[type="number"] {
   box-sizing: border-box;
   display: inline-block;
@@ -288,10 +291,10 @@ h3 {
   border: 1px solid #b3b3b3;
   outline: none;
   text-align: center; }
-/* line 355, /Users/lawrencehumphrey/Dev/neutral-cycle/css/rental.scss */
+/* line 359, /Users/lawrencehumphrey/Dev/neutral-cycle/css/rental.scss */
 .how-long input[type="radio"] {
   display: none; }
-/* line 359, /Users/lawrencehumphrey/Dev/neutral-cycle/css/rental.scss */
+/* line 363, /Users/lawrencehumphrey/Dev/neutral-cycle/css/rental.scss */
 .how-long label {
   display: inline-block;
   width: 100%;
@@ -302,55 +305,55 @@ h3 {
   text-transform: uppercase;
   font-family: 'Montserrat';
   cursor: pointer; }
-  /* line 373, /Users/lawrencehumphrey/Dev/neutral-cycle/css/rental.scss */
+  /* line 377, /Users/lawrencehumphrey/Dev/neutral-cycle/css/rental.scss */
   .how-long label.increment {
     background-color: #e6e6e6;
     color: #ccc; }
-  /* line 378, /Users/lawrencehumphrey/Dev/neutral-cycle/css/rental.scss */
+  /* line 382, /Users/lawrencehumphrey/Dev/neutral-cycle/css/rental.scss */
   .how-long label.count {
     font-size: 1.2em;
     max-width: 40px;
     color: #b3b3b3; }
-  /* line 384, /Users/lawrencehumphrey/Dev/neutral-cycle/css/rental.scss */
+  /* line 388, /Users/lawrencehumphrey/Dev/neutral-cycle/css/rental.scss */
   .how-long label.last-count {
     margin-right: 20px; }
-/* line 390, /Users/lawrencehumphrey/Dev/neutral-cycle/css/rental.scss */
+/* line 394, /Users/lawrencehumphrey/Dev/neutral-cycle/css/rental.scss */
 .how-long input[type="radio"]:checked + label.increment {
   background-color: #f2d81c;
   color: #fff; }
-/* line 395, /Users/lawrencehumphrey/Dev/neutral-cycle/css/rental.scss */
+/* line 399, /Users/lawrencehumphrey/Dev/neutral-cycle/css/rental.scss */
 .how-long input[type="radio"]:checked + label.count {
   color: #f2d81c; }
 
-/* line 401, /Users/lawrencehumphrey/Dev/neutral-cycle/css/rental.scss */
+/* line 405, /Users/lawrencehumphrey/Dev/neutral-cycle/css/rental.scss */
 .drop-off {
   font-size: 4em;
   color: #333; }
 
-/* line 406, /Users/lawrencehumphrey/Dev/neutral-cycle/css/rental.scss */
+/* line 410, /Users/lawrencehumphrey/Dev/neutral-cycle/css/rental.scss */
 .breakdown {
   font-size: 3em;
   color: #b3b3b3; }
-  /* line 410, /Users/lawrencehumphrey/Dev/neutral-cycle/css/rental.scss */
+  /* line 414, /Users/lawrencehumphrey/Dev/neutral-cycle/css/rental.scss */
   .breakdown b {
     color: #000; }
-  /* line 412, /Users/lawrencehumphrey/Dev/neutral-cycle/css/rental.scss */
+  /* line 416, /Users/lawrencehumphrey/Dev/neutral-cycle/css/rental.scss */
   .breakdown em {
     position: relative;
     top: -12px;
     font-style: normal;
     font-size: 0.6em; }
-  /* line 419, /Users/lawrencehumphrey/Dev/neutral-cycle/css/rental.scss */
+  /* line 423, /Users/lawrencehumphrey/Dev/neutral-cycle/css/rental.scss */
   .breakdown .total {
     color: #f2d81c; }
 
-/* line 423, /Users/lawrencehumphrey/Dev/neutral-cycle/css/rental.scss */
+/* line 427, /Users/lawrencehumphrey/Dev/neutral-cycle/css/rental.scss */
 section.personal-info form {
   margin-bottom: 80px; }
-/* line 425, /Users/lawrencehumphrey/Dev/neutral-cycle/css/rental.scss */
+/* line 429, /Users/lawrencehumphrey/Dev/neutral-cycle/css/rental.scss */
 section.personal-info p {
   margin-bottom: 50px; }
-/* line 427, /Users/lawrencehumphrey/Dev/neutral-cycle/css/rental.scss */
+/* line 431, /Users/lawrencehumphrey/Dev/neutral-cycle/css/rental.scss */
 section.personal-info label {
   position: relative;
   top: 10px;
@@ -362,7 +365,7 @@ section.personal-info label {
   color: #333;
   width: 140px;
   margin-right: 10px; }
-/* line 440, /Users/lawrencehumphrey/Dev/neutral-cycle/css/rental.scss */
+/* line 444, /Users/lawrencehumphrey/Dev/neutral-cycle/css/rental.scss */
 section.personal-info input[type="text"] {
   background: none;
   outline: none;
@@ -372,18 +375,18 @@ section.personal-info input[type="text"] {
   padding-bottom: 6px;
   padding-left: 2px;
   font-size: 1.1em; }
-  /* line 453, /Users/lawrencehumphrey/Dev/neutral-cycle/css/rental.scss */
+  /* line 457, /Users/lawrencehumphrey/Dev/neutral-cycle/css/rental.scss */
   section.personal-info input[type="text"]::-webkit-input-placeholder {
     font-style: italic; }
-  /* line 457, /Users/lawrencehumphrey/Dev/neutral-cycle/css/rental.scss */
+  /* line 461, /Users/lawrencehumphrey/Dev/neutral-cycle/css/rental.scss */
   section.personal-info input[type="text"]:-moz-placeholder {
     /* Firefox 18- */
     font-style: italic; }
-  /* line 461, /Users/lawrencehumphrey/Dev/neutral-cycle/css/rental.scss */
+  /* line 465, /Users/lawrencehumphrey/Dev/neutral-cycle/css/rental.scss */
   section.personal-info input[type="text"]::-moz-placeholder {
     /* Firefox 19+ */
     font-style: italic; }
-  /* line 465, /Users/lawrencehumphrey/Dev/neutral-cycle/css/rental.scss */
+  /* line 469, /Users/lawrencehumphrey/Dev/neutral-cycle/css/rental.scss */
   section.personal-info input[type="text"]:-ms-input-placeholder {
     font-style: italic; }
 
