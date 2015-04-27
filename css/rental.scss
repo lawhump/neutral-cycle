@@ -6,6 +6,14 @@ $color-button_text: #ccc;
 $color-grey_text: #b3b3b3;
 $color-dark_grey: #333;
 
+@mixin cub_bez-transition($duration) {
+    -webkit-transition: $duration cubic-bezier(0.420, 0.000, 0.580, 1.000) all;
+    -moz-transition: $duration cubic-bezier(0.420, 0.000, 0.580, 1.000) all;
+    -ms-transition: $duration cubic-bezier(0.420, 0.000, 0.580, 1.000) all;
+    -o-transition: $duration cubic-bezier(0.420, 0.000, 0.580, 1.000) all;
+    transition: $duration cubic-bezier(0.420, 0.000, 0.580, 1.000) all;
+}
+
 * { margin: 0; padding: 0; }
 
 body {
@@ -81,6 +89,60 @@ body {
         -webkit-transform: translate(-50%, -50%);
         -ms-transform: translate(-50%, -50%);
         transform: translate(-50%, -50%);
+    }
+    
+    .hiw-wrapper {
+        position: relative;
+        top: -400px;
+        height: 100%;
+        width: 100vw;
+        background: url(../img/rental/how-it-works/howitworks-bg.png) no-repeat center center;
+        color: #fff;
+        z-index: 5;
+        
+        font: { family: 'Montserrat';}
+        
+        @include cub_bez-transition(800ms);
+        
+        &.active {
+            @include cub_bez-transition(800ms);
+            top: 190px;
+        }
+        
+        .how-it-works {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            
+            top: 100px;
+            left: 0px;
+            
+            div {
+                display: inline-block;
+                height: 100%;
+                width: 33.3333%;
+                float: left;
+                
+                h4 {
+                    margin-top: 2.5em;
+                }
+                
+                p {
+                    margin-top: 0.5em;    
+                }
+            }
+        }
+    }
+    
+    .close {
+        display: block;
+        float: right;
+        width: auto;
+        height: auto;
+        margin-top: 26px;
+        margin-right: 26px;
+        
+        cursor: pointer;
     }
 }
 

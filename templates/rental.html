@@ -5,10 +5,33 @@
                 <a href="http://www.neutralcycle.com">neutralcycle.com</a>
                 <a href="http://www.neutralcycle.com/make-a-appoinment/">Contact</a>
             </nav>
+            <div ng-class="{active: clicked}" class="hiw-wrapper">
+                <div ng-click="clicked=false" class="close">
+                    <h5>X</h5>
+                    <p>Close</p>
+                </div>
+                <div class="how-it-works">
+                    <div>
+                        <img src="../img/rental/how-it-works/reserve.png">
+                        <h4>RESERVER</h4>
+                        <p>Use this website to reserve a bike</p>
+                    </div>
+                    <div>
+                        <img src="../img/rental/how-it-works/pickup.png">
+                        <h4>PICK UP</h4>
+                        <p>Pick up the bike at Neutral Cycle</p>
+                    </div>
+                    <div>
+                        <img src="../img/rental/how-it-works/droppoff.png">
+                        <h4>DROP OFF</h4>
+                        <p>When done, drop off the bike at pick up location</p>
+                    </div>
+                </div>
+            </div>
             <div>
                 <img src="img/nc-logo.png">
                 <h1>Neutral Cycle Bike Rental</h1>
-                <button type="button">How it Works</button>
+                <button ng-click="clicked=true" type="button">How it Works</button>
             </div>
         </div>
 
