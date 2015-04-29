@@ -41,6 +41,12 @@ myApp.config(['$routeProvider', '$locationProvider',
             css: 'css/mgmt.css'
         })
         
+        .when('/confirmation', {
+            templateUrl: '/templates/confirmation.html',
+            controller: 'ConfirmationCtrl',
+            css: 'css/confirm.css'
+        })
+        
         .otherwise({ 
             templateUrl: '/templates/404.html' 
         });

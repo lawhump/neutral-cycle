@@ -6,6 +6,7 @@ var ref = new Firebase("https://neutral-cycle.firebaseio.com/");
 ncControllers.service('Reservation', function() {
     var res = undefined;
     var price = 0;
+    var date = undefined;
         
     var addRes = function(rv) {
         res = rv;
@@ -23,11 +24,21 @@ ncControllers.service('Reservation', function() {
         return price;
     }
     
+    var addDate = function(d) {
+        date = d;    
+    }
+    
+    var getDate = function() {
+        return date;    
+    }
+    
     return {
         addRes: addRes,
         getRes: getRes,
         addPrice: addPrice,
-        getPrice: getPrice
+        getPrice: getPrice,
+        addDate: addDate,
+        getDate: getDate
     };
 
 });
@@ -199,6 +210,7 @@ ncControllers.controller('RentalCtrl', ['$scope', '$firebase', '$location', 'Res
             };
             Reservation.addRes(res);
             Reservation.addPrice($scope.price*100);
+            Reservation.addDate($scope.selectedDate);
 
             $location.path('/payment');
         }
@@ -210,8 +222,8 @@ ncControllers.controller('RentalCtrl', ['$scope', '$firebase', '$location', 'Res
         
     }]);
 
-ncControllers.controller('PayCtrl', ['$scope', '$http', '$firebase', 'Reservation',
-    function($scope, $http, $firebase, Reservation) {
+ncControllers.controller('PayCtrl', ['$scope', '$http', '$firebase', '$location', 'Reservation',
+    function($scope, $http, $firebase, $location, Reservation) {
         $scope.reservations = $firebase(ref).$asArray();
         var res = Reservation.getRes();
         // need price so this works
@@ -237,7 +249,8 @@ ncControllers.controller('PayCtrl', ['$scope', '$http', '$firebase', 'Reservatio
                     console.log(data);
                     
                     // Payment successful; push to DB
-                     $scope.reservations.$add(res);
+                    $scope.reservations.$add(res);
+                    $location.path('/confirmation');
                 }).
                 error(function(data, status, headers, config) {
                     // called asynchronously if an error occurs
@@ -248,4 +261,13 @@ ncControllers.controller('PayCtrl', ['$scope', '$http', '$firebase', 'Reservatio
 			 }
 		};
         
+    }]);
+
+ncControllers.controller('ConfirmationCtrl', ['$scope', '$location', 'Reservation',
+    function($scope, $location, Reservation) {
+        $scope.date = Reservation.getDate();
+        
+        $scope.goBack = function() {
+            $location.path('/');    
+        }
     }]);
