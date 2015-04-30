@@ -26,7 +26,8 @@ myApp.config(['$routeProvider', '$locationProvider',
         
         .when('/login', {
             templateUrl: '/templates/login.html',
-            controller: 'LoginCtrl'
+            controller: 'LoginCtrl',
+            css: 'css/login.css'
         })
         
         .when('/reservations', {
