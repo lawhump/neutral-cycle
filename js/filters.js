@@ -1,4 +1,6 @@
-angular.module('ncFilters', []).filter('filter', function() {
+angular.module('ncFilters', [])
+
+.filter('mgmt', function() {
     return function(reservations, location, query, status) {
         var filtered = [];
         
@@ -66,9 +68,9 @@ angular.module('ncFilters', []).filter('filter', function() {
             
         return filtered;
     };
-});
+})
 
-angular.module('ncFilters', []).filter('control', function() {
+.filter('control', function() {
     return function(bikes) {
         var filtered = [];
 

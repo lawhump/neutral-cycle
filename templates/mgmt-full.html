@@ -25,17 +25,21 @@
         <col style="width:10%">
         
         <tr class="table-head">
-            <th>PICK UP DATE</th>
+            <th ng-show="status == 'pending_pickup'">PICK UP DATE</th>
+            <th ng-show="status == 'pending_return'">DROP OFF DATE</th>
+            <th ng-show="status == 'completed'">COMPLETED ON</th>
             <th>NAME</th>
             <th>CONTACT</th>
             <th>EQUIPMENT</th>
             <th></th>
         </tr>
 
-        <tr ng-mouseenter="hover=true" ng-mouseleave="hover=false" class="entry" ng-repeat='rv in reservations | filter:location.value:query:status track by $index | orderBy:"-rv.date"'>
-            <td class="">{{rv.date | date:'MMMM d'}}</td>
-            <td class="">{{rv.first_name + " " + rv.last_name}}</td>
-            <td class="">{{rv.email}}<br>{{rv.phone}}</td>
+        <tr ng-mouseenter="hover=true" ng-mouseleave="hover=false" class="entry" ng-repeat='rv in reservations | mgmt:location.value:query:status track by $index | orderBy:"-rv.date"'>
+            <td ng-show="status == 'pending_pickup'">{{rv.date | date:'MMMM d'}}</td>
+            <td ng-show="status == 'pending_return'">{{rv.return | date:'MMMM d'}}</td>
+            <td ng-show="status == 'completed'">{{rv.return | date:'MMMM d'}}</td>
+            <td>{{rv.first_name + " " + rv.last_name}}</td>
+            <td>{{rv.email}}<br>{{rv.phone}}</td>
             <td class="equipment"><p ng-class="{comma: $index > 0}" ng-repeat="(eq, num) in rv.equipment">{{num}} {{eq}}</p></td>
             <td ng-class="{visible: hover}" class="modifiers"><div class="pickup"><img src="../img/pickedup.png"><p>Picked up</p></div><div class="edit"><img src="../img/edit.png"> <a ng-href="/#/reservations/{{rv.$id}}">Edit<a/></div></td>
         </tr>

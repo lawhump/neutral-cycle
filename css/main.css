@@ -93,48 +93,52 @@ textarea:focus, input:focus {
   /* line 87, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
   .log td {
     padding: 25px 0px; }
+  /* line 91, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
+  .log a {
+    text-decoration: none;
+    color: #000; }
 
-/* line 92, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
+/* line 97, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
 .entry {
   border-bottom: 3px solid #eee; }
-  /* line 95, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
+  /* line 100, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
   .entry:hover {
     cursor: pointer;
     background-color: #eee; }
 
-/* line 101, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
+/* line 106, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
 .modifiers {
   visibility: hidden;
   border-bottom: 3px solid #eee;
   margin-top: 1.5em; }
-  /* line 106, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
+  /* line 111, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
   .modifiers .pickup {
     float: left;
     width: 100px; }
-  /* line 111, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
+  /* line 116, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
   .modifiers .edit {
     width: 100px;
     margin-left: 100px; }
-    /* line 115, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
+    /* line 120, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
     .modifiers .edit a {
       display: block;
       margin: 1.12em 0; }
-  /* line 121, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
+  /* line 126, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
   .modifiers img {
     width: 40%; }
 
-/* line 126, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
+/* line 131, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
 .table-head {
   border-bottom: 2px solid #ccc; }
 
-/* line 131, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
+/* line 136, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
 .equipment p {
   display: inline; }
-/* line 135, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
+/* line 140, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
 .equipment .comma::before {
   content: ", "; }
 
-/* line 140, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
+/* line 145, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
 .visible {
   visibility: visible; }
 
