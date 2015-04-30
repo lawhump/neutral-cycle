@@ -1,0 +1,79 @@
+/* line 22, /Users/lawrencehumphrey/Dev/neutral-cycle/css/confirm.scss */
+body {
+  font-family: 'Karla';
+  background-color: #f9f9f9; }
+
+/* line 27, /Users/lawrencehumphrey/Dev/neutral-cycle/css/confirm.scss */
+.congrats {
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 600px;
+  font-size: 175%; }
+
+/* line 34, /Users/lawrencehumphrey/Dev/neutral-cycle/css/confirm.scss */
+.instructions {
+  position: absolute;
+  top: 22.5%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 700px;
+  font-size: 175%; }
+  /* line 40, /Users/lawrencehumphrey/Dev/neutral-cycle/css/confirm.scss */
+  .instructions span {
+    color: #f2d81c; }
+
+/* line 45, /Users/lawrencehumphrey/Dev/neutral-cycle/css/confirm.scss */
+.image-cont {
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); }
+  /* line 48, /Users/lawrencehumphrey/Dev/neutral-cycle/css/confirm.scss */
+  .image-cont div.bike {
+    background: url(../img/confirmation/bike.gif) no-repeat 0 0;
+    width: 720px;
+    height: 540px;
+    background-size: contain; }
+
+/* line 56, /Users/lawrencehumphrey/Dev/neutral-cycle/css/confirm.scss */
+.button {
+  position: absolute;
+  top: 90%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); }
+
+/* line 60, /Users/lawrencehumphrey/Dev/neutral-cycle/css/confirm.scss */
+.continue {
+  width: 200px;
+  padding: 12px 0;
+  text-transform: uppercase;
+  font-family: 'Montserrat';
+  font-size: 1.2em;
+  border: none;
+  outline: none;
+  background-color: #f2d81c;
+  color: #fff;
+  transition: background-color 0.2s, color 0.2s; }
+  /* line 74, /Users/lawrencehumphrey/Dev/neutral-cycle/css/confirm.scss */
+  .continue[disabled] {
+    background-color: #e6e6e6;
+    color: #ccc; }
+  /* line 79, /Users/lawrencehumphrey/Dev/neutral-cycle/css/confirm.scss */
+  .continue:hover:not([disabled]) {
+    background-color: #d3b81a; }
+
+/* Small Devices, Tablets */
+
+/*# sourceMappingURL=confirm.css.map */

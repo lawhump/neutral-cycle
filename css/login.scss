@@ -1,0 +1,192 @@
+$color-accent: #f2d81c;
+$color-accent_hover: #d3b81a;
+$color-background: #f9f9f9;
+$color-button_back: #e6e6e6;
+$color-button_text: #ccc;
+$color-grey_text: #b3b3b3;
+$color-dark_grey: #333;
+$color-button_blue: #035BAE;
+$color-button_hover: #034E94;
+
+body {
+    font-family: 'Karla';
+    background-color: $color-background;
+}
+
+.banner {
+    position: relative;
+    background: url(../img/login/manager-login-banner.png) no-repeat center center;
+    background-size: cover;
+    
+    height: 50%;
+    min-height: 400px;
+    max-height: 500px;
+    margin-bottom: 100px;
+    
+    font: { family: 'Montserrat'; }
+    
+    img {
+        height: 70px;
+        width: auto;
+    }
+    
+    nav {
+        position: absolute;
+        top: 0;
+        right: 0;
+        
+        padding: 26px 26px 0 0; 
+        
+        a {
+            text: { transform: uppercase; decoration: none; }
+            color: #fff;
+            cursor: pointer;
+            
+            &:first-child {
+                margin-right: 50px;
+            }
+            
+            &:hover {
+                color: $color-button_back;
+            }
+        }
+    }
+    
+    h1 {
+        text: { transform: uppercase; }
+        font: { size: 3.2em; }
+        color: #fff;
+    }
+    
+    h4 {
+        font: { size: 1.2em; }
+        color: #fff;
+    }
+    
+    button {
+        padding: 18px;
+        
+        border: none;
+        outline: none;
+            
+        text: { transform: uppercase; }
+        background-color: rgba(0, 113, 188, .6);
+        color: #fff;
+        
+        &:hover {
+            background-color: rgba(0, 113, 188, .75);
+        }
+    }
+    
+     > div {
+        position: absolute;
+        width: 100%;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+         
+         a {
+             text-decoration: none;
+             color: $color-accent;
+         }
+    }
+}
+
+section.rental_section {
+    height: 100vh;
+    min-height: 600px;
+    text-align: center;
+    position: relative;
+    
+    > div.content {
+        position: absolute;
+        width: 100%;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+    
+    min-height: 800px;
+    
+    h2 {
+        margin-bottom: 12px;
+        font-size: 2em;
+    }
+    
+    img {
+        position: relative;
+        top: 10px;
+    }
+    
+    label {
+        position: relative;
+        top: 10px;
+        
+        display: inline-block;
+        font: { family: 'Montserrat'; size: .8em; }
+        text: { transform: uppercase; align: right; }
+        color: $color-dark_grey;
+        
+        width: 140px;
+        margin-right: 10px;
+    }
+    
+    input {
+        background: none;
+        
+        outline: none;
+        border: none;
+        border-bottom: 1px solid $color-dark_grey;
+        
+        width: 500px;
+        padding-bottom: 6px;
+        padding-left: 2px;
+        margin-bottom: 48px;
+        
+        font: { size: 1.1em; }
+        
+        &::-webkit-input-placeholder {
+            font-style: italic;
+        }
+
+        &:-moz-placeholder { /* Firefox 18- */
+            font-style: italic;
+        }
+
+        &::-moz-placeholder {  /* Firefox 19+ */
+            font-style: italic;
+        }
+
+        &:-ms-input-placeholder {  
+            font-style: italic; 
+        }
+    }
+}
+
+.continue {
+    width: 200px;
+    padding: 12px 0;
+    text: { transform: uppercase; }
+    font: { family: 'Montserrat'; size: 1.2em; }
+    
+    border: none;
+    outline: none;
+    
+    background-color: $color-button_blue;
+    color: #fff;
+    
+    transition: background-color 0.2s, color 0.2s;
+    
+    &[disabled] {
+        background-color: $color-button_back;
+        color: $color-button_text;
+    }
+    
+    &:hover:not([disabled]) {
+        background-color: $color-button_hover;
+    }
+}

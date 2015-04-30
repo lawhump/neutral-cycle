@@ -26,7 +26,8 @@ myApp.config(['$routeProvider', '$locationProvider',
         
         .when('/login', {
             templateUrl: '/templates/login.html',
-            controller: 'LoginCtrl'
+            controller: 'LoginCtrl',
+            css: 'css/login.css'
         })
         
         .when('/reservations', {
@@ -39,6 +40,12 @@ myApp.config(['$routeProvider', '$locationProvider',
             templateUrl: '/templates/res-detail.html',
             controller: 'MGMTSingleCtrl',
             css: 'css/mgmt.css'
+        })
+        
+        .when('/confirmation', {
+            templateUrl: '/templates/confirmation.html',
+            controller: 'ConfirmationCtrl',
+            css: 'css/confirm.css'
         })
         
         .otherwise({ 
