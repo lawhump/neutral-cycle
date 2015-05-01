@@ -184,7 +184,6 @@ ncControllers.controller('RentalCtrl', ['$scope', '$firebase', '$location', 'Res
         
         $scope.$watch('timeCount', updateDate);
         $scope.$watch('timeIncrement', updateDate);
-        $scope.$watch('bikes', function() {console.log($scope.bikes);});
         
         $scope.updateQuantity = function() {
             $scope.quantity = $scope.bikes.reduce( 
