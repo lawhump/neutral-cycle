@@ -63,6 +63,11 @@ ncControllers.controller('MGMTFullCtrl', ['$scope', '$firebase', '$location',
         $scope.setStatus = function(status) {
             $scope.status = status;
         }
+        
+        $scope.go = function (id) {
+            $location.path('/reservations/'+id);
+//            $location.path('/#/reservations/');
+        };
     }]);
 
 ncControllers.controller('MGMTSingleCtrl', ['$scope', '$firebase', '$routeParams',

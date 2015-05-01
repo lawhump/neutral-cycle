@@ -34,14 +34,24 @@
             <th></th>
         </tr>
 
-        <tr ng-mouseenter="hover=true" ng-mouseleave="hover=false" class="entry" ng-repeat='rv in reservations | mgmt:location.value:query:status track by $index | orderBy:"-rv.date"'>
+        <tr ng-click="go(rv.$id)" ng-mouseenter="hover=true" ng-mouseleave="hover=false" class="entry" ng-repeat='rv in reservations | mgmt:location.value:query:status track by $index | orderBy:"-rv.date"'>
             <td ng-show="status == 'pending_pickup'">{{rv.date | date:'MMMM d'}}</td>
             <td ng-show="status == 'pending_return'">{{rv.return | date:'MMMM d'}}</td>
             <td ng-show="status == 'completed'">{{rv.return | date:'MMMM d'}}</td>
             <td>{{rv.first_name + " " + rv.last_name}}</td>
             <td>{{rv.email}}<br>{{rv.phone}}</td>
             <td class="equipment"><p ng-class="{comma: $index > 0}" ng-repeat="(eq, num) in rv.equipment">{{num}} {{eq}}</p></td>
-            <td ng-class="{visible: hover}" class="modifiers"><div class="pickup"><img src="../img/pickedup.png"><p>Picked up</p></div><div class="edit"><img src="../img/edit.png"> <a ng-href="/#/reservations/{{rv.$id}}">Edit<a/></div></td>
+            <td ng-class="{visible: hover}" class="modifiers">
+                <div class="pickup">
+                    <img src="../img/pickedup.png">
+                    <p ng-show="status == 'pending_pickup'">Picked up</p>
+                    <p ng-show="status == 'pending_return'">Returned</p>
+                </div>
+                <div ng-click="go(rv.$id)" class="edit">
+                    <img src="../img/edit.png"> 
+                    <p>Edit</p>
+                </div>
+            </td>
         </tr>
     </table>
 </div>
