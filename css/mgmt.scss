@@ -111,6 +111,10 @@ textarea:focus, input:focus {
     .pickup {
         float: left;
         width: $icon-div-width;
+        
+        img {
+            margin-left: 12px;
+        }
     }
     
     .edit {

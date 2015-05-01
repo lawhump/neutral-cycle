@@ -64,7 +64,7 @@
         <div class="content">
             <h2>When do you need it?</h2>
             <div class="datepicker"></div>
-            <button class="continue" ng-disabled="!selectedDate">Select Date</button>
+            <button ng-click="helperPrice()" class="continue" ng-disabled="!selectedDate">Select Date</button>
         </div>
     </section>
 
@@ -100,7 +100,7 @@
                     {
                     <span ng-repeat="bike in bikes | control" ng-class="{plus: $index > 0}">        
                         (
-                        <b ng-show="bike.control">{{bike.quantity}}</b><b ng-show="!bike.control">0</b>
+                        <b ng-show="bike.control">{{bike.quantity}}</b>
                         *
                         <b><em>$</em>{{timeIncrement[$index]}}</b>
                         )
@@ -113,7 +113,6 @@
             <button class="continue">Reserve</button>
         </div>
     </section>
-
 
     <section class="personal-info rental_section" ng-show="selectedDate">
         <div class="content">

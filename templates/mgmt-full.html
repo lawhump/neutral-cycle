@@ -5,9 +5,11 @@
             <img src="../img/search.png" id="icon">
             <input ng-model="query" placeholder="Search">
         </div>
+<!--
         <select ng-model="location"
             ng-options="loc as loc.label for loc in locations">
         </select>
+-->
      </div>
     
     <div class="status">
@@ -34,7 +36,7 @@
             <th></th>
         </tr>
 
-        <tr ng-click="go(rv.$id)" ng-mouseenter="hover=true" ng-mouseleave="hover=false" class="entry" ng-repeat='rv in reservations | mgmt:location.value:query:status track by $index | orderBy:"-rv.date"'>
+        <tr ng-mouseenter="hover=true" ng-mouseleave="hover=false" class="entry" ng-repeat='rv in reservations | mgmt:location.value:query:status track by $index | orderBy:"-rv.date"'>
             <td ng-show="status == 'pending_pickup'">{{rv.date | date:'MMMM d'}}</td>
             <td ng-show="status == 'pending_return'">{{rv.return | date:'MMMM d'}}</td>
             <td ng-show="status == 'completed'">{{rv.return | date:'MMMM d'}}</td>
@@ -42,10 +44,10 @@
             <td>{{rv.email}}<br>{{rv.phone}}</td>
             <td class="equipment"><p ng-class="{comma: $index > 0}" ng-repeat="(eq, num) in rv.equipment">{{num}} {{eq}}</p></td>
             <td ng-class="{visible: hover}" class="modifiers">
-                <div class="pickup">
-                    <img src="../img/pickedup.png">
-                    <p ng-show="status == 'pending_pickup'">Picked up</p>
-                    <p ng-show="status == 'pending_return'">Returned</p>
+                <div ng-click="changeUserStatus(rv.$id, status)" class="pickup">
+                    <img ng-hide="status === 'completed'" src="../img/pickedup.png">
+                    <p ng-show="status === 'pending_pickup'">Picked up</p>
+                    <p ng-show="status === 'pending_return'">Returned</p>
                 </div>
                 <div ng-click="go(rv.$id)" class="edit">
                     <img src="../img/edit.png"> 
