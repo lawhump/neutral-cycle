@@ -41,7 +41,10 @@
             <td>{{rv.first_name + " " + rv.last_name}}</td>
             <td>{{rv.email}}<br>{{rv.phone}}</td>
             <td class="equipment"><p ng-class="{comma: $index > 0}" ng-repeat="(eq, num) in rv.equipment">{{num}} {{eq}}</p></td>
-            <td ng-class="{visible: hover}" class="modifiers"><div class="pickup"><img src="../img/pickedup.png"><p>Picked up</p></div><div class="edit"><img src="../img/edit.png"> <a ng-href="/#/reservations/{{rv.$id}}">Edit<a/></div></td>
+            <td ng-class="{visible: hover}" class="modifiers">
+                <a><img src="../img/pickedup.png">Picked Up<a/>
+                <a ng-href="/#/reservations/{{rv.$id}}"><img src="../img/edit.png">Edit Rental<a/>
+            </td>
         </tr>
     </table>
 </div>

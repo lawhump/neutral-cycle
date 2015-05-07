@@ -1,42 +1,42 @@
-/* line 1, /Users/lawrencehumphrey/Dev/neutral-cycle/css/main.scss */
+/* line 1, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/main.scss */
 .keys {
   color: blue; }
 
-/* line 5, /Users/lawrencehumphrey/Dev/neutral-cycle/css/main.scss */
+/* line 5, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/main.scss */
 .portal {
   float: right; }
 
-/* line 10, /Users/lawrencehumphrey/Dev/neutral-cycle/css/main.scss */
+/* line 10, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/main.scss */
 #rental label:first-child {
   width: 120px;
   text-align: right;
   display: inline-block; }
-/* line 16, /Users/lawrencehumphrey/Dev/neutral-cycle/css/main.scss */
+/* line 16, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/main.scss */
 #rental .error {
   color: red; }
 
-/* line 4, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
+/* line 4, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/mgmt */
 table {
   table-layout: fixed; }
 
-/* line 8, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
+/* line 8, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/mgmt */
 textarea:focus, input:focus {
   outline: 0; }
 
-/* line 12, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
+/* line 12, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/mgmt */
 .input-cont {
   position: relative;
   padding: 0;
   margin: 0;
   display: inline; }
-  /* line 18, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
+  /* line 18, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/mgmt */
   .input-cont input {
     padding-left: 30px;
     width: 250px;
     height: 28px;
     border: 1px solid #d9d9d9;
     border-radius: 16px; }
-  /* line 26, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
+  /* line 26, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/mgmt */
   .input-cont #icon {
     position: absolute;
     bottom: 4px;
@@ -44,39 +44,39 @@ textarea:focus, input:focus {
     width: 10px;
     height: 10px; }
 
-/* line 35, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
+/* line 35, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/mgmt */
 .head {
   margin-top: 2em;
   margin-left: 5.2em; }
-  /* line 39, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
+  /* line 39, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/mgmt */
   .head h1 {
     margin-top: 6px;
     display: inline;
     font-weight: bold; }
-  /* line 45, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
+  /* line 45, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/mgmt */
   .head select {
     display: inline; }
 
-/* line 50, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
+/* line 50, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/mgmt */
 .status {
   padding: 1em 0em;
   margin-left: 5.2em;
   line-height: 0.75;
   min-width: 700px; }
-  /* line 55, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
+  /* line 55, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/mgmt */
   .status h4 {
     display: inline;
     padding-right: 3em;
     color: #ccc;
     cursor: pointer; }
-    /* line 61, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
+    /* line 61, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/mgmt */
     .status h4:hover {
       color: #999; }
-    /* line 65, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
+    /* line 65, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/mgmt */
     .status h4.active {
       color: #E8E595; }
 
-/* line 71, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
+/* line 71, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/mgmt */
 .log {
   margin-left: auto;
   margin-right: auto;
@@ -84,61 +84,58 @@ textarea:focus, input:focus {
   min-width: 1400px;
   margin-top: 20px;
   padding: 30px; }
-  /* line 79, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
+  /* line 79, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/mgmt */
   .log th {
     text-align: left; }
-  /* line 83, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
+  /* line 83, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/mgmt */
   .log tr {
     margin-bottom: 6px; }
-  /* line 87, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
+  /* line 87, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/mgmt */
   .log td {
     padding: 25px 0px; }
-  /* line 91, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
+  /* line 91, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/mgmt */
   .log a {
     text-decoration: none;
     color: #000; }
 
-/* line 97, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
+/* line 97, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/mgmt */
 .entry {
   border-bottom: 3px solid #eee; }
-  /* line 100, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
+  /* line 100, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/mgmt */
   .entry:hover {
     cursor: pointer;
     background-color: #eee; }
 
-/* line 106, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
+/* line 106, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/mgmt */
 .modifiers {
   visibility: hidden;
-  border-bottom: 3px solid #eee;
   margin-top: 1.5em; }
-  /* line 111, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
-  .modifiers .pickup {
-    float: left;
-    width: 100px; }
-  /* line 116, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
-  .modifiers .edit {
-    width: 100px;
-    margin-left: 100px; }
-    /* line 120, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
-    .modifiers .edit a {
-      display: block;
-      margin: 1.12em 0; }
-  /* line 126, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
+  /* line 110, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/mgmt */
+  .modifiers a {
+    display: block;
+    margin: 0 auto;
+    font-size: 0.8em;
+    text-transform: uppercase;
+    text-align: center;
+    color: #444; }
+  /* line 119, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/mgmt */
   .modifiers img {
-    width: 40%; }
+    display: block;
+    margin: 0 auto 2px;
+    width: 40px; }
 
-/* line 131, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
+/* line 126, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/mgmt */
 .table-head {
   border-bottom: 2px solid #ccc; }
 
-/* line 136, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
+/* line 131, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/mgmt */
 .equipment p {
   display: inline; }
-/* line 140, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
+/* line 135, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/mgmt */
 .equipment .comma::before {
   content: ", "; }
 
-/* line 145, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
+/* line 140, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/mgmt */
 .visible {
   visibility: visible; }
 

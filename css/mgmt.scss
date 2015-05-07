@@ -105,26 +105,21 @@ textarea:focus, input:focus {
 
 .modifiers {
     visibility: hidden;
-    border-bottom: 3px solid #eee;
     margin-top: 1.5em;
     
-    .pickup {
-        float: left;
-        width: $icon-div-width;
-    }
-    
-    .edit {
-        width: $icon-div-width;
-        margin-left: $icon-div-width;
+    a {
+        display: block;
+        margin: 0 auto;
         
-        a {
-            display: block;
-            margin: 1.12em 0;
-        }
+        font-size: .8em;
+        text: { transform: uppercase; align: center; }
+        color: #444;
     }
     
     img {
-        width: 40%;
+        display: block;
+        margin: 0 auto 2px;
+        width: 40px;
     }
 }
 
