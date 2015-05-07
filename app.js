@@ -3,6 +3,8 @@ var app = express();
 var methodOverride = require('method-override');
 var bodyParser = require('body-parser');
 
+app.set('port', process.env.PORT || 3000);
+
 var stripe = require('stripe')('sk_test_6BG4GqGS8rUMo1Zd7Jkp89EN');
 
 var passport = require('passport'), 
