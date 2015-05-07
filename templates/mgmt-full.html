@@ -5,9 +5,11 @@
             <img src="../img/search.png" id="icon">
             <input ng-model="query" placeholder="Search">
         </div>
+<!--
         <select ng-model="location"
             ng-options="loc as loc.label for loc in locations">
         </select>
+-->
      </div>
     
     <div class="status">
@@ -44,7 +46,6 @@
             <td ng-class="{visible: hover}" class="modifiers">
                 <a><img src="../img/pickedup.png">Picked Up<a/>
                 <a ng-href="/#/reservations/{{rv.$id}}"><img src="../img/edit.png">Edit Rental<a/>
-            </td>
         </tr>
     </table>
 </div>

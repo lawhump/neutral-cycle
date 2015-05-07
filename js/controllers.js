@@ -63,6 +63,27 @@ ncControllers.controller('MGMTFullCtrl', ['$scope', '$firebase', '$location',
         $scope.setStatus = function(status) {
             $scope.status = status;
         }
+        
+        $scope.changeUserStatus = function(id, status){
+            var resRef = new Firebase(ref + "/" + id);
+            var userRes = $firebase(resRef).$asObject();
+            console.log(userRes);
+            
+            if (status === 'pending_pickup') {
+                userRes[status] = 'pending_return';    
+            }
+            
+            else {
+                userRes[status] = 'completed';
+            }
+            console.log(userRes);
+//            userRes.$save();
+        }
+        
+        $scope.go = function (id) {
+            $location.path('/reservations/'+id);
+//            $location.path('/#/reservations/');
+        };
     }]);
 
 ncControllers.controller('MGMTSingleCtrl', ['$scope', '$firebase', '$routeParams',
@@ -119,6 +140,10 @@ ncControllers.controller('RentalCtrl', ['$scope', '$firebase', '$location', 'Res
         $scope.quantity = 0;
         $scope.price = 0;
         
+        $scope.helperPrice = function() {
+            updatePrice();
+        }
+        
         var updatePrice = function() {
             $scope.price = $scope.bikes.reduce(
                 function(total, bike, idx) {
@@ -159,7 +184,6 @@ ncControllers.controller('RentalCtrl', ['$scope', '$firebase', '$location', 'Res
         
         $scope.$watch('timeCount', updateDate);
         $scope.$watch('timeIncrement', updateDate);
-        $scope.$watch('bikes', function() {console.log($scope.bikes);});
         
         $scope.updateQuantity = function() {
             $scope.quantity = $scope.bikes.reduce( 
