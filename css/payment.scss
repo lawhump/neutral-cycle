@@ -27,15 +27,6 @@ $color-dark_grey: #333;
 .form-cont {
     height: 55vh;
     @include center-this(55%);
-    
-//    #card {
-//        width: 75%;
-//        margin-bottom: 3em;
-//    }
-    
-    button {
-        @include center-this(40%);
-    }
 }
 
 .error {
@@ -43,7 +34,9 @@ $color-dark_grey: #333;
 }
 
 .continue {
+    display: block;
     width: 200px;
+    margin: 30px auto 0;
     padding: 12px 0;
     text: { transform: uppercase; }
     font: { family: 'Montserrat'; size: 1.2em; }
@@ -71,8 +64,8 @@ form { margin-bottom: 80px; }
 p { margin-bottom: 50px; }
 
 label {
-    position: relative;
-    top: 10px;
+//    position: relative;
+//    top: 10px;
 
     display: inline-block;
     font: { family: 'Montserrat'; size: .8em; }
@@ -110,5 +103,14 @@ input[type="text"] {
 
     &:-ms-input-placeholder {  
         font-style: italic;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    label {
+        display: block;
+        text-align: center;
+        margin: 30px 0 24px;
+        width: 100%;
     }
 }
