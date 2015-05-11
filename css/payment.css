@@ -1,4 +1,10 @@
 /* line 22, /Users/lawrencehumphrey/Dev/neutral-cycle/css/payment.scss */
+.wrapper {
+  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: hidden; }
+
+/* line 28, /Users/lawrencehumphrey/Dev/neutral-cycle/css/payment.scss */
 .pay-deats {
   height: 15vh;
   position: absolute;
@@ -8,7 +14,26 @@
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%); }
 
-/* line 27, /Users/lawrencehumphrey/Dev/neutral-cycle/css/payment.scss */
+/* line 33, /Users/lawrencehumphrey/Dev/neutral-cycle/css/payment.scss */
+.order-summary {
+  height: 20vh;
+  width: 80vw; }
+  /* line 37, /Users/lawrencehumphrey/Dev/neutral-cycle/css/payment.scss */
+  .order-summary .breakdown {
+    position: absolute;
+    top: 22.5%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%); }
+    /* line 39, /Users/lawrencehumphrey/Dev/neutral-cycle/css/payment.scss */
+    .order-summary .breakdown div {
+      display: inline-block;
+      width: 15vw;
+      min-width: 200px;
+      max-width: 300px; }
+
+/* line 48, /Users/lawrencehumphrey/Dev/neutral-cycle/css/payment.scss */
 .form-cont {
   height: 55vh;
   position: absolute;
@@ -17,7 +42,32 @@
   -webkit-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%); }
-  /* line 36, /Users/lawrencehumphrey/Dev/neutral-cycle/css/payment.scss */
+  /* line 52, /Users/lawrencehumphrey/Dev/neutral-cycle/css/payment.scss */
+  .form-cont .left {
+    float: left;
+    height: 100%;
+    width: 70%; }
+  /* line 58, /Users/lawrencehumphrey/Dev/neutral-cycle/css/payment.scss */
+  .form-cont .right {
+    float: right;
+    height: 100%;
+    width: 30%; }
+  /* line 64, /Users/lawrencehumphrey/Dev/neutral-cycle/css/payment.scss */
+  .form-cont form {
+    margin-bottom: 80px; }
+  /* line 68, /Users/lawrencehumphrey/Dev/neutral-cycle/css/payment.scss */
+  .form-cont #card {
+    min-width: 205px;
+    max-width: 205px; }
+  /* line 73, /Users/lawrencehumphrey/Dev/neutral-cycle/css/payment.scss */
+  .form-cont #exp {
+    width: 60%;
+    max-width: 250px; }
+  /* line 78, /Users/lawrencehumphrey/Dev/neutral-cycle/css/payment.scss */
+  .form-cont #cvc {
+    min-width: 40px;
+    max-width: 50px; }
+  /* line 83, /Users/lawrencehumphrey/Dev/neutral-cycle/css/payment.scss */
   .form-cont button {
     position: absolute;
     top: 40%;
@@ -26,11 +76,11 @@
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%); }
 
-/* line 41, /Users/lawrencehumphrey/Dev/neutral-cycle/css/payment.scss */
+/* line 88, /Users/lawrencehumphrey/Dev/neutral-cycle/css/payment.scss */
 .error {
   text-align: center; }
 
-/* line 45, /Users/lawrencehumphrey/Dev/neutral-cycle/css/payment.scss */
+/* line 92, /Users/lawrencehumphrey/Dev/neutral-cycle/css/payment.scss */
 .continue {
   width: 200px;
   padding: 12px 0;
@@ -42,27 +92,23 @@
   background-color: #f2d81c;
   color: #fff;
   transition: background-color 0.2s, color 0.2s; }
-  /* line 59, /Users/lawrencehumphrey/Dev/neutral-cycle/css/payment.scss */
+  /* line 106, /Users/lawrencehumphrey/Dev/neutral-cycle/css/payment.scss */
   .continue[disabled] {
     background-color: #e6e6e6;
     color: #ccc; }
-  /* line 64, /Users/lawrencehumphrey/Dev/neutral-cycle/css/payment.scss */
+  /* line 111, /Users/lawrencehumphrey/Dev/neutral-cycle/css/payment.scss */
   .continue:hover:not([disabled]) {
     background-color: #d3b81a; }
 
-/* line 69, /Users/lawrencehumphrey/Dev/neutral-cycle/css/payment.scss */
-form {
-  margin-bottom: 80px; }
-
-/* line 71, /Users/lawrencehumphrey/Dev/neutral-cycle/css/payment.scss */
+/* line 116, /Users/lawrencehumphrey/Dev/neutral-cycle/css/payment.scss */
 p {
   margin-bottom: 50px; }
 
-/* line 73, /Users/lawrencehumphrey/Dev/neutral-cycle/css/payment.scss */
+/* line 118, /Users/lawrencehumphrey/Dev/neutral-cycle/css/payment.scss */
 label {
   position: relative;
   top: 10px;
-  display: inline-block;
+  display: inline;
   font-family: 'Montserrat';
   font-size: 0.8em;
   text-transform: uppercase;
@@ -71,9 +117,10 @@ label {
   width: 140px;
   margin-right: 10px; }
 
-/* line 86, /Users/lawrencehumphrey/Dev/neutral-cycle/css/payment.scss */
+/* line 131, /Users/lawrencehumphrey/Dev/neutral-cycle/css/payment.scss */
 input[type="text"] {
   background: none;
+  display: inline;
   outline: none;
   border: none;
   border-bottom: 1px solid #333;
@@ -81,19 +128,34 @@ input[type="text"] {
   padding-bottom: 6px;
   padding-left: 2px;
   font-size: 1.1em; }
-  /* line 99, /Users/lawrencehumphrey/Dev/neutral-cycle/css/payment.scss */
+  /* line 145, /Users/lawrencehumphrey/Dev/neutral-cycle/css/payment.scss */
   input[type="text"]::-webkit-input-placeholder {
     font-style: italic; }
-  /* line 103, /Users/lawrencehumphrey/Dev/neutral-cycle/css/payment.scss */
+  /* line 149, /Users/lawrencehumphrey/Dev/neutral-cycle/css/payment.scss */
   input[type="text"]:-moz-placeholder {
     /* Firefox 18- */
     font-style: italic; }
-  /* line 107, /Users/lawrencehumphrey/Dev/neutral-cycle/css/payment.scss */
+  /* line 153, /Users/lawrencehumphrey/Dev/neutral-cycle/css/payment.scss */
   input[type="text"]::-moz-placeholder {
     /* Firefox 19+ */
     font-style: italic; }
-  /* line 111, /Users/lawrencehumphrey/Dev/neutral-cycle/css/payment.scss */
+  /* line 157, /Users/lawrencehumphrey/Dev/neutral-cycle/css/payment.scss */
   input[type="text"]:-ms-input-placeholder {
     font-style: italic; }
+
+/* Small Devices, Tablets */
+@media only screen and (max-width: 768px) {
+  /* line 165, /Users/lawrencehumphrey/Dev/neutral-cycle/css/payment.scss */
+  label {
+    display: block;
+    margin-bottom: 1.4em;
+    text-align: left; }
+
+  /* line 171, /Users/lawrencehumphrey/Dev/neutral-cycle/css/payment.scss */
+  input {
+    display: block;
+    padding-bottom: 0px;
+    padding-left: 0px; }
+ }
 
 /*# sourceMappingURL=payment.css.map */

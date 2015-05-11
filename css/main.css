@@ -15,28 +15,28 @@
 #rental .error {
   color: red; }
 
-/* line 4, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
+/* line 19, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
 table {
   table-layout: fixed; }
 
-/* line 8, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
+/* line 23, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
 textarea:focus, input:focus {
   outline: 0; }
 
-/* line 12, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
+/* line 27, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
 .input-cont {
   position: relative;
   padding: 0;
   margin: 0;
   display: inline; }
-  /* line 18, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
+  /* line 33, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
   .input-cont input {
     padding-left: 30px;
     width: 250px;
     height: 28px;
     border: 1px solid #d9d9d9;
     border-radius: 16px; }
-  /* line 26, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
+  /* line 41, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
   .input-cont #icon {
     position: absolute;
     bottom: 4px;
@@ -44,39 +44,39 @@ textarea:focus, input:focus {
     width: 10px;
     height: 10px; }
 
-/* line 35, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
+/* line 50, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
 .head {
   margin-top: 2em;
   margin-left: 5.2em; }
-  /* line 39, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
+  /* line 54, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
   .head h1 {
     margin-top: 6px;
     display: inline;
     font-weight: bold; }
-  /* line 45, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
+  /* line 60, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
   .head select {
     display: inline; }
 
-/* line 50, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
+/* line 65, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
 .status {
   padding: 1em 0em;
   margin-left: 5.2em;
   line-height: 0.75;
   min-width: 700px; }
-  /* line 55, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
+  /* line 70, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
   .status h4 {
     display: inline;
     padding-right: 3em;
     color: #ccc;
     cursor: pointer; }
-    /* line 61, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
+    /* line 76, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
     .status h4:hover {
       color: #999; }
-    /* line 65, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
+    /* line 80, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
     .status h4.active {
       color: #E8E595; }
 
-/* line 71, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
+/* line 86, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
 .log {
   margin-left: auto;
   margin-right: auto;
@@ -84,65 +84,107 @@ textarea:focus, input:focus {
   min-width: 1400px;
   margin-top: 20px;
   padding: 30px; }
-  /* line 79, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
+  /* line 94, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
   .log th {
     text-align: left; }
-  /* line 83, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
+  /* line 98, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
   .log tr {
     margin-bottom: 6px; }
-  /* line 87, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
+  /* line 102, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
   .log td {
     padding: 25px 0px; }
-  /* line 91, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
+  /* line 106, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
   .log a {
     text-decoration: none;
     color: #000; }
 
-/* line 97, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
+/* line 112, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
 .entry {
   border-bottom: 3px solid #eee; }
-  /* line 100, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
+  /* line 115, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
   .entry:hover {
     cursor: pointer;
     background-color: #eee; }
 
-/* line 106, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
+/* line 121, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
 .modifiers {
   visibility: hidden;
   border-bottom: 3px solid #eee;
   margin-top: 1.5em; }
-  /* line 111, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
+  /* line 126, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
   .modifiers .pickup {
     float: left;
     width: 100px; }
-    /* line 115, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
+    /* line 130, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
     .modifiers .pickup img {
       margin-left: 12px; }
-  /* line 120, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
+  /* line 135, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
   .modifiers .edit {
     width: 100px;
     margin-left: 100px; }
-    /* line 124, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
+    /* line 139, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
     .modifiers .edit a {
       display: block;
       margin: 1.12em 0; }
-  /* line 130, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
+  /* line 145, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
   .modifiers img {
     width: 40%; }
 
-/* line 135, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
+/* line 150, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
 .table-head {
   border-bottom: 2px solid #ccc; }
 
-/* line 140, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
+/* line 155, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
 .equipment p {
   display: inline; }
-/* line 144, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
+/* line 159, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
 .equipment .comma::before {
   content: ", "; }
 
-/* line 149, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
+/* line 164, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
 .visible {
   visibility: visible; }
+
+/* line 170, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
+.container {
+  width: 100vw;
+  height: 100vh; }
+  /* line 174, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
+  .container .left {
+    float: left;
+    height: 100%;
+    width: 30%;
+    background-image: url('../img/mgmt/road-bike-594164_1920.jpg');
+    background-size: cover; }
+    /* line 182, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
+    .container .left h1 {
+      color: #035BAE;
+      text-align: center;
+      margin-top: 60px; }
+    /* line 188, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
+    .container .left a {
+      position: relative;
+      top: 80vh;
+      left: 40%;
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      color: #fff;
+      background-color: #035BAE;
+      text-decoration: none;
+      padding: 12px 24px; }
+      /* line 198, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
+      .container .left a.hover {
+        background-color: #034E94; }
+  /* line 204, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
+  .container .right {
+    width: 70%;
+    height: 100%;
+    float: right; }
+    /* line 209, /Users/lawrencehumphrey/Dev/neutral-cycle/css/mgmt */
+    .container .right form {
+      position: relative;
+      top: 5vh;
+      left: 5vw; }
 
 /*# sourceMappingURL=main.css.map */

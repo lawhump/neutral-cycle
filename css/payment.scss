@@ -19,19 +19,66 @@ $color-dark_grey: #333;
     @include translate();
 }
 
+.wrapper {
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
 .pay-deats {
     height: 15vh;
     @include center-this(15%);
+}
+
+.order-summary {
+    height: 20vh;
+    width: 80vw;
+    
+    .breakdown {
+        @include center-this(22.5%);
+        div {
+            display: inline-block;
+            width: 15vw;
+            min-width: 200px;
+            max-width: 300px;
+        }
+    }
 }
 
 .form-cont {
     height: 55vh;
     @include center-this(55%);
     
-//    #card {
-//        width: 75%;
-//        margin-bottom: 3em;
-//    }
+    .left{
+        float: left;
+        height: 100%;
+        width: 70%;    
+    }
+    
+    .right {
+        float: right;
+        height: 100%;
+        width: 30%;    
+    }
+    
+    form {
+        margin-bottom: 80px; 
+    }
+    
+    #card {
+        min-width: 205px;
+        max-width: 205px;
+    }
+    
+    #exp {
+        width: 60%;
+        max-width: 250px;
+    }
+    
+    #cvc {
+        min-width: 40px;
+        max-width: 50px;
+    }
     
     button {
         @include center-this(40%);
@@ -66,15 +113,13 @@ $color-dark_grey: #333;
     }
 }
 
-form { margin-bottom: 80px; }
-
 p { margin-bottom: 50px; }
 
 label {
     position: relative;
     top: 10px;
 
-    display: inline-block;
+    display: inline;
     font: { family: 'Montserrat'; size: .8em; }
     text: { transform: uppercase; align: right; }
     color: $color-dark_grey;
@@ -85,7 +130,8 @@ label {
 
 input[type="text"] {
     background: none;
-
+    display: inline;
+    
     outline: none;
     border: none;
     border-bottom: 1px solid $color-dark_grey;
@@ -110,5 +156,21 @@ input[type="text"] {
 
     &:-ms-input-placeholder {  
         font-style: italic;
+    }
+}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px) {
+    
+    label {
+        display: block;
+        margin-bottom: 1.4em;
+        text-align: left;
+    }
+    
+    input {
+        display: block;
+        padding-bottom: 0px;
+        padding-left: 0px;
     }
 }

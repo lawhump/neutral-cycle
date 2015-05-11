@@ -1,15 +1,21 @@
-<h1>Management</h1>
-<a ng-href="/#/reservations">Back</a>
+<div class="container">
+    <div class="left">
+        <h1>Management</h1>
+        <a ng-href="/#/reservations">Back</a>
+    </div>
 
-<form ng-submit="update()" name="rental-form">
-    First name: <input type="text" ng-disabled="!clicked" ng-model="userRes.first_name" /><br>
-    Last name: <input type="text" ng-disabled="!clicked" ng-model="userRes.last_name" /><br>
-    Date: <input ng-disabled="!clicked" ng-model="userRes.date" /><br>
-    Phone: <input ng-disabled="!clicked" ng-model="userRes.phone" /><br>
-    Email: <input ng-disabled="!clicked" ng-model="userRes.email" /><br>
-    <input type="radio" ng-model="userRes.status" value="pending_pickup"> Pending Pickup
-    <input type="radio" ng-model="userRes.status" value="pending_return"> Pending Return
-    <input type="radio" ng-model="userRes.status" value="completed"> Completed <br>
-    Click me to edit: <input type="checkbox" ng-model="clicked">
-    <input type="submit" id="submit" value="Submit" />
-</form>
+    <div class="right">
+        <form ng-submit="update()" name="rental-form">
+            First name: <input type="text" ng-disabled="!clicked" ng-model="userRes.first_name" /><br>
+            Last name: <input type="text" ng-disabled="!clicked" ng-model="userRes.last_name" /><br>
+            Date: <input ng-disabled="!clicked" ng-model="date" /><br>
+            Phone: <input ng-disabled="!clicked" ng-model="userRes.phone" /><br>
+            Email: <input ng-disabled="!clicked" ng-model="userRes.email" /><br>
+            <input type="radio" ng-model="userRes.status" value="pending_pickup"> Pending Pickup
+            <input type="radio" ng-model="userRes.status" value="pending_return"> Pending Return
+            <input type="radio" ng-model="userRes.status" value="completed"> Completed <br>
+            Click me to edit: <input type="checkbox" ng-model="clicked">
+            <input type="submit" id="submit" value="Submit" />
+        </form>
+    </div>
+</div>

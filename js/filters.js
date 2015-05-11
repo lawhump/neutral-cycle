@@ -4,7 +4,7 @@ angular.module('ncFilters', [])
     return function(reservations, location, query, status) {
         var filtered = [];
         
-        function filLocation(location) {
+        var filLocation = function (location) {
             if(location == 'all') { 
                 angular.forEach(reservations, function(value, key) {
                     for (var property in value) {
@@ -28,8 +28,8 @@ angular.module('ncFilters', [])
             }
         }
 
-        function filQuery(query) {
-            for(var i=0; i<filtered.length; i++){
+        var filQuery = function (query) {
+            for (var i=0; i<filtered.length; i++){
                 var rv = filtered[i];
                 var result;
                 for(var key in rv) {
@@ -38,23 +38,24 @@ angular.module('ncFilters', [])
                     }
 
                     if (result){
-                        break;
+                        continue;
+                    }
+                    else {
+                        filtered.splice(i, 1);
+                        i--;
+                        continue;
                     }
                 }
-                if (result == null){
-                    filtered.splice(i, 1);
-                    i--;
-                }
-            };
+            }
         }
 
-        function filStatus(status) {
+        var filStatus = function (status) {
             for(var i=0; i<filtered.length; i++){
                 if(filtered[i].status.localeCompare(status) != 0){
                     filtered.splice(i, 1);
                     i--;
                 }
-            };
+            }
         }
         
         // limit to location; build array, then take from it as necessary
@@ -65,6 +66,9 @@ angular.module('ncFilters', [])
         if(query != null){
             filQuery(query);
         }
+        else {
+                
+        }
             
         return filtered;
     };
@@ -72,13 +76,13 @@ angular.module('ncFilters', [])
 
 .filter('control', function() {
     return function(bikes) {
-        var filtered = [];
+        var out = [];
 
         function filControl(bikes) {
             angular.forEach(bikes, function(value, key){
                 for (var property in value) {
                         if (value.hasOwnProperty(property)) {
-                            if(value['control'] === true){ filtered.push(value); break;}
+                            if(value['control'] === true){ out.push(value); break;}
                         }
                     }
             });
@@ -87,6 +91,6 @@ angular.module('ncFilters', [])
         // limit to location; build array, then take from it as necessary
         filControl(bikes);
             
-        return filtered;
+        return out;
     };
 });

@@ -1,5 +1,20 @@
 $left-margin: 5.2em;
 $icon-div-width: 100px;
+$color-button_blue: #035BAE;
+$color-button_hover: #034E94;
+
+@mixin translate(){
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+@mixin center-this($top) {
+    position: absolute;
+    top: $top;
+    left: 50%;
+    @include translate();
+}
 
 table {
     table-layout: fixed;
@@ -148,4 +163,53 @@ textarea:focus, input:focus {
 
 .visible {
     visibility: visible;
+}
+
+// For single page
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    
+    .left {
+        float: left;
+        height: 100%;
+        width: 30%;
+        
+        background-image: url('../img/mgmt/road-bike-594164_1920.jpg');
+        background-size: cover;
+        
+        h1 {
+            color: $color-button_blue;
+            text-align: center;
+            margin-top: 60px;
+        }
+        
+        a {
+            position: relative;
+            top: 80vh;
+            left: 40%;
+            @include translate();
+            color: #fff;
+            background-color: $color-button_blue;
+            text-decoration: none;
+            padding: 12px 24px;
+            
+            &.hover {
+                background-color: $color-button_hover  
+            }
+        }
+    }
+    
+    .right {
+        width: 70%;
+        height: 100%;
+        float: right;
+        
+        form {
+            position: relative;
+            top: 5vh;
+            left: 5vw;
+        }
+    }
 }

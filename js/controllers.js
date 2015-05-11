@@ -92,6 +92,8 @@ ncControllers.controller('MGMTSingleCtrl', ['$scope', '$firebase', '$routeParams
         var resRef = new Firebase(ref + "/" + $routeParams.resId);
         $scope.userRes = $firebase(resRef).$asObject();
         
+        $scope.date = $filter('date')($scope.userRes.date, "dd MM yyyy");
+        
         $scope.update = function() {
             $scope.userRes.$save();
         };
@@ -253,10 +255,13 @@ ncControllers.controller('PayCtrl', ['$scope', '$http', '$firebase', '$location'
         // need price so this works
         var price = Reservation.getPrice();
         
-        console.log(res);
+        $scope.bikes = ['Hybrid Bike','Cargo Bike'];
+//        $scope.bikes = res.equipment;
+        console.log($scope.bikes);
         
         // Stripe Response Handler
         $scope.stripeCallback = function (code, result) {
+            $scope.reservations.$add(res);
 			if (result.error) {
 				window.alert('it failed! error: ' + result.error.message);
 			} 
@@ -265,7 +270,7 @@ ncControllers.controller('PayCtrl', ['$scope', '$http', '$firebase', '$location'
                 console.log(result);
                 
                 var request = 'http://localhost:3000/charge?p=' + price;
-
+                
                 $http.post(request, result).
                 success(function(data, status, headers, config) {
                     // this callback will be called asynchronously
@@ -273,7 +278,7 @@ ncControllers.controller('PayCtrl', ['$scope', '$http', '$firebase', '$location'
                     console.log(data);
                     
                     // Payment successful; push to DB
-                    $scope.reservations.$add(res);
+//                    $scope.reservations.$add(res);
                     $location.path('/confirmation');
                 }).
                 error(function(data, status, headers, config) {

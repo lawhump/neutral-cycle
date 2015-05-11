@@ -12,10 +12,12 @@ body {
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   text-align: center;
-  width: 600px;
+  min-width: 300px;
+  width: 75%;
+  max-width: 600px;
   font-size: 175%; }
 
-/* line 34, /Users/lawrencehumphrey/Dev/neutral-cycle/css/confirm.scss */
+/* line 36, /Users/lawrencehumphrey/Dev/neutral-cycle/css/confirm.scss */
 .instructions {
   position: absolute;
   top: 22.5%;
@@ -24,13 +26,15 @@ body {
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   text-align: center;
-  width: 700px;
+  min-width: 375px;
+  width: 80%;
+  max-width: 700px;
   font-size: 175%; }
-  /* line 40, /Users/lawrencehumphrey/Dev/neutral-cycle/css/confirm.scss */
+  /* line 44, /Users/lawrencehumphrey/Dev/neutral-cycle/css/confirm.scss */
   .instructions span {
     color: #f2d81c; }
 
-/* line 45, /Users/lawrencehumphrey/Dev/neutral-cycle/css/confirm.scss */
+/* line 49, /Users/lawrencehumphrey/Dev/neutral-cycle/css/confirm.scss */
 .image-cont {
   position: absolute;
   top: 55%;
@@ -38,14 +42,14 @@ body {
   -webkit-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%); }
-  /* line 48, /Users/lawrencehumphrey/Dev/neutral-cycle/css/confirm.scss */
+  /* line 52, /Users/lawrencehumphrey/Dev/neutral-cycle/css/confirm.scss */
   .image-cont div.bike {
-    background: url(../img/confirmation/bike.gif) no-repeat 0 0;
+    background: url(../img/confirmation/bike.gif) no-repeat center;
     width: 720px;
     height: 540px;
     background-size: contain; }
 
-/* line 56, /Users/lawrencehumphrey/Dev/neutral-cycle/css/confirm.scss */
+/* line 60, /Users/lawrencehumphrey/Dev/neutral-cycle/css/confirm.scss */
 .button {
   position: absolute;
   top: 90%;
@@ -54,7 +58,7 @@ body {
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%); }
 
-/* line 60, /Users/lawrencehumphrey/Dev/neutral-cycle/css/confirm.scss */
+/* line 64, /Users/lawrencehumphrey/Dev/neutral-cycle/css/confirm.scss */
 .continue {
   width: 200px;
   padding: 12px 0;
@@ -66,14 +70,24 @@ body {
   background-color: #f2d81c;
   color: #fff;
   transition: background-color 0.2s, color 0.2s; }
-  /* line 74, /Users/lawrencehumphrey/Dev/neutral-cycle/css/confirm.scss */
+  /* line 78, /Users/lawrencehumphrey/Dev/neutral-cycle/css/confirm.scss */
   .continue[disabled] {
     background-color: #e6e6e6;
     color: #ccc; }
-  /* line 79, /Users/lawrencehumphrey/Dev/neutral-cycle/css/confirm.scss */
+  /* line 83, /Users/lawrencehumphrey/Dev/neutral-cycle/css/confirm.scss */
   .continue:hover:not([disabled]) {
     background-color: #d3b81a; }
 
 /* Small Devices, Tablets */
+@media only screen and (max-width: 768px) {
+  /* line 90, /Users/lawrencehumphrey/Dev/neutral-cycle/css/confirm.scss */
+  .congrats {
+    padding-bottom: 1.8em;
+    font-size: 155%; }
+
+  /* line 95, /Users/lawrencehumphrey/Dev/neutral-cycle/css/confirm.scss */
+  .instructions {
+    font-size: 155%; }
+ }
 
 /*# sourceMappingURL=confirm.css.map */
