@@ -44,16 +44,8 @@
             <td>{{rv.email}}<br>{{rv.phone}}</td>
             <td class="equipment"><p ng-class="{comma: $index > 0}" ng-repeat="(eq, num) in rv.equipment">{{num}} {{eq}}</p></td>
             <td ng-class="{visible: hover}" class="modifiers">
-                <div ng-click="changeUserStatus(rv.$id, status)" class="pickup">
-                    <img ng-hide="status === 'completed'" src="../img/pickedup.png">
-                    <p ng-show="status === 'pending_pickup'">Picked up</p>
-                    <p ng-show="status === 'pending_return'">Returned</p>
-                </div>
-                <div ng-click="go(rv.$id)" class="edit">
-                    <img src="../img/edit.png"> 
-                    <p>Edit</p>
-                </div>
-            </td>
+                <a><img src="../img/pickedup.png">Picked Up<a/>
+                <a ng-href="/#/reservations/{{rv.$id}}"><img src="../img/edit.png">Edit Rental<a/>
         </tr>
     </table>
 </div>
