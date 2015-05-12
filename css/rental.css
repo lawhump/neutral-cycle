@@ -324,13 +324,9 @@ section.select-equipment {
     section.select-equipment form:after {
       clear: both; }
   /* line 217, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
-  section.select-equipment h2 {
-    margin-bottom: 12px;
-    font-size: 2em; }
-  /* line 222, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
   section.select-equipment ul {
     margin-top: 40px; }
-  /* line 226, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
+  /* line 221, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
   section.select-equipment li {
     display: inline-block;
     float: left;
@@ -346,7 +342,7 @@ section.select-equipment {
     /* line 55, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/jeet/_grid */
     section.select-equipment li:nth-of-type(5n+1) {
       clear: both; }
-  /* line 232, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
+  /* line 227, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
   section.select-equipment .equip-wrapper {
     width: auto;
     max-width: 1200px;
@@ -357,7 +353,7 @@ section.select-equipment {
     padding-left: 0;
     padding-right: 0;
     padding: 0 30px; }
-  /* line 237, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
+  /* line 232, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
   section.select-equipment .box {
     box-sizing: border-box;
     border: 3px solid #000;
@@ -366,29 +362,29 @@ section.select-equipment {
     margin-bottom: 10px;
     transition: border 0.1s;
     cursor: pointer; }
-    /* line 247, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
+    /* line 242, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
     section.select-equipment .box.control {
       border: 3px solid #f2d81c; }
-  /* line 253, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
+  /* line 248, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
   section.select-equipment img {
     position: relative;
     top: 10px; }
-  /* line 258, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
+  /* line 253, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
   section.select-equipment label {
     position: relative;
     top: -30px;
     display: block;
     font-size: 1.3em;
     cursor: pointer; }
-  /* line 266, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
+  /* line 261, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
   section.select-equipment .controls {
     visibility: hidden;
     width: 180px; }
-    /* line 270, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
+    /* line 265, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
     section.select-equipment .controls span {
       display: inline-block;
       width: 80px; }
-    /* line 275, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
+    /* line 270, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
     section.select-equipment .controls button {
       background-color: #ccc;
       color: #555;
@@ -399,19 +395,19 @@ section.select-equipment {
       width: 40px;
       font-size: 1.4em;
       transition: background-color 0.1s color 0.1s; }
-      /* line 288, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
+      /* line 283, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
       section.select-equipment .controls button:hover {
         background-color: #f2d81c;
         color: #fff; }
-    /* line 294, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
+    /* line 289, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
     section.select-equipment .controls button[disabled], section.select-equipment .controls button[disabled]:hover {
       background-color: #e6e6e6;
       color: #b3b3b3; }
-  /* line 300, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
+  /* line 295, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
   section.select-equipment .box.control + div {
     visibility: visible; }
 
-/* line 305, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
+/* line 300, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
 .continue, .submit {
   width: 200px;
   padding: 12px 0;
@@ -423,65 +419,65 @@ section.select-equipment {
   background-color: #f2d81c;
   color: #fff;
   transition: background-color 0.2s, color 0.2s; }
-  /* line 319, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
+  /* line 314, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
   .continue[disabled], [disabled].submit {
     background-color: #e6e6e6;
     color: #ccc; }
-  /* line 324, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
+  /* line 319, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
   .continue:hover:not([disabled]), .submit:hover:not([disabled]) {
     background-color: #d3b81a; }
 
-/* line 333, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
+/* line 328, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
 .breakdown {
   margin-bottom: 40px; }
-  /* line 334, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
+  /* line 329, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
   .breakdown .plus::before {
     content: "+"; }
-  /* line 340, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
+  /* line 335, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
   .breakdown .price {
     color: #f2d81c; }
 
-/* line 345, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
+/* line 340, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
 h2 {
   font-size: 1.6em;
   letter-spacing: 1px;
   margin-bottom: 40px; }
 
-/* line 351, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
+/* line 346, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
 h3 {
   font-size: 1.4em;
   letter-spacing: 1px;
   margin: 60px 0 20px; }
 
-/* line 357, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
+/* line 352, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
 section.select-date {
   padding: 0 30px 40px 30px; }
-  /* line 360, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
+  /* line 355, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
   section.select-date h2 {
     margin: 0; }
 
-/* line 365, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
+/* line 360, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
 .datepicker {
   height: 400px; }
 
-/* line 369, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
+/* line 364, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
 .ui-datepicker {
   max-width: 800px;
   margin: 0 auto; }
-  /* line 373, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
+  /* line 368, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
   .ui-datepicker table {
     width: 100%;
     margin-top: 20px;
     border-collapse: separate;
     border-spacing: 10px; }
-  /* line 381, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
+  /* line 376, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
   .ui-datepicker th {
     font-family: 'Montserrat';
     text-transform: uppercase; }
-  /* line 386, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
+  /* line 381, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
   .ui-datepicker a {
     text-decoration: none; }
-  /* line 390, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
+  /* line 385, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
   .ui-datepicker td {
     box-sizing: border-box;
     border: 2px solid #000;
@@ -489,60 +485,60 @@ section.select-date {
     font-size: 1.2em;
     color: #000;
     cursor: pointer; }
-    /* line 400, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
+    /* line 395, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
     .ui-datepicker td a {
       color: #000; }
-    /* line 402, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
+    /* line 397, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
     .ui-datepicker td.ui-datepicker-unselectable {
       cursor: default;
       border-color: #ccc;
       color: #ccc; }
-    /* line 408, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
+    /* line 403, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
     .ui-datepicker td.ui-datepicker-other-month {
       visibility: hidden; }
-    /* line 412, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
+    /* line 407, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
     .ui-datepicker td.ui-datepicker-current-day {
       border-color: #f2d81c; }
-      /* line 414, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
+      /* line 409, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
       .ui-datepicker td.ui-datepicker-current-day a {
         color: #f2d81c; }
-  /* line 418, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
+  /* line 413, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
   .ui-datepicker .ui-datepicker-month {
     text-transform: uppercase;
     font-family: 'Montserrat';
     font-size: 1.1em;
     letter-spacing: 1px; }
-  /* line 424, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
+  /* line 419, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
   .ui-datepicker .ui-datepicker-year {
     display: none; }
-  /* line 426, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
+  /* line 421, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
   .ui-datepicker .ui-datepicker-prev, .ui-datepicker .ui-datepicker-next {
     display: block;
     position: relative;
     height: 20px;
     width: 10px;
     cursor: pointer; }
-    /* line 434, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
+    /* line 429, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
     .ui-datepicker .ui-datepicker-prev span, .ui-datepicker .ui-datepicker-next span {
       display: none; }
-    /* line 436, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
+    /* line 431, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
     .ui-datepicker .ui-datepicker-prev.ui-state-disabled, .ui-datepicker .ui-datepicker-next.ui-state-disabled {
       opacity: 0.3;
       cursor: default; }
-  /* line 442, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
+  /* line 437, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
   .ui-datepicker .ui-datepicker-prev {
     background: url(../img/rental/left.png) no-repeat center center;
     background-size: 10px auto;
     left: calc(50% - 110px);
     top: 40px; }
-  /* line 450, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
+  /* line 445, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
   .ui-datepicker .ui-datepicker-next {
     background: url(../img/rental/right.png) no-repeat center center;
     background-size: 10px auto;
     left: calc(50% + 100px);
     top: 20px; }
 
-/* line 460, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
+/* line 455, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
 .how-long input[type="number"] {
   box-sizing: border-box;
   display: inline-block;
@@ -552,10 +548,10 @@ section.select-date {
   border: 1px solid #b3b3b3;
   outline: none;
   text-align: center; }
-/* line 472, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
+/* line 467, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
 .how-long input[type="radio"] {
   display: none; }
-/* line 476, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
+/* line 471, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
 .how-long label {
   display: inline-block;
   width: 100%;
@@ -566,40 +562,40 @@ section.select-date {
   text-transform: uppercase;
   font-family: 'Montserrat';
   cursor: pointer; }
-  /* line 490, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
+  /* line 485, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
   .how-long label.increment {
     background-color: #e6e6e6;
     color: #ccc;
     margin-bottom: 6px; }
-  /* line 496, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
+  /* line 491, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
   .how-long label.count {
     font-size: 1.2em;
     max-width: 40px;
     color: #b3b3b3; }
-  /* line 502, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
+  /* line 497, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
   .how-long label.last-count {
     margin-right: 20px; }
-/* line 508, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
+/* line 503, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
 .how-long input[type="radio"]:checked + label.increment {
   background-color: #f2d81c;
   color: #fff; }
-/* line 513, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
+/* line 508, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
 .how-long input[type="radio"]:checked + label.count {
   color: #f2d81c; }
 
-/* line 519, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
+/* line 514, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
 .drop-off {
   font-size: 4em;
   color: #333; }
 
-/* line 524, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
+/* line 519, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
 .breakdown {
   font-size: 3em;
   color: #b3b3b3; }
-  /* line 528, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
+  /* line 523, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
   .breakdown b {
     color: #000; }
-  /* line 530, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
+  /* line 525, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
   .breakdown h4 {
     position: relative;
     display: inline;
@@ -609,23 +605,23 @@ section.select-date {
     font-family: 'Montserrat';
     font-size: 0.5em;
     font-weight: normal; }
-  /* line 541, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
+  /* line 536, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
   .breakdown em {
     position: relative;
     top: -12px;
     font-style: normal;
     font-size: 0.6em; }
-  /* line 548, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
+  /* line 543, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
   .breakdown .total {
     color: #f2d81c; }
 
-/* line 552, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
+/* line 547, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
 section.personal-info form {
   margin-bottom: 80px; }
-/* line 554, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
+/* line 549, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
 section.personal-info p {
   margin-bottom: 50px; }
-/* line 556, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
+/* line 551, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
 section.personal-info label {
   position: relative;
   top: 10px;
@@ -637,7 +633,7 @@ section.personal-info label {
   color: #333;
   width: 140px;
   margin-right: 10px; }
-/* line 569, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
+/* line 564, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
 section.personal-info input[type="text"] {
   background: none;
   outline: none;
@@ -647,23 +643,23 @@ section.personal-info input[type="text"] {
   padding-bottom: 6px;
   padding-left: 2px;
   font-size: 1.1em; }
-  /* line 582, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
+  /* line 577, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
   section.personal-info input[type="text"]::-webkit-input-placeholder {
     font-style: italic; }
-  /* line 586, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
+  /* line 581, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
   section.personal-info input[type="text"]:-moz-placeholder {
     /* Firefox 18- */
     font-style: italic; }
-  /* line 590, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
+  /* line 585, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
   section.personal-info input[type="text"]::-moz-placeholder {
     /* Firefox 19+ */
     font-style: italic; }
-  /* line 594, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
+  /* line 589, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
   section.personal-info input[type="text"]:-ms-input-placeholder {
     font-style: italic; }
 
 @media only screen and (max-width: 1100px) {
-  /* line 601, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
+  /* line 596, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
   section.select-equipment li {
     float: left;
     clear: none;
@@ -687,15 +683,15 @@ section.personal-info input[type="text"] {
  }
 
 @media only screen and (max-width: 850px) {
-  /* line 607, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
+  /* line 602, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
   .small {
     display: block; }
 
-  /* line 611, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
+  /* line 606, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
   .large {
     display: none; }
 
-  /* line 615, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
+  /* line 610, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
   section.select-equipment li {
     float: left;
     clear: none;
@@ -717,16 +713,16 @@ section.personal-info input[type="text"] {
     section.select-equipment li:nth-of-type(3n+1) {
       clear: both; }
 
-  /* line 620, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
+  /* line 615, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
   .banner h1 {
     font-size: 2.4em; }
-  /* line 624, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
+  /* line 619, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
   .banner nav {
     display: none; }
  }
 
 @media only screen and (max-width: 650px) {
-  /* line 631, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
+  /* line 626, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
   section.select-equipment li {
     float: left;
     clear: none;
@@ -750,12 +746,53 @@ section.personal-info input[type="text"] {
  }
 
 @media only screen and (max-width: 500px) {
+  /* line 632, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
+  h2 {
+    font-size: 1.4em; }
+
+  /* line 633, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
+  h3 {
+    font-size: 1.3em; }
+
+  /* line 635, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
+  section {
+    margin-top: 100px; }
+
+  /* line 636, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
+  section:first-of-type {
+    margin-top: 0; }
+
   /* line 638, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
   section.personal-info label {
     display: block;
     text-align: center;
     margin-bottom: 24px;
     width: 100%; }
+
+  /* line 647, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
+  section.select-equipment li {
+    float: left;
+    clear: none;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 3%; }
+    /* line 39, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/jeet/_grid */
+    section.select-equipment li:nth-of-type(2n) {
+      margin-right: 3%;
+      float: left; }
+    /* line 44, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/jeet/_grid */
+    section.select-equipment li:nth-of-type(2n+1) {
+      clear: none; }
+    /* line 50, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/jeet/_grid */
+    section.select-equipment li:nth-of-type(1n) {
+      margin-right: 0;
+      float: right; }
+    /* line 55, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/jeet/_grid */
+    section.select-equipment li:nth-of-type(1n+1) {
+      clear: both; }
+    /* line 650, /Users/noah/Dropbox/programming/neutral-cycle/neutral-cycle/css/rental.scss */
+    section.select-equipment li div {
+      margin: 0 auto; }
  }
 
 /*# sourceMappingURL=rental.css.map */

@@ -214,11 +214,6 @@ section.select-equipment {
     
     form { @include cf(); }
     
-    h2 {
-        margin-bottom: 12px;
-        font-size: 2em;
-    }
-    
     ul {
         margin-top: 40px;
     }
@@ -634,12 +629,27 @@ section.personal-info {
 }
 
 @media only screen and (max-width: 500px) {
+    h2 { font-size: 1.4em; }
+    h3 { font-size: 1.3em; }
+    
+    section { margin-top: 100px; }
+    section:first-of-type { margin-top: 0; }
     section.personal-info {
         label {
             display: block;
             text-align: center;
             margin-bottom: 24px;
             width: 100%;
+        }
+    }
+    
+    section.select-equipment {
+        li {
+            @include col(1, $cycle: 1, $uncycle: 2);
+            
+            div {
+                margin: 0 auto;
+            }
         }
     }
 }

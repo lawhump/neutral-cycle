@@ -106,7 +106,7 @@ ncControllers.controller('RentalCtrl', ['$scope', '$firebase', '$location', 'Res
         
         $scope.bikes = [{ 
             quantity: 1,
-            control: true,
+            control: false,
             src: 'hybrid.png',
             label: 'Hybrid Bike'
         }, {
@@ -116,7 +116,7 @@ ncControllers.controller('RentalCtrl', ['$scope', '$firebase', '$location', 'Res
             label: 'Tandem Bike'
         }, {
             quantity: 1,
-            control: true,
+            control: false,
             src: 'cargo.png',
             label: 'Cargo Bike'
         }, {
