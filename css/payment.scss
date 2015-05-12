@@ -79,10 +79,6 @@ $color-dark_grey: #333;
         min-width: 40px;
         max-width: 50px;
     }
-    
-    button {
-        @include center-this(40%);
-    }
 }
 
 .error {
@@ -90,6 +86,9 @@ $color-dark_grey: #333;
 }
 
 .continue {
+    position: relative;
+    top: 50px;
+    
     display: block;
     width: 200px;
     margin: 30px auto 0;
@@ -161,11 +160,15 @@ input[type="text"] {
     }
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 650px) {
     label {
         display: block;
         text-align: center;
         margin: 30px 0 24px;
         width: 100%;
+    }
+    
+    .continue {
+        
     }
 }
