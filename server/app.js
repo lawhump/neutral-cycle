@@ -1,3 +1,4 @@
+var port = process.env.PORT || 3000;
 var express = require('express');
 var app = express();
 var methodOverride = require('method-override');
@@ -95,7 +96,7 @@ app.post('/charge', function(req, res) {
     });
 });
 
-var server = app.listen(3000, function() {
+var server = app.listen(port, function() {
     var host = server.address().address;
     var port = server.address().port;
     console.log('Server listening at http://%s:%s', host, port);
