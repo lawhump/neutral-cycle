@@ -90,7 +90,9 @@ $color-dark_grey: #333;
 }
 
 .continue {
+    display: block;
     width: 200px;
+    margin: 30px auto 0;
     padding: 12px 0;
     text: { transform: uppercase; }
     font: { family: 'Montserrat'; size: 1.2em; }
@@ -116,8 +118,8 @@ $color-dark_grey: #333;
 p { margin-bottom: 50px; }
 
 label {
-    position: relative;
-    top: 10px;
+//    position: relative;
+//    top: 10px;
 
     display: inline;
     font: { family: 'Montserrat'; size: .8em; }
@@ -159,18 +161,11 @@ input[type="text"] {
     }
 }
 
-/* Small Devices, Tablets */
-@media only screen and (max-width : 768px) {
-    
+@media only screen and (max-width: 500px) {
     label {
         display: block;
-        margin-bottom: 1.4em;
-        text-align: left;
-    }
-    
-    input {
-        display: block;
-        padding-bottom: 0px;
-        padding-left: 0px;
+        text-align: center;
+        margin: 30px 0 24px;
+        width: 100%;
     }
 }

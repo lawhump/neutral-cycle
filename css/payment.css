@@ -82,7 +82,9 @@
 
 /* line 92, /Users/lawrencehumphrey/Dev/neutral-cycle/css/payment.scss */
 .continue {
+  display: block;
   width: 200px;
+  margin: 30px auto 0;
   padding: 12px 0;
   text-transform: uppercase;
   font-family: 'Montserrat';
@@ -92,22 +94,20 @@
   background-color: #f2d81c;
   color: #fff;
   transition: background-color 0.2s, color 0.2s; }
-  /* line 106, /Users/lawrencehumphrey/Dev/neutral-cycle/css/payment.scss */
+  /* line 108, /Users/lawrencehumphrey/Dev/neutral-cycle/css/payment.scss */
   .continue[disabled] {
     background-color: #e6e6e6;
     color: #ccc; }
-  /* line 111, /Users/lawrencehumphrey/Dev/neutral-cycle/css/payment.scss */
+  /* line 113, /Users/lawrencehumphrey/Dev/neutral-cycle/css/payment.scss */
   .continue:hover:not([disabled]) {
     background-color: #d3b81a; }
 
-/* line 116, /Users/lawrencehumphrey/Dev/neutral-cycle/css/payment.scss */
+/* line 118, /Users/lawrencehumphrey/Dev/neutral-cycle/css/payment.scss */
 p {
   margin-bottom: 50px; }
 
-/* line 118, /Users/lawrencehumphrey/Dev/neutral-cycle/css/payment.scss */
+/* line 120, /Users/lawrencehumphrey/Dev/neutral-cycle/css/payment.scss */
 label {
-  position: relative;
-  top: 10px;
   display: inline;
   font-family: 'Montserrat';
   font-size: 0.8em;
@@ -117,7 +117,7 @@ label {
   width: 140px;
   margin-right: 10px; }
 
-/* line 131, /Users/lawrencehumphrey/Dev/neutral-cycle/css/payment.scss */
+/* line 133, /Users/lawrencehumphrey/Dev/neutral-cycle/css/payment.scss */
 input[type="text"] {
   background: none;
   display: inline;
@@ -128,34 +128,28 @@ input[type="text"] {
   padding-bottom: 6px;
   padding-left: 2px;
   font-size: 1.1em; }
-  /* line 145, /Users/lawrencehumphrey/Dev/neutral-cycle/css/payment.scss */
+  /* line 147, /Users/lawrencehumphrey/Dev/neutral-cycle/css/payment.scss */
   input[type="text"]::-webkit-input-placeholder {
     font-style: italic; }
-  /* line 149, /Users/lawrencehumphrey/Dev/neutral-cycle/css/payment.scss */
+  /* line 151, /Users/lawrencehumphrey/Dev/neutral-cycle/css/payment.scss */
   input[type="text"]:-moz-placeholder {
     /* Firefox 18- */
     font-style: italic; }
-  /* line 153, /Users/lawrencehumphrey/Dev/neutral-cycle/css/payment.scss */
+  /* line 155, /Users/lawrencehumphrey/Dev/neutral-cycle/css/payment.scss */
   input[type="text"]::-moz-placeholder {
     /* Firefox 19+ */
     font-style: italic; }
-  /* line 157, /Users/lawrencehumphrey/Dev/neutral-cycle/css/payment.scss */
+  /* line 159, /Users/lawrencehumphrey/Dev/neutral-cycle/css/payment.scss */
   input[type="text"]:-ms-input-placeholder {
     font-style: italic; }
 
-/* Small Devices, Tablets */
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 500px) {
   /* line 165, /Users/lawrencehumphrey/Dev/neutral-cycle/css/payment.scss */
   label {
     display: block;
-    margin-bottom: 1.4em;
-    text-align: left; }
-
-  /* line 171, /Users/lawrencehumphrey/Dev/neutral-cycle/css/payment.scss */
-  input {
-    display: block;
-    padding-bottom: 0px;
-    padding-left: 0px; }
+    text-align: center;
+    margin: 30px 0 24px;
+    width: 100%; }
  }
 
 /*# sourceMappingURL=payment.css.map */

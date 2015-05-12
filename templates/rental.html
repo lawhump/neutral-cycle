@@ -7,7 +7,6 @@
             </nav>
             <div ng-class="{active: clicked}" class="hiw-wrapper">
                 <div ng-click="clicked=false" class="close">
-                    <h5>X</h5>
                     <p>Close</p>
                 </div>
                 <div class="how-it-works" ng-class="{active: clicked}">
@@ -28,8 +27,8 @@
                     </div>
                 </div>
             </div>
-            <div>
-                <img src="img/nc-logo.png">
+            <div class="header">
+                <a href="http://www.neutralcycle.com"><img src="img/nc-logo.png"></a>
                 <h1>Neutral Cycle Bike Rental</h1>
                 <button ng-click="clicked=true" type="button">How it Works</button>
             </div>
@@ -37,7 +36,7 @@
 
         <h2>What would you like to rent?</h2>
         <form id="rental">
-            <ul>
+            <ul class="equip-wrapper">
                 <li ng-repeat="bike in bikes">
                     <div class="box" ng-click="bike.control = !bike.control; updateQuantity()" ng-class="{control: bike.control}">
                         <img ng-src="img/rental/{{bike.src}}">
@@ -95,19 +94,25 @@
                     <p>{{returnDate | date: 'MMMM d'}}</p>
                 </div>
 
-                <h3>Price Breakdown</h3>
-                <div class="breakdown">
-                    {
-                    <span ng-repeat="bike in bikes | control" ng-class="{plus: $index > 0}">        
-                        (
-                        <b ng-show="bike.control">{{bike.quantity}}</b>
-                        *
-                        <b><em>$</em>{{timeIncrement[$index]}}</b>
-                        )
-                    </span>
-                    } * <b>{{timeCount}}</b> = <b class="price"><em>$</em>{{price}}</b>
-                    <span class="total">
-                    </span>
+                <div class="large">
+                    <h3>Price Breakdown</h3>
+                    <div class="breakdown">
+                        {
+                        <span ng-repeat="bike in bikes | control" ng-class="{plus: $index > 0}" class="bike-price">    
+                            (
+                            <b ng-show="bike.control">{{bike.quantity}}</b>
+                            *
+                            <b><em>$</em>{{timeIncrement[$index]}}</b>
+                            )
+                        </span>
+                        } * <b>{{timeCount}}</b> = <b class="price"><em>$</em>{{price}}</b>
+                    </div>
+                </div>
+                <div class="small">
+                    <h3>Price Estimate</h3>
+                    <div class="breakdown">
+                        <b class="price"><em>$</em>{{price}}</b>
+                    </div>
                 </div>
             </form>
             <button class="continue">Reserve</button>
