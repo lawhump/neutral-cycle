@@ -57,10 +57,6 @@ body {
     }
 }
 
-.button {
-    @include center-this(90%);
-}
-
 .continue {
     width: 200px;
     padding: 12px 0;
@@ -85,14 +81,29 @@ body {
     }
 }
 
+.button {
+    @include center-this(90%);
+}
+
 /* Small Devices, Tablets */
 @media only screen and (max-width : 768px) {
     .congrats {
         padding-bottom: 1.8em;
-        font-size: 155%;
+        font-size: 125%;
+    }
+    
+    .image-cont div.bike {
+        min-width: 360px;
+        min-height: 270px;
+        
+        width: 60%;
+        height: auto;
+        
+        max-width: 540px;
+        max-height: 405px;
     }
     
     .instructions {
-        font-size: 155%;    
+        font-size: 125%;    
     }
 }

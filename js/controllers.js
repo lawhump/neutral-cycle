@@ -1,8 +1,10 @@
+// Phone regular expression for phone # validation
 var PHONE_REGEXP = /^[(]{0,1}[0-9]{3}[)\.\-\ ]{0,1}[0-9]{3}[\.\- ]{0,1}[0-9]{4}$/;
 var ncControllers = angular.module('ncControllers', ['firebase']);
-//CREATE A FIREBASE REFERENCE
+// Create a Firebase reference
 var ref = new Firebase("https://neutral-cycle.firebaseio.com/");
 
+// Handles data between controllers/views
 ncControllers.service('Reservation', function() {
     var res = undefined;
     var price = 0;
@@ -43,8 +45,7 @@ ncControllers.service('Reservation', function() {
 
 });
 
-var PHONE_REGEXP = /^[(]{0,1}[0-9]{3}[)\.\-\ ]{0,1}[0-9]{3}[\.\- ]{0,1}[0-9]{4}$/;
-
+// Controller for full management page ( /reservations )
 ncControllers.controller('MGMTFullCtrl', ['$scope', '$firebase', '$location',
     function($scope, $firebase, $location) {
         // GET MESSAGES AS AN ARRAY
@@ -86,6 +87,7 @@ ncControllers.controller('MGMTFullCtrl', ['$scope', '$firebase', '$location',
         };
     }]);
 
+// Controller for detailed reservations ( /reservations/[id] )
 ncControllers.controller('MGMTSingleCtrl', ['$scope', '$firebase', '$routeParams',
     function($scope, $firebase, $routeParams) {
         $scope.resId = $routeParams.resId;
@@ -99,6 +101,7 @@ ncControllers.controller('MGMTSingleCtrl', ['$scope', '$firebase', '$routeParams
         };
     }]); 
 
+// Controller for landing page
 ncControllers.controller('RentalCtrl', ['$scope', '$firebase', '$location', 'Reservation',
     function($scope, $firebase, $location, Reservation) {
         $scope.Reservation = Reservation;
@@ -184,6 +187,10 @@ ncControllers.controller('RentalCtrl', ['$scope', '$firebase', '$location', 'Res
             updatePrice();
         }
         
+        // scope.watch calls updateDate, which does all of the
+        // date arithmatic; truly was a pain to get working
+        //
+        // also calls updatePrice
         $scope.$watch('timeCount', updateDate);
         $scope.$watch('timeIncrement', updateDate);
         
@@ -200,6 +207,8 @@ ncControllers.controller('RentalCtrl', ['$scope', '$firebase', '$location', 'Res
 //            $scope.$apply();
         }
         
+        // Arrays which correspond to prices
+        // equals -1 if invalid selection
         $scope.byHour = [8, 10, 10, -1, -1];
         $scope.byDay = [25, 35, 35, 15, 15];
         $scope.byWeek = [100, 140, 140, -1, -1];
@@ -210,6 +219,7 @@ ncControllers.controller('RentalCtrl', ['$scope', '$firebase', '$location', 'Res
         $scope.selectedDate = null;
         $scope.returnDate = null;
         
+        // datepicker obv
         $('.datepicker').datepicker({ 
             inline: true,
             showOtherMonths: true,
@@ -241,6 +251,7 @@ ncControllers.controller('RentalCtrl', ['$scope', '$firebase', '$location', 'Res
             $location.path('/payment');
         }
         
+        // does smooth page scrolling
         $('.continue').on('click', function() {
             var $nextSection = $(this).closest('.rental_section').next();
             $('html,body').animate({scrollTop: $nextSection.offset().top }, 600);
@@ -248,11 +259,11 @@ ncControllers.controller('RentalCtrl', ['$scope', '$firebase', '$location', 'Res
         
     }]);
 
+// Controller for payment
 ncControllers.controller('PayCtrl', ['$scope', '$http', '$firebase', '$location', 'Reservation',
     function($scope, $http, $firebase, $location, Reservation) {
         $scope.reservations = $firebase(ref).$asArray();
         var res = Reservation.getRes();
-        // need price so this works
         var price = Reservation.getPrice();
         
         $scope.bikes = ['Hybrid Bike','Cargo Bike'];
@@ -292,6 +303,7 @@ ncControllers.controller('PayCtrl', ['$scope', '$http', '$firebase', '$location'
         
     }]);
 
+// Controller for confirmation page
 ncControllers.controller('ConfirmationCtrl', ['$scope', '$location', 'Reservation',
     function($scope, $location, Reservation) {
         $scope.date = Reservation.getDate();
